@@ -1,0 +1,40 @@
+/* Primary Light scheme (Default) */
+/* Can be forced with data-theme="light" */
+[data-theme='light'],
+:root:not([data-theme='dark']) {
+	background-color: #eff1f5;
+	--primary: #1e66f5;
+	--primary-hover: #1652b3;
+	--primary-focus: rgba(30, 102, 245, 0.5);
+	--primary-inverse: #fff;
+}
+
+/* Primary Dark scheme (Auto) */
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+	:root:not([data-theme]) {
+		background-color: #1e1e2e;
+		--primary: #89b4fa;
+		--primary-hover: #6c9de3;
+		--primary-focus: rgba(137, 180, 250, 0.5);
+		--primary-inverse: #fff;
+	}
+}
+
+/* Primary Dark scheme (Forced) */
+/* Enabled if forced with data-theme="dark" */
+[data-theme='dark'] {
+	background-color: #1e1e2e;
+	--primary: #89b4fa;
+	--primary-hover: #6c9de3;
+	--primary-focus: rgba(137, 180, 250, 0.5);
+	--primary-inverse: #fff;
+}
+
+/* Primary (Common styles) */
+:root {
+	--form-element-active-border-color: var(--primary);
+	--form-element-focus-color: var(--primary-focus);
+	--switch-color: var(--primary-inverse);
+	--switch-checked-background-color: var(--primary);
+}
