@@ -1,8 +1,9 @@
 <script>
 	import EduCard from '$lib/components/EduCard.svelte';
 	import JobCard from '$lib/components/JobCard.svelte';
+	import SkillsCard from '$lib/components/SkillsCard.svelte';
 	import SocialIcon from '$lib/components/SocialIcon.svelte';
-	import { educations, experiences, socials, volunteering } from '$lib/store';
+	import { educations, experiences, skills, socials, volunteering, workflows } from '$lib/store';
 </script>
 
 <!-- Profile -->
@@ -65,12 +66,50 @@
 <!-- Education -->
 <section id="education">
 	<h2><strong>Education</strong></h2>
+
 	{#each educations as edu}
 		<EduCard {...edu} />
 	{/each}
 </section>
 
+<hr />
+
+<!-- Skills -->
+<section id="skills">
+	<h2><strong>Skills</strong></h2>
+
+	<SkillsCard {skills} />
+
+	<h3>Workflows</h3>
+
+	{#each workflows as workflow}
+		<ul class="fa-ul">
+			<li id="workflow">
+				<span class="fa-li">
+					<i class="fas fa-check" />
+				</span>
+				{workflow}
+			</li>
+		</ul>
+	{/each}
+</section>
+
 <style>
+	h3 {
+		margin-bottom: 1rem;
+	}
+
+	hr {
+		border: 0.05rem solid;
+		opacity: 0.2;
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	i {
+		color: var(--primary);
+	}
+
 	#socials {
 		margin-top: 2.5rem;
 	}
@@ -83,14 +122,7 @@
 		list-style-type: none;
 	}
 
-	hr {
-		border: 0.05rem solid;
-		opacity: 0.2;
-		margin-top: 2rem;
-		margin-bottom: 2rem;
-	}
-
-	i {
-		color: var(--primary);
+	#workflow {
+		list-style-type: none;
 	}
 </style>

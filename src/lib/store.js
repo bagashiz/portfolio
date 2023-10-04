@@ -163,3 +163,30 @@ export const educations = [
 		description: 'GPA: 90.73/100'
 	}
 ];
+
+/** Font Awesome icons name for the skills data. */
+export const skills = [
+	'golang',
+	'java',
+	'html5',
+	'css3-alt',
+	'js-square',
+	'node-js',
+	'php',
+	'laravel',
+	'npm',
+	'git-alt',
+	'linux',
+	'docker',
+	'digital-ocean',
+	'aws'
+];
+
+/** Workflows data for the resume. */
+export const workflows = [
+	'Clean Architecture',
+	'Test-Driven Development',
+	'Data-Driven Testing',
+	'Continuous Integration',
+	'Continuous Deployment'
+];
