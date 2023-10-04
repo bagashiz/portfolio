@@ -132,3 +132,34 @@ export const socials = [
 		fa_class: 'mastodon'
 	}
 ];
+
+/**
+ * Education data for the resume.
+ *
+ * @type {Array<{
+ *  school: string,
+ * url: string,
+ * major: string,
+ * start: string,
+ * end: string,
+ * description: string
+ * }>}
+ */
+export const educations = [
+	{
+		school: 'Brawijaya University',
+		url: 'https://ub.ac.id',
+		major: 'Bachelor of Information Systems',
+		start: 'August 2021',
+		end: 'Present',
+		description: 'GPA: 3.89/4.00'
+	},
+	{
+		school: 'SMAN 1 Bekasi',
+		url: 'https://sman1bekasi.sch.id',
+		major: 'Mathematics and Natural Sciences',
+		start: 'July 2018',
+		end: 'May 2021',
+		description: 'GPA: 90.73/100'
+	}
+];

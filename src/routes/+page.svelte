@@ -1,7 +1,8 @@
 <script>
+	import EduCard from '$lib/components/EduCard.svelte';
 	import JobCard from '$lib/components/JobCard.svelte';
 	import SocialIcon from '$lib/components/SocialIcon.svelte';
-	import { experiences, socials, volunteering } from '$lib/store';
+	import { educations, experiences, socials, volunteering } from '$lib/store';
 </script>
 
 <!-- Profile -->
@@ -56,6 +57,16 @@
 
 	{#each volunteering as vol}
 		<JobCard {...vol} />
+	{/each}
+</section>
+
+<hr />
+
+<!-- Education -->
+<section id="education">
+	<h2><strong>Education</strong></h2>
+	{#each educations as edu}
+		<EduCard {...edu} />
 	{/each}
 </section>
 
