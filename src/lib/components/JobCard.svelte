@@ -38,12 +38,12 @@
 <style>
 	article {
 		padding-top: 1rem;
-		padding-bottom: 1rem;
+		padding-bottom: 0rem;
 	}
 
 	header {
 		padding-top: 1rem;
 		padding-bottom: 0rem;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 	}
 </style>

@@ -100,3 +100,35 @@ export const volunteering = [
 		]
 	}
 ];
+
+/**
+ * Social data for the resume.
+ *
+ * @type {Array<{
+ *   href: string,
+ *   rel: string,
+ *   fa_class: string,
+ * }>}
+ */
+export const socials = [
+	{
+		href: 'https://linkedin.com/in/bagas-hizbullah',
+		rel: '',
+		fa_class: 'linkedin-in'
+	},
+	{
+		href: 'https://github.com/bagashiz',
+		rel: '',
+		fa_class: 'github'
+	},
+	{
+		href: 'https://dev.to/bagashiz',
+		rel: '',
+		fa_class: 'dev'
+	},
+	{
+		href: 'https://mastodon.social/@Pak_Dengklek',
+		rel: 'me',
+		fa_class: 'mastodon'
+	}
+];
