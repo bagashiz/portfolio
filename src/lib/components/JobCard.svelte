@@ -1,8 +1,8 @@
 <script>
 	/** @type {string} job - The job title. */
 	export let job;
-	/** @type {string} companyLink - The company website link. */
-	export let companyLink;
+	/** @type {string} url - The company website link. */
+	export let url;
 	/** @type {string} company - The company name. */
 	export let company;
 	/** @type {string} start - The start date of the job. */
@@ -18,7 +18,7 @@
 		<hgroup>
 			<h3>{job}</h3>
 			<h4>
-				<a href={companyLink} class="secondary">{company}</a>
+				<a href={url} class="secondary">{company}</a>
 			</h4>
 		</hgroup>
 		<p>{start} - {end}</p>

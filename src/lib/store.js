@@ -3,7 +3,7 @@
  *
  * @type {Array<{
  *   job: string,
- *   companyLink: string,
+ *   url: string,
  *   company: string,
  *   start: string,
  *   end: string,
@@ -13,7 +13,7 @@
 export const experiences = [
 	{
 		job: 'Head of Public Relations Division',
-		companyLink: 'https://porosfilkom.ub.ac.id',
+		url: 'https://porosfilkom.ub.ac.id',
 		company: 'POROS Organization of Open Source',
 		start: 'February 2023',
 		end: 'Present',
@@ -25,7 +25,7 @@ export const experiences = [
 	},
 	{
 		job: 'Laboratory Teaching Assistant of Database Administration',
-		companyLink: 'https://filkom.ub.ac.id',
+		url: 'https://filkom.ub.ac.id',
 		company: 'Faculty of Computer Science (FILKOM) Brawijaya University',
 		start: 'August 2023',
 		end: 'Present',
@@ -37,7 +37,7 @@ export const experiences = [
 	},
 	{
 		job: 'Laboratory Teaching Assistant of Advanced Programming',
-		companyLink: 'https://filkom.ub.ac.id',
+		url: 'https://filkom.ub.ac.id',
 		company: 'Faculty of Computer Science (FILKOM) Brawijaya University',
 		start: 'February 2023',
 		end: 'June 2023',
@@ -49,7 +49,7 @@ export const experiences = [
 	},
 	{
 		job: 'Project-Based Intern: Backend Developer Virtual Internship Experience Evermos',
-		companyLink: 'https://www.rakamin.com/virtual-internship-experience/back-end-developer-evermos',
+		url: 'https://www.rakamin.com/virtual-internship-experience/back-end-developer-evermos',
 		company: 'Rakamin Academy',
 		start: 'April 2023',
 		end: 'May 2023',
@@ -61,7 +61,7 @@ export const experiences = [
 	},
 	{
 		job: 'Staff of Public Relations Division',
-		companyLink: 'https://porosfilkom.ub.ac.id',
+		url: 'https://porosfilkom.ub.ac.id',
 		company: 'POROS Organization of Open Source',
 		start: 'February 2022',
 		end: 'January 2023',
@@ -78,7 +78,7 @@ export const experiences = [
  *
  * @type {Array<{
  *   job: string,
- *   companyLink: string,
+ *   url: string,
  *   company: string,
  *   start: string,
  *   end: string,
@@ -88,7 +88,7 @@ export const experiences = [
 export const volunteering = [
 	{
 		job: 'Staff of IT Division',
-		companyLink: 'https://hology.ub.ac.id',
+		url: 'https://hology.ub.ac.id',
 		company: 'Hology UB 6.0',
 		start: 'April 2023',
 		end: 'Present',
