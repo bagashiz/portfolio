@@ -3,7 +3,16 @@
 	import JobCard from '$lib/components/JobCard.svelte';
 	import SkillsCard from '$lib/components/SkillsCard.svelte';
 	import SocialIcon from '$lib/components/SocialIcon.svelte';
-	import { educations, experiences, skills, socials, volunteering, workflows } from '$lib/store';
+	import {
+		awards,
+		certifications,
+		educations,
+		experiences,
+		skills,
+		socials,
+		volunteering,
+		workflows
+	} from '$lib/store';
 </script>
 
 <!-- Profile -->
@@ -11,11 +20,11 @@
 	<hgroup>
 		<h1><strong>Bagas Hizbullah</strong></h1>
 		<ul id="info">
-			<li>
+			<li class="icon-li">
 				<i class="fa-solid fa-location-dot" />
 				West Java, Indonesia
 			</li>
-			<li>
+			<li class="icon-li">
 				<a href="mailto:bagash.office@simplelogin.com">
 					<i class="fa-solid fa-envelope" />
 					bagash.office@simplelogin.com
@@ -82,16 +91,18 @@
 
 	<h3>Workflows</h3>
 
-	{#each workflows as workflow}
-		<ul class="fa-ul">
-			<li id="workflow">
-				<span class="fa-li">
-					<i class="fas fa-check" />
-				</span>
-				{workflow}
-			</li>
-		</ul>
-	{/each}
+	<div id="workflows">
+		{#each workflows as workflow}
+			<ul class="fa-ul">
+				<li class="icon-li">
+					<span class="fa-li">
+						<i class="fas fa-check" />
+					</span>
+					{workflow}
+				</li>
+			</ul>
+		{/each}
+	</div>
 </section>
 
 <hr />
@@ -114,6 +125,51 @@
 		allow me to understand how to create and implement more complex systems. They will help me excel
 		in my future career.
 	</p>
+</section>
+
+<hr />
+
+<!-- Awards & Certifications -->
+<section id="awards-certifications">
+	<h2><strong>Awards & Certifications</strong></h2>
+
+	<div id="awards">
+		<h3>Awards</h3>
+
+		<ul class="fa-ul">
+			{#each awards as award}
+				<li class="award-cert-li icon-li">
+					<p class="award-cert-p">
+						<span class="fa-li"><i class="fas fa-trophy" /></span>
+						<strong>
+							{award.place}<sup>{award.suffix}</sup> Place &bull; {award.host} &bull; {award.competition}
+						</strong>
+					</p>
+					<p>
+						<em>({award.translation})</em>
+					</p>
+				</li>
+			{/each}
+		</ul>
+	</div>
+
+	<div id="certificates">
+		<h3>Certificates</h3>
+
+		<ul class="fa-ul">
+			{#each certifications as cert}
+				<li class="award-cert-li icon-li">
+					<p class="award-cert-p">
+						<span class="fa-li"><i class="fas fa-certificate" /></span>
+						<strong>{cert.title}</strong>
+					</p>
+					<em>
+						Credential ID: <a target="_blank" href={cert.credential_url}>{cert.credential_id}</a>
+					</em>
+				</li>
+			{/each}
+		</ul>
+	</div>
 </section>
 
 <style>
@@ -141,11 +197,15 @@
 		padding-left: 0rem;
 	}
 
-	#info li {
-		list-style-type: none;
+	.award-cert-p {
+		margin-bottom: 0.5rem;
 	}
 
-	#workflow {
+	.award-cert-li {
+		margin-bottom: 1rem;
+	}
+
+	.icon-li {
 		list-style-type: none;
 	}
 </style>

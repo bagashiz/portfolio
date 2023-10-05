@@ -190,3 +190,88 @@ export const workflows = [
 	'Continuous Integration',
 	'Continuous Deployment'
 ];
+
+/**
+ * Awards data for the resume.
+ *
+ * @type {Array<{
+ * place: number,
+ * suffix: string,
+ * host: string,
+ * competition: string,
+ * translation: string
+ * }>}
+ */
+export const awards = [
+	{
+		place: 1,
+		suffix: 'st',
+		host: 'Brawijaya University',
+		competition: 'Lomba Penulisan Proposal Program Kreativitas Mahasiswa (LP2PKM) 2022',
+		translation: 'Student Creativity Program Proposal Writing Competition 2022'
+	},
+	{
+		place: 1,
+		suffix: 'st',
+		host: 'Medan State University',
+		competition: 'Business Plan Competition Nasional UNIMED 2021',
+		translation: 'UNIMED National Business Plan Competition 2021'
+	}
+];
+
+/**
+ * Certification data for the resume.
+ *
+ * @type {Array<{
+ *  title: string,
+ * credential_id: string,
+ * credential_url: string
+ * }>}
+ */
+export const certifications = [
+	{
+		title: 'AWS Cloud Technical Essentials',
+		credential_id: 'HSKQ9QM64B5A',
+		credential_url: 'https://www.coursera.org/account/accomplishments/certificate/HSKQ9QM64B5A'
+	},
+	{
+		title: 'Belajar Fundamental Aplikasi Back-End',
+		credential_id: '98XWV6M3WPM3',
+		credential_url: 'https://www.dicoding.com/certificates/98XWV6M3WPM3'
+	},
+	{
+		title: 'Architecting on AWS (Membangun Arsitektur Cloud di AWS)',
+		credential_id: 'EYX46KOVWPDL',
+		credential_url: 'https://www.dicoding.com/certificates/EYX46KOVWPDL'
+	},
+	{
+		title: 'Belajar Membuat Aplikasi Back-End untuk Pemula',
+		credential_id: 'JLX1L9V96X72',
+		credential_url: 'https://www.dicoding.com/certificates/JLX1LVQ32X72'
+	},
+	{
+		title: 'Belajar Dasar Pemrograman JavaScript',
+		credential_id: 'JLX1L9V96X72',
+		credential_url: 'https://www.dicoding.com/certificates/JLX1LVQ32X72'
+	},
+	{
+		title: 'Cloud Practitioner Essentials (Belajar Dasar AWS Cloud)',
+		credential_id: 'JLX1L9V96X72',
+		credential_url: 'https://www.dicoding.com/certificates/JLX1LVQ32X72'
+	},
+	{
+		title: 'Belajar Dasar Structured Query Language (SQL)',
+		credential_id: '2VX3J6603PYQ',
+		credential_url: 'https://www.dicoding.com/certificates/2VX3J6603PYQ'
+	},
+	{
+		title: 'Backend Master Class [Golang + Postgres + Kubernetes + gRPC]',
+		credential_id: 'UC-69e6c3c2-7a66-4744-8b60-c47ea0702897',
+		credential_url: 'https://www.udemy.com/certificate/UC-69e6c3c2-7a66-4744-8b60-c47ea0702897'
+	},
+	{
+		title: 'Introduction to IoT',
+		credential_id: 'cdf42e7d-a405-47b6-aa5c-b8b66f360f37',
+		credential_url: 'https://www.credly.com/badges/cdf42e7d-a405-47b6-aa5c-b8b66f360f37'
+	}
+];
