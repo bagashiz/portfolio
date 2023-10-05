@@ -80,10 +80,7 @@ export const ThemeSwitcher = {
 					// Set scheme
 					this.scheme = button.getAttribute(this.buttonAttribute) || 'auto';
 					// Close dropdown
-					const menu = document.querySelector(this.menuTarget);
-					if (menu) {
-						menu.removeAttribute('open');
-					}
+					document.querySelector(this.menuTarget)?.removeAttribute('open');
 				},
 				false
 			);
@@ -125,10 +122,7 @@ export const ThemeSwitcher = {
 	 * @memberof ThemeSwitcher
 	 */
 	applyScheme() {
-		const html = document.querySelector('html');
-		if (html) {
-			html.setAttribute(this.rootAttribute, this.scheme);
-		}
+		document.querySelector('html')?.setAttribute(this.rootAttribute, this.scheme);
 	},
 
 	/**
