@@ -21,7 +21,7 @@
 				<a href={url} class="secondary">{company}</a>
 			</h4>
 		</hgroup>
-		<p>{start} - {end}</p>
+		<p class="date">{start} - {end}</p>
 	</header>
 	<details>
 		<summary>
@@ -45,5 +45,17 @@
 		padding-top: 1rem;
 		padding-bottom: 0rem;
 		margin-bottom: 1rem;
+	}
+
+	hgroup {
+		margin-bottom: 0.75rem;
+	}
+
+	p {
+		margin-bottom: 0.75rem;
+	}
+
+	.date {
+		color: var(--primary);
 	}
 </style>

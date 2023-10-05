@@ -52,13 +52,12 @@
 	.blog-card {
 		padding-top: 1rem;
 		padding-bottom: 1rem;
-		margin-bottom: 4.5rem;
 		border-radius: 0.75rem;
+		overflow: hidden;
 	}
 
 	.blog-card header {
 		padding: 0rem;
-		overflow: hidden;
 	}
 
 	.blog-card header img {

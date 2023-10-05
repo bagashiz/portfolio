@@ -87,6 +87,8 @@
 <section id="skills">
 	<h2><strong>Skills</strong></h2>
 
+	<h3>Programming Languages & Tools</h3>
+
 	<SkillsCard {skills} />
 
 	<h3>Workflows</h3>

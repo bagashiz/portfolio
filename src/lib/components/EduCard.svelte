@@ -21,9 +21,9 @@
 			</h3>
 			<h4>{major}</h4>
 		</hgroup>
-		<p>{start} - {end}</p>
+		<p class="date">{start} - {end}</p>
 	</header>
-	<p>{description}</p>
+	<p><strong>{description}</strong></p>
 </article>
 
 <style>
@@ -38,12 +38,20 @@
 		margin-bottom: 0.5rem;
 	}
 
+	hgroup {
+		margin-bottom: 0.75rem;
+	}
+
+	p {
+		margin-bottom: 0.75rem;
+	}
+
 	a {
 		color: var(--text-color);
 		text-decoration: none;
 	}
 
-	p {
-		margin-bottom: 0.5rem;
+	.date {
+		color: var(--primary);
 	}
 </style>

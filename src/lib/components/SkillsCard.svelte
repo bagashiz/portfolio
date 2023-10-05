@@ -4,9 +4,6 @@
 </script>
 
 <article>
-	<header>
-		<h3>Programming Languages & Tools</h3>
-	</header>
 	<ul id="tools-list">
 		{#each skills as skill}
 			<li class="dev-logo">
@@ -17,19 +14,10 @@
 </article>
 
 <style>
-	h3 {
-		margin-bottom: 1rem;
-	}
-
 	article {
-		padding-top: 1rem;
-		padding-bottom: 0rem;
-	}
-
-	header {
-		padding-top: 1rem;
-		padding-bottom: 0rem;
-		margin-bottom: 0rem;
+		padding: 0rem;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
 	}
 
 	#tools-list {
