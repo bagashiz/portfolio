@@ -7,6 +7,9 @@ export async function load() {
 
 		const res = await fetch(url);
 
+		/**
+		 * @type {Blog[]} blogs - Array of dev.to blogs
+		 */
 		const blogs = await res.json();
 
 		return {

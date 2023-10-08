@@ -1,5 +1,5 @@
 <script>
-	/** @type any */
+	/** @type {Blog} */
 	export let blog;
 
 	/**
