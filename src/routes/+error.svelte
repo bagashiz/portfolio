@@ -14,7 +14,7 @@
 	};
 </script>
 
-<section id="error">
+<section id="error" class="container">
 	<h1><strong>{$page.status}</strong></h1>
 	<h2>{$page.error?.message}</h2>
 	<span id="emoji">
@@ -29,11 +29,12 @@
 	}
 
 	#error {
-		position: absolute;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		text-align: center;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		margin: 0rem;
 	}
 
 	#emoji {
