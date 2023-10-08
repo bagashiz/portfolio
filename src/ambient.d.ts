@@ -77,3 +77,41 @@ type BlogUser = {
 	profile_image: string;
 	profile_image_90: string;
 };
+
+/**
+ * Represents a GitHub repository with its details.
+ *
+ * @typedef {Object} Project
+ * @property {string} name - The name of the project.
+ * @property {string} description - The description of the project.
+ * @property {string} url - The URL of the project.
+ * @property {Stargazer} stargazers - The stargazers details of the project.
+ * @property {Fork} forks - The forks details of the project.
+ */
+type Project = {
+	name: string;
+	description: string;
+	url: string;
+	stargazers: Stargazer;
+	forks: Fork;
+};
+
+/**
+ * Represents the stargazers details of a project.
+ *
+ * @typedef {Object} Stargazer
+ * @property {number} totalCount - The total count of stargazers.
+ */
+type Stargazer = {
+	totalCount: number;
+};
+
+/**
+ * Represents the forks details of a project.
+ *
+ * @typedef {Object} Fork
+ * @property {number} totalCount - The total count of forks.
+ */
+type Fork = {
+	totalCount: number;
+};
