@@ -40,8 +40,10 @@
 	<p>
 		I am an Information Systems Student at
 		<a href="https://ub.ac.id" target="_blank">Brawijaya University</a>, passionate about web
-		development, Linux, and Free and Open Source Software (FOSS). I am eager to explore
-		opportunities and contribute significantly to the IT industry.
+		development, Linux, and Free and Open Source Software (FOSS). I have practical experience in web
+		development, with a focus on backend development using the Go programming language. In addition,
+		I also have valuable insight into Linux system administration and cloud computing through
+		practical experience with AWS and DigitalOcean.
 	</p>
 
 	<!-- Socials -->

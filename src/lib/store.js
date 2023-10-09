@@ -183,13 +183,7 @@ export const skills = [
 ];
 
 /** Workflows data for the resume. */
-export const workflows = [
-	'Clean Architecture',
-	'Test-Driven Development',
-	'Data-Driven Testing',
-	'Continuous Integration',
-	'Continuous Deployment'
-];
+export const workflows = ['Clean Architecture', 'Test-Driven Development', 'Data-Driven Testing'];
 
 /**
  * Awards data for the resume.
