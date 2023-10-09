@@ -22,6 +22,21 @@
 			<h2><strong>{blog.title}</strong></h2>
 		</a>
 
+		<div class="badges">
+			<a href={blog.url} class="badge outline" role="button" target="_blank">
+				<i class="fa-solid fa-heart" />
+				<span>{blog.public_reactions_count}</span>
+			</a>
+			<a href={blog.url} class="badge outline" role="button" target="_blank">
+				<i class="fa-solid fa-comment" />
+				<span>{blog.comments_count}</span>
+			</a>
+			<a href={blog.url} class="badge outline" role="button" target="_blank">
+				<i class="fa-solid fa-clock" />
+				<span>{blog.reading_time_minutes} min.</span>
+			</a>
+		</div>
+
 		<small>Published on {publishDate}</small>
 
 		<p>
@@ -32,8 +47,7 @@
 
 <style>
 	header,
-	h2,
-	p {
+	h2 {
 		margin-bottom: 0.5rem;
 	}
 
@@ -42,7 +56,8 @@
 	}
 
 	p {
-		margin-top: 1rem;
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
 	}
 
 	a {
@@ -68,5 +83,31 @@
 
 	.blog-content {
 		padding: 0.5rem;
+	}
+
+	.badges {
+		display: flex;
+		align-items: center;
+		list-style-type: none;
+		color: var(--primary);
+		margin: 0rem;
+		padding-top: 0.25rem;
+		padding-bottom: 0.25rem;
+	}
+
+	.badge {
+		display: flex;
+		align-items: center;
+		font-size: medium;
+		border: 1px solid;
+		border-radius: 0.25rem;
+		margin-right: 0.5rem;
+		padding: 0.1rem;
+		padding-left: 0.25rem;
+		padding-right: 0.25rem;
+	}
+
+	.badge i {
+		margin-right: 0.25rem;
 	}
 </style>
