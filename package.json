@@ -1,7 +1,17 @@
 {
 	"name": "portfolio",
-	"version": "0.0.1",
+	"version": "1.0.0",
+	"description": "My resume/portfolio website built with SvelteKit and Pico CSS",
 	"private": true,
+	"author": {
+		"name": "Bagas Hizbullah",
+		"email": "bagash.office@simplelogin.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bagashiz/portfolio.git"
+	},
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
