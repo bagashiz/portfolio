@@ -1,9 +1,9 @@
-import { BLOG_URL } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
 	try {
-		const url = BLOG_URL;
+		const url = env.BLOG_URL || '';
 
 		const res = await fetch(url);
 

@@ -1,4 +1,4 @@
-import { GITHUB_ACCESS_TOKEN } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 /**
  * @type {string} query - GraphQL query to fetch pinned github repositories
@@ -26,11 +26,13 @@ const query = `{
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
 	try {
+		const token = env.GITHUB_ACCESS_TOKEN || '';
+
 		const res = await fetch('https://api.github.com/graphql', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `bearer ${GITHUB_ACCESS_TOKEN}`
+				Authorization: `bearer ${token}`
 			},
 			body: JSON.stringify({ query })
 		});
