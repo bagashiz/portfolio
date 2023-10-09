@@ -7,7 +7,7 @@
 	});
 </script>
 
-<nav class="container-fluid">
+<nav id="navbar" class="container-fluid">
 	<ul>
 		<li>
 			<a href="/" class="contrast"><strong>Resume</strong></a>
@@ -32,3 +32,9 @@
 		</li>
 	</ul>
 </nav>
+
+<style>
+	#navbar {
+		view-transition-name: navbar;
+	}
+</style>
