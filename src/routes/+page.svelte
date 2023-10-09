@@ -15,6 +15,10 @@
 	} from '$lib/store';
 </script>
 
+<svelte:head>
+	<title>Bagas Hizbullah's Resume</title>
+</svelte:head>
+
 <!-- Profile -->
 <section id="profile">
 	<hgroup>

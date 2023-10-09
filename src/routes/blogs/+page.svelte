@@ -5,6 +5,10 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>Bagas Hizbullah's Blogs</title>
+</svelte:head>
+
 <section id="blog">
 	<h1><strong>Blog Posts</strong></h1>
 

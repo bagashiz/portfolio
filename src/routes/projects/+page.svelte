@@ -4,6 +4,10 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>Bagas Hizbullah's Projects</title>
+</svelte:head>
+
 <section id="projects">
 	<h1><strong>Pinned GitHub Projects</strong></h1>
 

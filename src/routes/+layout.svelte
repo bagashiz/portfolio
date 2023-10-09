@@ -5,6 +5,10 @@
 	import '../app.css';
 </script>
 
+<svelte:head>
+	<title>Bagas Hizbullah's Resume</title>
+</svelte:head>
+
 <Navbar />
 
 <main class="container">
