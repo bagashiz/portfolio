@@ -18,6 +18,7 @@
 		padding: 0rem;
 		margin-top: 1rem;
 		margin-bottom: 1rem;
+		border-radius: 0.75rem;
 	}
 
 	#tools-list {

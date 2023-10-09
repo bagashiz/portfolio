@@ -39,6 +39,7 @@
 	article {
 		padding-top: 1rem;
 		padding-bottom: 0rem;
+		border-radius: 0.75rem;
 	}
 
 	header {

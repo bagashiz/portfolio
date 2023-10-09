@@ -29,7 +29,8 @@
 <style>
 	article {
 		padding-top: 1rem;
-		padding-bottom: 0.25rem;
+		padding-bottom: 0.1rem;
+		border-radius: 0.75rem;
 	}
 
 	header {
