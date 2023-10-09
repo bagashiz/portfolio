@@ -18,7 +18,7 @@
 		<hgroup>
 			<h3>{job}</h3>
 			<h4>
-				<a href={url} class="secondary">{company}</a>
+				<a href={url} target="_blank" class="secondary">{company}</a>
 			</h4>
 		</hgroup>
 		<p class="date">{start} - {end}</p>

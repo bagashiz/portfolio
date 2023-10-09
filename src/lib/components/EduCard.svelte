@@ -17,7 +17,7 @@
 	<header>
 		<hgroup>
 			<h3>
-				<a href={url}>{school}</a>
+				<a href={url} target="_blank">{school}</a>
 			</h3>
 			<h4>{major}</h4>
 		</hgroup>
