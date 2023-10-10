@@ -7,7 +7,7 @@
 	export let fa_class;
 </script>
 
-<a class="social-icon" role="button" target="_blank" {href} {rel}>
+<a class="social-icon" role="button" target="_blank" {rel} {href}>
 	<i class="fab fa-{fa_class}" />
 </a>
 

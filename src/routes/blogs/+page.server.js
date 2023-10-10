@@ -1,5 +1,5 @@
 import { env } from '$env/dynamic/private';
-import redis from '$lib/redis';
+import redis from '$lib/scripts/redis';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {

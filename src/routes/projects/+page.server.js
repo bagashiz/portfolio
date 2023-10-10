@@ -1,5 +1,5 @@
 import { env } from '$env/dynamic/private';
-import redis from '$lib/redis';
+import redis from '$lib/scripts/redis';
 
 /**
  * @type {string} query - GraphQL query to fetch pinned github repositories
@@ -68,7 +68,7 @@ export async function load() {
 			projects
 		};
 	} catch (e) {
-		console.log(`fetch error: ${e}`);
+		console.log(`error fetching projects: ${e}`);
 		throw e;
 	}
 }
