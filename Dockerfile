@@ -15,4 +15,6 @@ WORKDIR /app
 COPY --from=build --chown=node:node /app/build ./build
 COPY --from=build --chown=node:node /app/package.json ./
 
+RUN npm i --omit=dev
+
 CMD ["node", "build"]
