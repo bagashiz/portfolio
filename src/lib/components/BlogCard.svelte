@@ -18,9 +18,12 @@
 	</header>
 
 	<div class="blog-content">
-		<a href={blog.url} target="_blank" rel="noopener noreferrer">
-			<h2><strong>{blog.title}</strong></h2>
-		</a>
+		<hgroup>
+			<a href={blog.url} target="_blank" rel="noopener noreferrer">
+				<h2><strong>{blog.title}</strong></h2>
+			</a>
+			<small>Published on {publishDate}</small>
+		</hgroup>
 
 		<div class="badges">
 			<a href={blog.url} class="badge outline" role="button" target="_blank">
@@ -37,8 +40,6 @@
 			</a>
 		</div>
 
-		<small>Published on {publishDate}</small>
-
 		<p>
 			{blog.description}<a href={blog.url} target="_blank" rel="noopener noreferrer">Read More</a>
 		</p>
@@ -48,6 +49,10 @@
 <style>
 	header,
 	h2 {
+		margin-bottom: 0rem;
+	}
+
+	hgroup {
 		margin-bottom: 0.5rem;
 	}
 
@@ -87,10 +92,6 @@
 
 	.badges {
 		display: flex;
-		align-items: center;
-		list-style-type: none;
-		color: var(--primary);
-		margin: 0rem;
 		padding-top: 0.25rem;
 		padding-bottom: 0.25rem;
 	}
@@ -99,12 +100,9 @@
 		display: flex;
 		align-items: center;
 		font-size: medium;
-		border: 1px solid;
-		border-radius: 0.25rem;
+		font-weight: bold;
 		margin-right: 0.5rem;
-		padding: 0.1rem;
-		padding-left: 0.25rem;
-		padding-right: 0.25rem;
+		padding: 0.25rem;
 	}
 
 	.badge i {
