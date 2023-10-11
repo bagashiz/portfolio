@@ -24,7 +24,9 @@
 	<title>Bagas Hizbullah's Resume</title>
 </svelte:head>
 
-<Navbar />
+<header>
+	<Navbar />
+</header>
 
 <main class="container">
 	<slot />
