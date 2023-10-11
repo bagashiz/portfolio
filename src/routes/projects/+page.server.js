@@ -12,6 +12,10 @@ const query = `{
           name
           description
           url
+          primaryLanguage {
+            name
+			color
+          }
           stargazers {
             totalCount
           }

@@ -85,6 +85,7 @@ type BlogUser = {
  * @property {string} name - The name of the project.
  * @property {string} description - The description of the project.
  * @property {string} url - The URL of the project.
+ * @property {PrimaryLanguage} primaryLanguage - The primary language of the project.
  * @property {Stargazer} stargazers - The stargazers details of the project.
  * @property {Fork} forks - The forks details of the project.
  */
@@ -92,8 +93,21 @@ type Project = {
 	name: string;
 	description: string;
 	url: string;
+	primaryLanguage: PrimaryLanguage;
 	stargazers: Stargazer;
 	forks: Fork;
+};
+
+/**
+ * Represents the primary language of a project.
+ *
+ * @typedef {Object} PrimaryLanguage
+ * @property {string} name - The name of the primary language.
+ * @property {string} color - The color of the primary language.
+ */
+type PrimaryLanguage = {
+	name: string;
+	color: string;
 };
 
 /**

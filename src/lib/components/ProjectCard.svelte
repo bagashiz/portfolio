@@ -19,6 +19,15 @@
 			<i class="fa-solid fa-code-fork" />
 			<span>{project.forks.totalCount}</span>
 		</a>
+		<a
+			href={project.url}
+			class="badge outline"
+			role="button"
+			style="color: {project.primaryLanguage.color}; border-color: {project.primaryLanguage.color};"
+		>
+			<i class="fa-solid fa-circle" />
+			<span>{project.primaryLanguage.name}</span>
+		</a>
 	</div>
 
 	<p>{project.description}</p>
@@ -54,10 +63,6 @@
 
 	.badges {
 		display: flex;
-		align-items: center;
-		list-style-type: none;
-		color: var(--primary);
-		margin: 0rem;
 		padding-top: 0.25rem;
 		padding-bottom: 0.25rem;
 		padding-left: 0.5rem;
@@ -68,12 +73,9 @@
 		display: flex;
 		align-items: center;
 		font-size: medium;
-		border: 1px solid;
-		border-radius: 0.25rem;
+		font-weight: bold;
 		margin-right: 0.5rem;
-		padding: 0.1rem;
-		padding-left: 0.25rem;
-		padding-right: 0.25rem;
+		padding: 0.25rem;
 	}
 
 	.badge i {
