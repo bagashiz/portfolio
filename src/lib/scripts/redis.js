@@ -9,4 +9,8 @@ const redis = new Redis({
 	port: parseInt(env.REDIS_PORT || '6379')
 });
 
+redis.on('error', (error) => {
+	console.error(`Error initializing redis client: ${error}`);
+});
+
 export default redis;

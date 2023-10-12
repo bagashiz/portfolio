@@ -3,39 +3,31 @@ import redis from '$lib/scripts/redis';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-	try {
-		const cacheKey = 'blogs';
-		const cacheData = await redis.get(cacheKey);
-
-		if (cacheData) {
+	const key = 'blogs';
+	const url = env.BLOG_URL;
+	return {
+		streamed: {
 			/**
-			 * @type {Blog[]} blogs - Array of dev.to blogs
+			 * @type {Promise<Blog[]>} blogs - Array of dev.to blogs
 			 */
-			const blogs = JSON.parse(cacheData);
+			blogs: new Promise((resolve) => {
+				redis.get(key).then((data) => {
+					if (data) {
+						const blogs = JSON.parse(data);
+						resolve(blogs);
+					} else {
+						const timestamp = new Date().toISOString();
+						console.log(`[${timestamp}] Cache miss, getting data from dev.to API`);
 
-			return {
-				blogs
-			};
+						fetch(url)
+							.then((res) => res.json())
+							.then((blogs) => {
+								redis.setex(key, 3600, JSON.stringify(blogs));
+								resolve(blogs);
+							});
+					}
+				});
+			})
 		}
-
-		const timestamp = new Date().toISOString();
-		console.log(`[${timestamp}] Cache miss, getting data from dev.to API`);
-
-		const url = env.BLOG_URL || '';
-		const res = await fetch(url);
-
-		/**
-		 * @type {Blog[]} blogs - Array of dev.to blogs
-		 */
-		const blogs = await res.json();
-
-		await redis.setex(cacheKey, 3600, JSON.stringify(blogs));
-
-		return {
-			blogs
-		};
-	} catch (e) {
-		console.log(`error fetching blogs: ${e}`);
-		throw e;
-	}
+	};
 }
