@@ -90,7 +90,7 @@ export const volunteering = [
 		job: 'Staff of IT Division',
 		url: 'https://hology.ub.ac.id',
 		company: 'Hology UB 6.0',
-		start: 'April 2023',
+		start: 'May 2023',
 		end: 'Present',
 		description: [
 			'Collaborated with back-end team to develop robust APIs using TypeScript and Express.js for the event website.',
