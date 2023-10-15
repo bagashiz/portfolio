@@ -56,6 +56,11 @@
 		margin-bottom: 0.75rem;
 	}
 
+	li {
+		text-align: justify;
+		margin-bottom: 1rem;
+	}
+
 	.date {
 		color: var(--primary);
 	}

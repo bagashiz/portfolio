@@ -37,7 +37,7 @@
 		</ul>
 	</hgroup>
 
-	<p>
+	<p id="bio">
 		I am an Information Systems Student at
 		<a href="https://ub.ac.id" target="_blank">Brawijaya University</a>, passionate about web
 		development, Linux, and Free and Open Source Software (FOSS). I have practical experience in web
@@ -119,20 +119,22 @@
 <section id="interests">
 	<h2><strong>Interests</strong></h2>
 
-	<p>
-		Besides being a busy information systems student, I enjoy using my free time to stay informed
-		about the latest developments of Free and Open Source Software (FOSS) projects, with a
-		particular interest in the Linux Desktop ecosystem. I participate in online forums to discuss
-		these topics with others and share my thoughts and insights. I also enjoy writing blog posts on
-		subjects that interest me. Additionally, I constantly seek out opportunities to learn and
-		improve through courses and workshops I stumble upon online.
-	</p>
-	<p>
-		I am currently studying backend development, cloud computing, and software architecture. These
-		skills are important for creating secure and efficient systems. Having these knowledge will also
-		allow me to understand how to create and implement more complex systems. They will help me excel
-		in my future career.
-	</p>
+	<div id="interests-desc">
+		<p>
+			Besides being a busy information systems student, I enjoy using my free time to stay informed
+			about the latest developments of Free and Open Source Software (FOSS) projects, with a
+			particular interest in the Linux Desktop ecosystem. I participate in online forums to discuss
+			these topics with others and share my thoughts and insights. I also enjoy writing blog posts
+			on subjects that interest me. Additionally, I constantly seek out opportunities to learn and
+			improve through courses and workshops I stumble upon online.
+		</p>
+		<p>
+			I am currently studying backend development, cloud computing, and software architecture. These
+			skills are important for creating secure and efficient systems. Having these knowledge will
+			also allow me to understand how to create and implement more complex systems. They will help
+			me excel in my future career.
+		</p>
+	</div>
 </section>
 
 <hr />
@@ -195,6 +197,11 @@
 
 	i {
 		color: var(--primary);
+	}
+
+	#bio,
+	#interests-desc {
+		text-align: justify;
 	}
 
 	#socials {

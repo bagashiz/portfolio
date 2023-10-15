@@ -57,6 +57,7 @@
 	}
 
 	p {
+		text-align: justify;
 		padding: 0.5rem;
 		margin: 0rem;
 	}
