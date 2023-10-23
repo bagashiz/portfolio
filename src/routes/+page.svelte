@@ -7,12 +7,12 @@
 		awards,
 		certifications,
 		educations,
-		experiences,
 		interests,
+		organizations,
 		skills,
 		socials,
-		volunteering,
-		workflows
+		workflows,
+		works
 	} from '$lib/store';
 </script>
 
@@ -42,7 +42,7 @@
 		I am a student majoring in Information Systems at
 		<a href="https://ub.ac.id" target="_blank">Brawijaya University</a>, I am passionate about web
 		development, Linux, and Free and Open Source Software (FOSS). I have practical experience in web
-		development, with a primary focus on backend development. I have completed several backend
+		development, with a primary focus on back-end development. I have completed several back-end
 		projects using technologies such as the Go programming language, Node.js, and PHP with Laravel
 		web framework. In addition, I also have valuable knowledge in Linux system administration and
 		cloud computing through hands-on experience with AWS, DigitalOcean, and other cloud providers.
@@ -58,34 +58,34 @@
 
 <hr />
 
-<!-- Experience -->
-<section id="experience">
-	<h2><strong>Experience</strong></h2>
-
-	{#each experiences as exp}
-		<JobCard {...exp} />
-	{/each}
-</section>
-
-<hr />
-
-<!-- Volunteering -->
-<section id="volunteering">
-	<h2><strong>Volunteering</strong></h2>
-
-	{#each volunteering as vol}
-		<JobCard {...vol} />
-	{/each}
-</section>
-
-<hr />
-
 <!-- Education -->
 <section id="education">
 	<h2><strong>Education</strong></h2>
 
 	{#each educations as edu}
 		<EduCard {...edu} />
+	{/each}
+</section>
+
+<hr />
+
+<!-- Work Experience -->
+<section id="work">
+	<h2><strong>Work Experience</strong></h2>
+
+	{#each works as work}
+		<JobCard {...work} />
+	{/each}
+</section>
+
+<hr />
+
+<!-- Organizational Experience -->
+<section id="organizations">
+	<h2><strong>Organizational Experience</strong></h2>
+
+	{#each organizations as org}
+		<JobCard {...org} />
 	{/each}
 </section>
 

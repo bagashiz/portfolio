@@ -1,5 +1,5 @@
 /**
- * Experience data for the resume.
+ * Work experience data for the resume.
  *
  * @type {Array<{
  *   job: string,
@@ -10,19 +10,7 @@
  *   description: Array<string>
  * }>}
  */
-export const experiences = [
-	{
-		job: 'Web & Cloud Mentor',
-		url: 'https://gdsc.community.dev/university-of-brawijaya',
-		company: 'Google Developer Student Clubs University of Brawijaya',
-		start: 'October 2023',
-		end: 'Present',
-		description: [
-			'Collaborated with other mentors to create and deliver web and cloud development learning materials to members.',
-			'Provided guidance and support to members in learning web and cloud development through mentoring and feedback.',
-			'Shared knowledge as a speaker at workshops regarding web and cloud development to all members.'
-		]
-	},
+export const works = [
 	{
 		job: 'Laboratory Teaching Assistant of Database Administration',
 		url: 'https://filkom.ub.ac.id',
@@ -36,7 +24,7 @@ export const experiences = [
 		]
 	},
 	{
-		job: 'Project-Based Intern: Backend Developer Virtual Internship Experience Evermos',
+		job: 'Project-Based Intern: Back-End Developer Virtual Internship Experience Evermos',
 		url: 'https://www.rakamin.com/virtual-internship-experience/back-end-developer-evermos',
 		company: 'Rakamin Academy',
 		start: 'April 2023',
@@ -57,6 +45,46 @@ export const experiences = [
 			"Led lab activities of OOP using Java that applied lecturer's theory and developed students' practical skills.",
 			'Provided support and guidance to help students understand OOP concepts using Java.',
 			"Designed and graded programming assignments and projects to assess students' understanding of OOP concepts using Java."
+		]
+	}
+];
+
+/**
+ * Organization experience data for the resume.
+ *
+ * @type {Array<{
+ *   job: string,
+ *   url: string,
+ *   company: string,
+ *   start: string,
+ *   end: string,
+ *   description: Array<string>
+ * }>}
+ */
+export const organizations = [
+	{
+		job: 'Web & Cloud Mentor',
+		url: 'https://gdsc.community.dev/university-of-brawijaya',
+		company: 'Google Developer Student Clubs Chapter University of Brawijaya',
+		start: 'October 2023',
+		end: 'Present',
+		description: [
+			'Collaborated with other mentors to create and deliver web and cloud development learning materials to members.',
+			'Provided guidance and support to members in learning web and cloud development through mentoring and feedback.',
+			'Shared knowledge as a speaker at workshops regarding web and cloud development to all members.'
+		]
+	},
+	{
+		job: 'Staff of IT Division',
+		url: 'https://hology.ub.ac.id',
+		company: 'Hology UB 6.0',
+		start: 'May 2023',
+		end: 'October 2023',
+		description: [
+			'Collaborated with back-end team to develop robust APIs using TypeScript and Express.js for the event website.',
+			'Managed CI/CD pipeline using GitHub Actions and GitHub Container Registry to efficiently package and release back-end APIs.',
+			'Utilized Docker containers and Nginx to deploy back-end APIs, optimizing scalability and enhancing reliability.',
+			'Managed back-end and front-end server maintenance to ensure uninterrupted performance during the event.'
 		]
 	},
 	{
@@ -81,34 +109,6 @@ export const experiences = [
 			'Established and maintained relationships with external groups of interest, resulting in higher participation and support for organization activities.',
 			"Managed organization's social media presence, resulting in increased engagement and promotion of events and initiatives.",
 			'Utilized digital platforms to enhance brand recognition and advance the objectives of the organization.'
-		]
-	}
-];
-
-/**
- * Volunteering data for the resume.
- *
- * @type {Array<{
- *   job: string,
- *   url: string,
- *   company: string,
- *   start: string,
- *   end: string,
- *   description: Array<string>
- * }>}
- */
-export const volunteering = [
-	{
-		job: 'Staff of IT Division',
-		url: 'https://hology.ub.ac.id',
-		company: 'Hology UB 6.0',
-		start: 'May 2023',
-		end: 'October 2023',
-		description: [
-			'Collaborated with back-end team to develop robust APIs using TypeScript and Express.js for the event website.',
-			'Managed CI/CD pipeline using GitHub Actions and GitHub Container Registry to efficiently package and release back-end APIs.',
-			'Utilized Docker containers and Nginx to deploy back-end APIs, optimizing scalability and enhancing reliability.',
-			'Managed back-end and front-end server maintenance to ensure uninterrupted performance during the event.'
 		]
 	}
 ];
@@ -200,7 +200,7 @@ export const workflows = ['Clean Architecture', 'Test-Driven Development', 'Data
 /** Interests paragraphs for the resume. */
 export const interests = [
 	'Besides being a busy information systems student, I enjoy using my free time to stay informed about the latest developments of Free and Open Source Software (FOSS) projects, with a particular interest in the Linux Desktop ecosystem. I participate in online forums to discuss these topics with others and share my thoughts. I also enjoy writing blog posts on subjects that interest me. Additionally, I constantly seek out opportunities to learn and improve my skills through courses and workshops I stumble upon online.',
-	'I am currently learning backend web development, cloud computing, and software architecture. These skills are important for creating effective, efficient, and secure systems. Having these knowledge will also allow me to understand how to create and implement more complex systems.'
+	'I am currently learning back-end web development, cloud computing, and software architecture. These skills are important for creating effective, efficient, and secure systems. Having these knowledge will also allow me to understand how to create and implement more complex systems.'
 ];
 
 /**
@@ -277,7 +277,7 @@ export const certifications = [
 		credential_url: 'https://www.dicoding.com/certificates/2VX3J6603PYQ'
 	},
 	{
-		title: 'Backend Master Class [Golang + Postgres + Kubernetes + gRPC]',
+		title: 'Back-End Master Class [Golang + Postgres + Kubernetes + gRPC]',
 		credential_id: 'UC-69e6c3c2-7a66-4744-8b60-c47ea0702897',
 		credential_url: 'https://www.udemy.com/certificate/UC-69e6c3c2-7a66-4744-8b60-c47ea0702897'
 	},
