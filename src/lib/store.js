@@ -12,15 +12,15 @@
  */
 export const experiences = [
 	{
-		job: 'Head of Public Relations Division',
-		url: 'https://porosfilkom.ub.ac.id',
-		company: 'POROS Organization of Open Source',
-		start: 'February 2023',
+		job: 'Web & Cloud Mentor',
+		url: 'https://gdsc.community.dev/university-of-brawijaya',
+		company: 'Google Developer Student Clubs University of Brawijaya Chapter',
+		start: 'October 2023',
 		end: 'Present',
 		description: [
-			'Established and maintained relationships with external groups of interest, resulting in higher participation and support for organization activities.',
-			"Managed organization's social media presence, resulting in increased engagement and promotion of events and initiatives.",
-			'Utilized digital platforms to enhance brand recognition and advance the objectives of the organization.'
+			'Collaborated with other mentors to create and deliver web and cloud development learning materials to members.',
+			'Provided guidance and support to members in learning web and cloud development through mentoring and feedback.',
+			'Shared knowledge as a speaker at workshops regarding web and cloud development to all members.'
 		]
 	},
 	{
@@ -36,6 +36,18 @@ export const experiences = [
 		]
 	},
 	{
+		job: 'Project-Based Intern: Backend Developer Virtual Internship Experience Evermos',
+		url: 'https://www.rakamin.com/virtual-internship-experience/back-end-developer-evermos',
+		company: 'Rakamin Academy',
+		start: 'April 2023',
+		end: 'May 2023',
+		description: [
+			'Created API services using the Go programming language.',
+			'Built and managed integration between API services and MySQL database.',
+			'Tested API functionality using Postman API to ensure service reliability.'
+		]
+	},
+	{
 		job: 'Laboratory Teaching Assistant of Advanced Programming',
 		url: 'https://filkom.ub.ac.id',
 		company: 'Faculty of Computer Science (FILKOM) Brawijaya University',
@@ -48,15 +60,15 @@ export const experiences = [
 		]
 	},
 	{
-		job: 'Project-Based Intern: Backend Developer Virtual Internship Experience Evermos',
-		url: 'https://www.rakamin.com/virtual-internship-experience/back-end-developer-evermos',
-		company: 'Rakamin Academy',
-		start: 'April 2023',
-		end: 'May 2023',
+		job: 'Head of Public Relations Division',
+		url: 'https://porosfilkom.ub.ac.id',
+		company: 'POROS Organization of Open Source',
+		start: 'February 2023',
+		end: 'Present',
 		description: [
-			'Created API services using the Go programming language.',
-			'Built and managed integration between API services and MySQL database.',
-			'Tested API functionality using Postman API to ensure service reliability.'
+			'Established and maintained relationships with external groups of interest, resulting in higher participation and support for organization activities.',
+			"Managed organization's social media presence, resulting in increased engagement and promotion of events and initiatives.",
+			'Utilized digital platforms to enhance brand recognition and advance the objectives of the organization.'
 		]
 	},
 	{
@@ -91,7 +103,7 @@ export const volunteering = [
 		url: 'https://hology.ub.ac.id',
 		company: 'Hology UB 6.0',
 		start: 'May 2023',
-		end: 'Present',
+		end: 'October 2023',
 		description: [
 			'Collaborated with back-end team to develop robust APIs using TypeScript and Express.js for the event website.',
 			'Managed CI/CD pipeline using GitHub Actions and GitHub Container Registry to efficiently package and release back-end APIs.',
