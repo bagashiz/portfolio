@@ -75,6 +75,18 @@ export const organizations = [
 		]
 	},
 	{
+		job: 'Head of Public Relations Division',
+		url: 'https://porosfilkom.ub.ac.id',
+		company: 'POROS Organization of Open Source',
+		start: 'February 2023',
+		end: 'Present',
+		description: [
+			'Established and maintained relationships with external groups of interest, resulting in higher participation and support for organization activities.',
+			"Managed organization's social media presence, resulting in increased engagement and promotion of events and initiatives.",
+			'Utilized digital platforms to enhance brand recognition and advance the objectives of the organization.'
+		]
+	},
+	{
 		job: 'Staff of IT Division',
 		url: 'https://hology.ub.ac.id',
 		company: 'Hology UB 6.0',
@@ -85,18 +97,6 @@ export const organizations = [
 			'Managed CI/CD pipeline using GitHub Actions and GitHub Container Registry to efficiently package and release back-end APIs.',
 			'Utilized Docker containers and Nginx to deploy back-end APIs, optimizing scalability and enhancing reliability.',
 			'Managed back-end and front-end server maintenance to ensure uninterrupted performance during the event.'
-		]
-	},
-	{
-		job: 'Head of Public Relations Division',
-		url: 'https://porosfilkom.ub.ac.id',
-		company: 'POROS Organization of Open Source',
-		start: 'February 2023',
-		end: 'Present',
-		description: [
-			'Established and maintained relationships with external groups of interest, resulting in higher participation and support for organization activities.',
-			"Managed organization's social media presence, resulting in increased engagement and promotion of events and initiatives.",
-			'Utilized digital platforms to enhance brand recognition and advance the objectives of the organization.'
 		]
 	},
 	{
