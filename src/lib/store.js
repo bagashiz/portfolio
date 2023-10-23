@@ -14,7 +14,7 @@ export const experiences = [
 	{
 		job: 'Web & Cloud Mentor',
 		url: 'https://gdsc.community.dev/university-of-brawijaya',
-		company: 'Google Developer Student Clubs University of Brawijaya Chapter',
+		company: 'Google Developer Student Clubs University of Brawijaya',
 		start: 'October 2023',
 		end: 'Present',
 		description: [
