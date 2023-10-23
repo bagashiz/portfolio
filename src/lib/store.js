@@ -185,6 +185,12 @@ export const skills = [
 /** Workflows data for the resume. */
 export const workflows = ['Clean Architecture', 'Test-Driven Development', 'Data-Driven Testing'];
 
+/** Interests paragraphs for the resume. */
+export const interests = [
+	'Besides being a busy information systems student, I enjoy using my free time to stay informed about the latest developments of Free and Open Source Software (FOSS) projects, with a particular interest in the Linux Desktop ecosystem. I participate in online forums to discuss these topics with others and share my thoughts. I also enjoy writing blog posts on subjects that interest me. Additionally, I constantly seek out opportunities to learn and improve my skills through courses and workshops I stumble upon online.',
+	'I am currently learning backend web development, cloud computing, and software architecture. These skills are important for creating effective, efficient, and secure systems. Having these knowledge will also allow me to understand how to create and implement more complex systems.'
+];
+
 /**
  * Awards data for the resume.
  *
