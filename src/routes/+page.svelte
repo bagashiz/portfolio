@@ -39,12 +39,13 @@
 	</hgroup>
 
 	<p id="bio">
-		I am an Information Systems Student at
-		<a href="https://ub.ac.id" target="_blank">Brawijaya University</a>, passionate about web
+		I am a student majoring in Information Systems at
+		<a href="https://ub.ac.id" target="_blank">Brawijaya University</a>, I am passionate about web
 		development, Linux, and Free and Open Source Software (FOSS). I have practical experience in web
-		development, with a focus on backend development using the Go programming language. In addition,
-		I also have valuable insight into Linux system administration and cloud computing through
-		practical experience with AWS and DigitalOcean.
+		development, with a primary focus on backend development. I have completed several backend
+		projects using technologies such as the Go programming language, Node.js, and PHP with Laravel
+		web framework. In addition, I also have valuable knowledge in Linux system administration and
+		cloud computing through hands-on experience with AWS, DigitalOcean, and other cloud providers.
 	</p>
 
 	<!-- Socials -->
