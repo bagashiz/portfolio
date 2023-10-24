@@ -63,9 +63,9 @@ export const works = [
  */
 export const organizations = [
 	{
-		job: 'Web & Cloud Mentor',
+		job: 'Web & Cloud Curriculum Mentor',
 		url: 'https://gdsc.community.dev/university-of-brawijaya',
-		company: 'Google Developer Student Clubs Chapter University of Brawijaya',
+		company: 'Google Developer Student Clubs University of Brawijaya',
 		start: 'October 2023',
 		end: 'Present',
 		description: [
