@@ -18,9 +18,9 @@ export const works = [
 		start: 'August 2023',
 		end: 'Present',
 		description: [
-			"Led lab activities of database administration using IBM DB2 that applied lecturer's theory and developed students' practical skills.",
-			'Provided support and guidance to help students understand Linux system administration and database administration concepts using IBM DB2.',
-			"Designed and graded assignments and projects to assess students' understanding of database administration concepts using IBM DB2."
+			'Enhanced the practical skills and comprehension of database administration principles using IBM DB2 for over 30 students by leading more than 10 hands-on lab sessions.',
+			'Strengthened the understanding of Linux systems and key concepts of database administration for students through guidance and support.',
+			"Evaluate students' proficiency in database administration using IBM DB2 by designing well-structured assessments."
 		]
 	},
 	{
@@ -30,9 +30,9 @@ export const works = [
 		start: 'April 2023',
 		end: 'May 2023',
 		description: [
-			'Created API services using the Go programming language.',
-			'Built and managed integration between API services and MySQL database.',
-			'Tested API functionality using Postman API to ensure service reliability.'
+			'Created robust web API services using the Go programming language by implementing clean architecture principles.',
+			'Optimized the overall functionality of the system through seamless integration between API services and MySQL database.',
+			'Ensured stability and reliability of the services through rigorous API testing using Postman API.'
 		]
 	},
 	{
@@ -42,9 +42,9 @@ export const works = [
 		start: 'February 2023',
 		end: 'June 2023',
 		description: [
-			"Led lab activities of OOP using Java that applied lecturer's theory and developed students' practical skills.",
-			'Provided support and guidance to help students understand OOP concepts using Java.',
-			"Designed and graded programming assignments and projects to assess students' understanding of OOP concepts using Java."
+			'Enhanced the practical skills and comprehension of object-oriented programming using Java for over 20 students by leading more than 10 hands-on lab sessions.',
+			'Strengthened the understanding of Java libraries and key concepts of object-oriented programming for students through guidance and support.',
+			"Evaluate students' proficiency in object-oriented programming using Java by designing well-structured assessments."
 		]
 	}
 ];
@@ -65,38 +65,37 @@ export const organizations = [
 	{
 		job: 'Web & Cloud Curriculum Mentor',
 		url: 'https://gdsc.community.dev/university-of-brawijaya',
-		company: 'Google Developer Student Clubs University of Brawijaya',
+		company: 'Google Developer Student Clubs University of Brawijaya Chapter',
 		start: 'October 2023',
 		end: 'Present',
 		description: [
-			'Collaborated with other mentors to create and deliver web and cloud development learning materials to members.',
-			'Provided guidance and support to members in learning web and cloud development through mentoring and feedback.',
-			'Shared knowledge as a speaker at workshops regarding web and cloud development to all members.'
+			'Developed and shared learning materials on web and cloud development to more than 100 members by collaborating with fellow mentors.',
+			'Provided support and guidance to help members learn web and cloud development through mentorship and feedback.',
+			'Delivered insights on web and cloud development as a workshop speaker to all members.'
 		]
 	},
 	{
-		job: 'Head of Public Relations Division',
+		job: 'Chief of Public Relations Division',
 		url: 'https://porosfilkom.ub.ac.id',
 		company: 'POROS Organization of Open Source',
 		start: 'February 2023',
 		end: 'Present',
 		description: [
-			'Established and maintained relationships with external groups of interest, resulting in higher participation and support for organization activities.',
-			"Managed organization's social media presence, resulting in increased engagement and promotion of events and initiatives.",
-			'Utilized digital platforms to enhance brand recognition and advance the objectives of the organization.'
+			'Increased participation and support for organization activities by establishing and strengthening relationships with external groups of interest.',
+			'Improved brand recognition and progressed organizational objectives by leveraging digital platforms.',
+			"Increased event engagement and promotion up to 15% by monitoring the organization's social media presence."
 		]
 	},
 	{
-		job: 'Staff of IT Division',
+		job: 'DevOps Staff of IT Division',
 		url: 'https://hology.ub.ac.id',
 		company: 'Hology UB 6.0',
 		start: 'May 2023',
 		end: 'October 2023',
 		description: [
-			'Collaborated with back-end team to develop robust APIs using TypeScript and Express.js for the event website.',
-			'Managed CI/CD pipeline using GitHub Actions and GitHub Container Registry to efficiently package and release back-end APIs.',
-			'Utilized Docker containers and Nginx to deploy back-end APIs, optimizing scalability and enhancing reliability.',
-			'Managed back-end and front-end server maintenance to ensure uninterrupted performance during the event.'
+			'Packaged and released 2 back-end web API services efficiently by managing CI/CD pipeline using GitHub Actions and GitHub Container Registry.',
+			'Optimized scalability and enhanced reliability of the web API services deployment by utilizing Docker containers and Nginx web proxy.',
+			'Ensured uninterrupted performance of the web by managing back-end and front-end server maintenance.'
 		]
 	},
 	{
@@ -106,9 +105,9 @@ export const organizations = [
 		start: 'February 2022',
 		end: 'January 2023',
 		description: [
-			'Established and maintained relationships with external groups of interest, resulting in higher participation and support for organization activities.',
-			"Managed organization's social media presence, resulting in increased engagement and promotion of events and initiatives.",
-			'Utilized digital platforms to enhance brand recognition and advance the objectives of the organization.'
+			'Increased participation and support for organization activities by establishing and strengthening relationships with external groups of interest.',
+			'Improved brand recognition and progressed organizational objectives by leveraging digital platforms.',
+			"Increased event engagement and promotion up to 10% by monitoring the organization's social media presence."
 		]
 	}
 ];
@@ -247,14 +246,19 @@ export const certifications = [
 		credential_url: 'https://www.coursera.org/account/accomplishments/certificate/HSKQ9QM64B5A'
 	},
 	{
-		title: 'Belajar Fundamental Aplikasi Back-End',
-		credential_id: '98XWV6M3WPM3',
-		credential_url: 'https://www.dicoding.com/certificates/98XWV6M3WPM3'
-	},
-	{
 		title: 'Architecting on AWS (Membangun Arsitektur Cloud di AWS)',
 		credential_id: 'EYX46KOVWPDL',
 		credential_url: 'https://www.dicoding.com/certificates/EYX46KOVWPDL'
+	},
+	{
+		title: 'Cloud Practitioner Essentials (Belajar Dasar AWS Cloud)',
+		credential_id: 'JLX1L9V96X72',
+		credential_url: 'https://www.dicoding.com/certificates/JLX1LVQ32X72'
+	},
+	{
+		title: 'Belajar Fundamental Aplikasi Back-End',
+		credential_id: '98XWV6M3WPM3',
+		credential_url: 'https://www.dicoding.com/certificates/98XWV6M3WPM3'
 	},
 	{
 		title: 'Belajar Membuat Aplikasi Back-End untuk Pemula',
@@ -263,11 +267,6 @@ export const certifications = [
 	},
 	{
 		title: 'Belajar Dasar Pemrograman JavaScript',
-		credential_id: 'JLX1L9V96X72',
-		credential_url: 'https://www.dicoding.com/certificates/JLX1LVQ32X72'
-	},
-	{
-		title: 'Cloud Practitioner Essentials (Belajar Dasar AWS Cloud)',
 		credential_id: 'JLX1L9V96X72',
 		credential_url: 'https://www.dicoding.com/certificates/JLX1LVQ32X72'
 	},
