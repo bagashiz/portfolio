@@ -50,7 +50,7 @@ export const works = [
 ];
 
 /**
- * Organization experience data for the resume.
+ * Volunteer work experience data for the resume.
  *
  * @type {Array<{
  *   job: string,
@@ -61,7 +61,7 @@ export const works = [
  *   description: Array<string>
  * }>}
  */
-export const organizations = [
+export const volunteer = [
 	{
 		job: 'Web & Cloud Curriculum Mentor',
 		url: 'https://gdsc.community.dev/university-of-brawijaya',

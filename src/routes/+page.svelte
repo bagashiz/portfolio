@@ -1,6 +1,6 @@
 <script>
 	import EduCard from '$lib/components/EduCard.svelte';
-	import JobCard from '$lib/components/JobCard.svelte';
+	import ExpCard from '$lib/components/ExpCard.svelte';
 	import SkillsCard from '$lib/components/SkillsCard.svelte';
 	import SocialIcon from '$lib/components/SocialIcon.svelte';
 	import {
@@ -8,9 +8,9 @@
 		certifications,
 		educations,
 		interests,
-		organizations,
 		skills,
 		socials,
+		volunteer,
 		workflows,
 		works
 	} from '$lib/store';
@@ -73,18 +73,18 @@
 	<h2><strong>Work Experience</strong></h2>
 
 	{#each works as work}
-		<JobCard {...work} />
+		<ExpCard {...work} />
 	{/each}
 </section>
 
 <hr />
 
-<!-- Organizational Experience -->
-<section id="organizations">
-	<h2><strong>Organizational Experience</strong></h2>
+<!-- Volunteer Experience -->
+<section id="volunteer">
+	<h2><strong>Volunteer Work</strong></h2>
 
-	{#each organizations as org}
-		<JobCard {...org} />
+	{#each volunteer as vol}
+		<ExpCard {...vol} />
 	{/each}
 </section>
 
