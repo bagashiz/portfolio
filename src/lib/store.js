@@ -163,7 +163,7 @@ export const educations = [
 		major: 'Bachelor of Information Systems',
 		start: 'August 2021',
 		end: 'Present',
-		description: 'GPA: 3.89/4.00'
+		description: 'Cumulative GPA of 3.89/4.00'
 	},
 	{
 		school: 'SMAN 1 Bekasi',
@@ -171,7 +171,7 @@ export const educations = [
 		major: 'Mathematics and Natural Sciences',
 		start: 'July 2018',
 		end: 'May 2021',
-		description: 'GPA: 90.73/100'
+		description: 'Cumulative GPA of 90.73/100'
 	}
 ];
 

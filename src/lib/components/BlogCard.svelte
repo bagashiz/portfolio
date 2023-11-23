@@ -79,6 +79,7 @@
 
 	.blog-card header {
 		padding: 0rem;
+		margin-bottom: 1rem;
 	}
 
 	.blog-card header img {
