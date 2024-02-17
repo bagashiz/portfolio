@@ -1,4 +1,5 @@
 # exclude any development-specific files
+.devcontainer/
 .vscode/
 .idea/
 
@@ -7,12 +8,11 @@ node_modules/
 vendor/
 
 # exclude build artifacts
-.svelte-kit/
-public/
 build/
 dist/
 bin/
 tmp/
+log/
 
 # exclude any version control files
 .git/
@@ -26,15 +26,15 @@ Dockerfile*
 docker-compose*.yml
 
 # exclude any development-specific files
+**/*_test.go
+Makefile
+coverage*
 .*ignore
-.eslint*
-.prettier*
 *.env
 *.log
 *.md
 *.out
 *.toml
 *.test
-**/*_test.go
 *.yml
-Makefile
+*.dbml
