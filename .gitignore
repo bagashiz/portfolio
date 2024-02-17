@@ -1,10 +1,21 @@
-.DS_Store
-node_modules
-/build
-/.svelte-kit
-/package
-.env
-.env.*
-!.env.example
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
+# exclude any development-specific files
+.vscode/
+.idea/
+
+# exclude any dependency directories
+node_modules/
+vendor/
+
+# exclude build artifacts
+build/
+dist/
+bin/
+tmp/
+log/
+
+# exclude any development-specific files
+*.env
+*.log
+*.test
+*.out
+coverage*
