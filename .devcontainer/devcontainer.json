@@ -1,56 +1,59 @@
 {
-    "name": "portfolio",
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:20-bookworm",
-    "runArgs": [
-        "--name",
-        "portfolio",
-        "--network=host"
-    ],
-    "features": {
-        "ghcr.io/devcontainers/features/common-utils:2": {
-            "configureZshAsDefaultShell": true
-        },
-        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
-        "ghcr.io/devcontainers-contrib/features/act:1": {}
-    },
-    "portsAttributes": {
-        "5173": {
-            "label": "Application",
-            "onAutoForward": "notify"
-        }
-    },
-    "postCreateCommand": "npm install",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "esbenp.prettier-vscode", // prettier
-                "dbaeumer.vscode-eslint", // eslint
-                "leizongmin.node-module-intellisense", // node module intellisense
-                "christian-kohler.npm-intellisense", // npm intellisense
-                "VisualStudioExptTeam.vscodeintellicode", // intellisense
-                "mgmcdermott.vscode-language-babel", // babel syntax highlighting
-                "xabikos.JavaScriptSnippets", // js es6 code snippets
-                "svelte.svelte-vscode", // svelte syntax highlighting
-                "waderyan.gitblame", // git blame
-                "oderwat.indent-rainbow", // colorize indentation
-                "davidanson.vscode-markdownlint", // markdown linting
-                "redhat.vscode-yaml", // yaml syntax highlighting
-                "github.copilot" // ai code completion
-            ],
-            "settings": {
-                "editor.formatOnSave": true,
-                "editor.codeActionsOnSave": {
-                    "source.fixAll.eslint": "explicit"
-                },
-                "javascript.updateImportsOnFileMove.enabled": "always",
-                "js/ts.implicitProjectConfig.checkJs": true,
-                "[javascript][typescript][jsonc][json][html]": {
-                    "editor.defaultFormatter": "esbenp.prettier-vscode"
-                },
-                "[yaml]": {
-                    "editor.defaultFormatter": "redhat.vscode-yaml"
-                }
-            }
-        }
-    }
+	"name": "portfolio",
+	"image": "mcr.microsoft.com/devcontainers/go:1.22-bookworm",
+	"runArgs": [
+		"--name",
+		"portfolio_devcontainer",
+		"--network=host"
+	],
+	"portsAttributes": {
+		"8080": {
+			"label": "Application",
+			"onAutoForward": "notify"
+		}
+	},
+	"postCreateCommand": "task",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"configureZshAsDefaultShell": true
+		},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+		"ghcr.io/devcontainers-contrib/features/act:1": {},
+		"ghcr.io/devcontainers-contrib/features/go-task:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"golang.go",
+				"a-h.templ",
+				"otovo-oss.htmx-tags",
+				"waderyan.gitblame",
+				"oderwat.indent-rainbow",
+				"task.vscode-task",
+				"davidanson.vscode-markdownlint",
+				"ms-azuretools.vscode-docker",
+				"redhat.vscode-yaml",
+				"github.copilot"
+			],
+			"settings": {
+				"editor.formatOnSave": true,
+				"go.testFlags": [
+					"-v",
+					"-race",
+					"-cover",
+					"-count=1"
+				],
+				"go.testTimeout": "30s",
+				"go.lintTool": "golangci-lint",
+				"go.lintFlags": [
+					"--fast"
+				],
+				"[go]": {
+					"editor.codeActionsOnSave": {
+						"source.organizeImports": "explicit"
+					}
+				}
+			}
+		}
+	}
 }

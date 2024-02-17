@@ -1,20 +1,14 @@
-FROM node:lts-alpine AS build
+FROM golang:1.22-alpine as builder
 
 WORKDIR /app
-
-COPY package.json package-lock.json ./
-RUN npm ci
 COPY . .
-RUN npm run build
 
-FROM node:lts-alpine AS prod
+RUN go mod download
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main /app/cmd/main.go
 
-USER node:node
+FROM scratch as final
+
 WORKDIR /app
+COPY --from=builder /app/main /app/
 
-COPY --from=build --chown=node:node /app/build ./build
-COPY --from=build --chown=node:node /app/package.json ./
-
-RUN npm i --omit=dev
-
-CMD ["node", "build"]
+ENTRYPOINT [ "/app/main" ]
