@@ -1,4 +1,4 @@
-FROM node:18.18.0-alpine3.18 AS build
+FROM node:lts-alpine AS build
 
 WORKDIR /app
 
@@ -7,7 +7,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM node:18.18.0-alpine3.18 AS prod
+FROM node:lts-alpine AS prod
 
 USER node:node
 WORKDIR /app
