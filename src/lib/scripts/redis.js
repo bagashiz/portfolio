@@ -6,6 +6,8 @@ import { Redis } from 'ioredis';
  */
 const redis = new Redis({
 	host: env.REDIS_HOST,
+	username: env.REDIS_USERNAME,
+	password: env.REDIS_PASSWORD,
 	port: parseInt(env.REDIS_PORT || '6379')
 });
 
