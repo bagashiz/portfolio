@@ -11,4 +11,7 @@ FROM scratch as final
 WORKDIR /app
 COPY --from=builder /app/main /app/
 
-ENTRYPOINT [ "/app/main" ]
+ENV APP_HOST=localhost
+ENV APP_PORT=8080
+
+ENTRYPOINT [ "/app/main", "$APP_HOST", "$APP_PORT" ]
