@@ -1,0 +1,27 @@
+package template
+
+import "github.com/bagashiz/portfolio/internal/app/model"
+
+templ ExpCard(exp model.Experience) {
+	<article class={ card() }>
+		<header class={ cardHeader() }>
+			<hgroup>
+				<h3>{ exp.Job }</h3>
+				<h4>
+					<a href={ templ.URL(exp.Url) } target="_blank" class="secondary">{ exp.Company }</a>
+				</h4>
+			</hgroup>
+			<p class={ period() }>{ exp.Start } - { exp.End }</p>
+		</header>
+		<details>
+			<summary>
+				<strong>Job Description</strong>
+			</summary>
+			<ul>
+				for _, expDesc := range exp.Descriptions {
+					<li class={ desc() }>{ expDesc }</li>
+				}
+			</ul>
+		</details>
+	</article>
+}
