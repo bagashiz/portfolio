@@ -1,0 +1,28 @@
+package template
+
+import "github.com/bagashiz/portfolio/internal/app/model"
+
+templ EduCard(edu model.Education) {
+	<article class={ card() }>
+		<header class={ cardHeader() }>
+			<hgroup>
+				<h3>
+					<a id="school" href={ templ.URL(edu.Url) } target="_blank">{ edu.School }</a>
+				</h3>
+				<h4>{ edu.Major }</h4>
+			</hgroup>
+			<p class={ period() }>{ edu.Start } - { edu.End }</p>
+		</header>
+		<p><strong>{ edu.Description }</strong></p>
+	</article>
+	<style>
+	#school {
+		color: var(--pico-h3-color);
+		text-decoration: none;
+	}
+
+	#school:hover {
+		color: var(--pico-secondary-hover);
+	}
+	</style>
+}
