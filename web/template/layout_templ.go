@@ -36,7 +36,7 @@ func Layout(title string, contents templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><link rel=\"icon\" href=\"/static/img/favicon.png\"><link rel=\"stylesheet\" href=\"/static/css/pico.min.css\"><link rel=\"stylesheet\" href=\"/static/css/style.css\"><script src=\"/static/scripts/script.js\"></script><script src=\"https://kit.fontawesome.com/da28ab5279.js\" crossorigin=\"anonymous\"></script></head><body><header>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><link rel=\"icon\" href=\"/assets/img/favicon.png\"><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css\"><link rel=\"stylesheet\" href=\"/assets/css/style.css\"><script src=\"/assets/scripts/script.js\"></script><script src=\"https://kit.fontawesome.com/da28ab5279.js\" crossorigin=\"anonymous\"></script></head><body><header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
