@@ -9,5 +9,5 @@ import (
 // The addRoutes function loads the routes with their respective handlers.
 func addRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("/", handler.Home)
-	mux.HandleFunc("/static/", handler.StaticFiles)
+	mux.HandleFunc("/assets/", handler.StaticFiles)
 }
