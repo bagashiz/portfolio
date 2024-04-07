@@ -11,7 +11,7 @@ templ ExpCard(exp model.Experience) {
 					<a href={ templ.URL(exp.Url) } target="_blank" class="secondary">{ exp.Company }</a>
 				</h4>
 			</hgroup>
-			<p class={ period() }>{ exp.Start } - { exp.End }</p>
+			<p class={ primaryColor() }>{ exp.Start } - { exp.End }</p>
 		</header>
 		<details>
 			<summary>

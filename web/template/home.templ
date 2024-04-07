@@ -12,13 +12,13 @@ templ Home(socials []model.Social, educations []model.Education, works []model.E
 		<hgroup>
 			<h1><strong>Bagas Hizbullah</strong></h1>
 			<ul id="info">
-				<li class="icon-li">
-					<i class="text-blue fa-solid fa-location-dot"></i>
+				<li class={ nonList() }>
+					<i class={ "fa-solid", "fa-location-dot", primaryColor() }></i>
 					West Java, Indonesia
 				</li>
-				<li class="icon-li">
+				<li class={ nonList() }>
 					<a href="mailto:bagash.office@simplelogin.com">
-						<i class="text-blue fa-solid fa-envelope"></i>
+						<i class={ "fa-solid", "fa-envelope", primaryColor() }></i>
 						bagash.office@simplelogin.com
 					</a>
 				</li>
@@ -73,9 +73,9 @@ templ Home(socials []model.Social, educations []model.Education, works []model.E
 		<div id="workflows">
 			for _, workflow := range workflows {
 				<ul class="fa-ul">
-					<li class="icon-li">
+					<li class={ nonList() }>
 						<span class="fa-li">
-							<i class="text-blue fas fa-check"></i>
+							<i class={ "fas", "fa-check", primaryColor() }></i>
 						</span>
 						{ workflow }
 					</li>
@@ -104,16 +104,18 @@ templ Home(socials []model.Social, educations []model.Education, works []model.E
 			<h3>Awards</h3>
 			<ul class="fa-ul">
 				for _, award := range awards {
-					<li class="award-cert-li icon-li">
-						<p class="award-cert-p">
-							<span class="fa-li"><i class="text-blue fas fa-trophy"></i></span>
-							<strong>
-								{ strconv.Itoa(award.Place) }<sup>{ award.Suffix }</sup> Place &bull; { award.Host } &bull; { award.Competition }
-							</strong>
-						</p>
-						<p>
-							<em>({ award.Translation })</em>
-						</p>
+					<li class={ nonList() }>
+						<hgroup>
+							<p>
+								<span class="fa-li"><i class={ "fas", "fa-trophy", primaryColor() }></i></span>
+								<strong>
+									{ strconv.Itoa(award.Place) }<sup>{ award.Suffix }</sup> Place &bull; { award.Host } &bull; { award.Competition }
+								</strong>
+							</p>
+							<p>
+								<em>({ award.Translation })</em>
+							</p>
+						</hgroup>
 					</li>
 				}
 			</ul>
@@ -122,14 +124,16 @@ templ Home(socials []model.Social, educations []model.Education, works []model.E
 			<h3>Certificates</h3>
 			<ul class="fa-ul">
 				for _, cert := range certs {
-					<li class="award-cert-li icon-li">
-						<p class="award-cert-p">
-							<span class="fa-li"><i class="text-blue fas fa-certificate"></i></span>
-							<strong>{ cert.Title }</strong>
-						</p>
-						<em>
-							Credential ID: <a target="_blank" href={ templ.URL(cert.CredentialUrl) }>{ cert.CredentialId }</a>
-						</em>
+					<li class={ nonList() }>
+						<hgroup>
+							<p>
+								<span class="fa-li"><i class={ "fas", "fa-certificate", primaryColor() }></i></span>
+								<strong>{ cert.Title }</strong>
+							</p>
+							<em>
+								Credential ID: <a target="_blank" href={ templ.URL(cert.CredentialUrl) }>{ cert.CredentialId }</a>
+							</em>
+						</hgroup>
 					</li>
 				}
 			</ul>
@@ -148,21 +152,5 @@ templ Home(socials []model.Social, educations []model.Education, works []model.E
 		margin-bottom: 1rem;
 		padding-left: 0rem;
 	}
-
-	.text-blue {
-		color: var(--pico-primary);
-	}
-
-	.award-cert-p {
-		margin-bottom: 0.5rem;
-	}
-
-	.award-cert-li {
-		margin-bottom: 1rem;
-	}
-
-	.icon-li {
-		list-style-type: none;
-	}
-</style>
+	</style>
 }
