@@ -9,7 +9,7 @@
  * Minimal theme switcher
  *
  * @namespace
- * @typedef {Object} ThemeSwitcher
+ * @typedef {Object} themeSwitcher
  * @property {string} _scheme - The current color scheme ("auto", "light", or "dark").
  * @property {string} menuTarget - The selector for the menu element that contains theme switchers.
  * @property {string} buttonsTarget - The selector for theme switcher buttons.
@@ -17,7 +17,7 @@
  * @property {string} rootAttribute - The attribute name used for the root HTML element to store the selected theme.
  * @property {string} localStorageKey - The key used to store the preferred color scheme in local storage.
  */
-export const ThemeSwitcher = {
+const themeSwitcher = {
     // Config
     _scheme: 'auto',
     menuTarget: "details[role='list']",
