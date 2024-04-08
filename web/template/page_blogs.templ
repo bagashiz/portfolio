@@ -5,21 +5,11 @@ import (
 	"github.com/bagashiz/portfolio/internal/app/model"
 )
 
-templ Blog() {
+templ Blogs() {
 	<section id="blogs">
 		<h1 class={ pageTitle() }><strong>Blog Posts</strong></h1>
-		<article id="skeleton" aria-busy="true" hx-get="/api/blogs" hx-trigger="load delay:5s" hx-swap="outerHTML">
-			<strong>fetching data...</strong>
-		</article>
+		@skeleton("/api/blogs")
 	</section>
-	<style>
-        #skeleton {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-    </style>
 }
 
 templ BlogCard(blogs []model.Blog) {
@@ -49,9 +39,12 @@ templ BlogCard(blogs []model.Blog) {
 						<span>{ strconv.Itoa(blog.ReadingTimeMinutes) } min.</span>
 					</a>
 				</div>
-				<p>
-					{ blog.Description }<a href={ templ.URL(blog.Url) } class={ textDecorNone() } target="_blank" rel="noopener noreferrer">&nbsp;Read More</a>
-				</p>
+				<footer>
+					{ blog.Description }
+					<a href={ templ.URL(blog.Url) } class={ textDecorNone() } target="_blank" rel="noopener noreferrer">
+						&nbsp;Read More
+					</a>
+				</footer>
 			</div>
 		</article>
 	}

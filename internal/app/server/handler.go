@@ -38,7 +38,7 @@ func homePage() http.Handler {
 // The blog function is the handler for the blog page.
 func blogPage() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		templ := template.Blog()
+		templ := template.Blogs()
 
 		_ = template.Base("Bagashiz | Blog", templ).Render(r.Context(), w)
 	})
