@@ -29,5 +29,7 @@ func addRoutes(mux *http.ServeMux, getEnv func(string) string) {
 	mux.Handle("GET /{$}", homePage())
 	mux.Handle("GET /assets/", staticFiles())
 	mux.Handle("GET /blogs/", blogPage())
+	mux.Handle("GET /projects/", projectPage())
 	mux.Handle("GET /api/blogs/", blogs(getEnv))
+	mux.Handle("GET /api/projects/", projects(getEnv))
 }

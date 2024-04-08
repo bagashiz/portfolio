@@ -14,9 +14,9 @@ templ Blogs() {
 
 templ BlogCard(blogs []model.Blog) {
 	for _, blog := range blogs {
-		<article id="blog-card">
-			<header>
-				<img src={ blog.CoverImage } alt={ blog.Title }/>
+		<article class={ blogCard() }>
+			<header class={ noPadding() }>
+				<img class={ blogCoverImage() } src={ blog.CoverImage } alt={ blog.Title }/>
 			</header>
 			<div>
 				<a class={ textDecorNone() } href={ templ.URL(blog.Url) } target="_blank" rel="noopener noreferrer">
@@ -25,16 +25,16 @@ templ BlogCard(blogs []model.Blog) {
 						<small class={ primaryColor() }>Published on { blog.PublishedAt.Format("2 January 2006") }</small>
 					</hgroup>
 				</a>
-				<div id="badges">
-					<a href={ templ.URL(blog.Url) } class="badge outline" role="button" target="_blank">
+				<div class={ badges() }>
+					<a href={ templ.URL(blog.Url) } class={ badge(), "outline" } role="button" target="_blank">
 						<i class="fa-solid fa-heart"></i>
 						<span>{ strconv.Itoa(blog.PublicReactionsCount) }</span>
 					</a>
-					<a href={ templ.URL(blog.Url) } class="badge outline" role="button" target="_blank">
+					<a href={ templ.URL(blog.Url) } class={ badge(), "outline" } role="button" target="_blank">
 						<i class="fa-solid fa-comment"></i>
 						<span>{ strconv.Itoa(blog.CommentsCount) }</span>
 					</a>
-					<a href={ templ.URL(blog.Url) } class="badge outline" role="button" target="_blank">
+					<a href={ templ.URL(blog.Url) } class={ badge(), "outline" } role="button" target="_blank">
 						<i class="fa-solid fa-clock"></i>
 						<span>{ strconv.Itoa(blog.ReadingTimeMinutes) } min.</span>
 					</a>
@@ -48,43 +48,4 @@ templ BlogCard(blogs []model.Blog) {
 			</div>
 		</article>
 	}
-	<style>
-		#blog-card {
-			padding-top: 1rem;
-			padding-bottom: 1rem;
-			border-radius: 0.75rem;
-			overflow: hidden;
-			text-decoration: none;
-		}
-
-		#blog-card header {
-			padding: 0rem;
-			margin-bottom: 1rem;
-		}
-
-		#blog-card header img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
-
-		#badges {
-			display: flex;
-			margin-top: 1rem;
-			margin-bottom: 1rem;
-		}
-
-		.badge {
-			display: flex;
-			align-items: center;
-			font-size: medium;
-			font-weight: bold;
-			margin-right: 0.5rem;
-			padding: 0.25rem;
-		}
-
-		.badge i {
-			margin-right: 0.25rem;
-		}
-    </style>
 }

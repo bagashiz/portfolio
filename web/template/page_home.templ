@@ -24,7 +24,7 @@ templ Home(socials []model.Social, educations []model.Education, works []model.E
 				</li>
 			</ul>
 		</hgroup>
-		<p class={ desc() }>
+		<p class={ textJustify() }>
 			I am an Information Systems student at
 			<a href="https://ub.ac.id" target="_blank">Brawijaya University</a>. I specialize in web
 			development, with a specific focus on back-end development. I have practical experience working
@@ -87,7 +87,7 @@ templ Home(socials []model.Social, educations []model.Education, works []model.E
 	<!-- Interests -->
 	<section id="interests">
 		<h2><strong>Interests</strong></h2>
-		<div class={ desc() }>
+		<div class={ textJustify() }>
 			<p>
 				Besides being a busy information systems student, I enjoy using my free time to stay informed about the latest developments of Free and Open Source Software (FOSS) projects, with a particular interest in the Linux Desktop ecosystem. I participate in online forums to discuss these topics with others and share my thoughts. I also enjoy writing blog posts on subjects that interest me. Additionally, I constantly seek out opportunities to learn and improve my skills through courses and workshops I stumble upon online.
 			</p>
@@ -190,32 +190,22 @@ templ SocialIcon(social model.Social) {
 }
 
 templ EduCard(edu model.Education) {
-	<article class={ card() }>
+	<article>
 		<header class={ cardHeader() }>
 			<hgroup>
-				<h3>
-					<a id="school" href={ templ.URL(edu.Url) } target="_blank">{ edu.School }</a>
-				</h3>
-				<h4>{ edu.Major }</h4>
+				<h3>{ edu.School }</h3>
+				<h4>
+					<a href={ templ.URL(edu.Url) } target="_blank" class="secondary">{ edu.Major }</a>
+				</h4>
 			</hgroup>
 			<p class={ primaryColor() }>{ edu.Start } - { edu.End }</p>
 		</header>
 		<p><strong>{ edu.Description }</strong></p>
 	</article>
-	<style>
-	#school {
-		color: var(--pico-h3-color);
-		text-decoration: none;
-	}
-
-	#school:hover {
-		color: var(--pico-secondary-hover);
-	}
-	</style>
 }
 
 templ ExpCard(exp model.Experience) {
-	<article class={ card() }>
+	<article>
 		<header class={ cardHeader() }>
 			<hgroup>
 				<h3>{ exp.Job }</h3>
@@ -231,7 +221,7 @@ templ ExpCard(exp model.Experience) {
 			</summary>
 			<ul>
 				for _, expDesc := range exp.Descriptions {
-					<li class={ desc() }>{ expDesc }</li>
+					<li class={ textJustify() }>{ expDesc }</li>
 				}
 			</ul>
 		</details>
@@ -239,7 +229,7 @@ templ ExpCard(exp model.Experience) {
 }
 
 templ SkillsCard(skills []string) {
-	<article class={ card() }>
+	<article>
 		<ul id="tools-list">
 			for _, skill := range skills {
 				<li class="dev-logo">

@@ -5,10 +5,18 @@ func concatClass(suffix string) string {
 	return "fa-" + suffix
 }
 
-css card() {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+css blogCard() {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 	border-radius: 0.75rem;
+	overflow: hidden;
+	text-decoration: none;
+}
+
+css blogCoverImage() {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 css cardHeader() {
@@ -30,12 +38,31 @@ css cardSkeleton() {
 	padding: 2rem;
 }
 
-css desc() {
+css badges() {
+	display: flex;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+css badge() {
+	display: flex;
+	align-items: center;
+	font-size: medium;
+	font-weight: bold;
+	margin-right: 0.5rem;
+	padding: 0.25rem;
+}
+
+css textJustify() {
 	text-align: justify;
 }
 
 css primaryColor() {
 	color: var(--pico-primary);
+}
+
+css noPadding() {
+	padding: 0rem;
 }
 
 css nonList() {
@@ -44,4 +71,9 @@ css nonList() {
 
 css textDecorNone() {
 	text-decoration: none;
+}
+
+css textColor(hex string) {
+	color: { hex };
+	border-color: { hex };
 }
