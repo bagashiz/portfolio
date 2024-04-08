@@ -1,9 +1,12 @@
 package server
 
 import (
+	"bytes"
 	"encoding/json"
+	"io"
 	"log/slog"
 	"net/http"
+	"time"
 
 	"github.com/bagashiz/portfolio/internal/app/model"
 	"github.com/bagashiz/portfolio/web"
@@ -17,7 +20,7 @@ func staticFiles() http.Handler {
 	})
 }
 
-// The home function is the handler for the home page.
+// The homePage function is the handler for the home page.
 func homePage() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		templ := template.Home(
@@ -35,7 +38,7 @@ func homePage() http.Handler {
 	})
 }
 
-// The blog function is the handler for the blog page.
+// The blogPage function is the handler for the blog page.
 func blogPage() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		templ := template.Blogs()
@@ -47,23 +50,115 @@ func blogPage() http.Handler {
 // The blogs function is the handler for fetching the blog posts and rendering them.
 func blogs(getEnv func(string) string) http.Handler {
 	blogUrl := getEnv("DEV_API_URL")
+
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		resp, err := http.Get(blogUrl)
+		req, err := http.NewRequest(http.MethodGet, blogUrl, nil)
 		if err != nil {
-			slog.Error(err.Error())
-			_ = template.ErrorFetchCard().Render(r.Context(), w)
+			errorFetch(w, r, err)
+			return
+		}
+
+		client := &http.Client{Timeout: 5 * time.Second}
+
+		resp, err := client.Do(req)
+		if resp.StatusCode != http.StatusOK && err != nil {
+			errorFetch(w, r, err)
 			return
 		}
 		defer resp.Body.Close()
 
-		var blogs []model.Blog
-		err = json.NewDecoder(resp.Body).Decode(&blogs)
+		blogs, err := decode[[]model.Blog](resp.Body)
 		if err != nil {
-			slog.Error(err.Error())
-			_ = template.ErrorFetchCard().Render(r.Context(), w)
+			errorFetch(w, r, err)
 			return
 		}
 
 		_ = template.BlogCard(blogs).Render(r.Context(), w)
 	})
+}
+
+// The projectPage function is the handler for the project page.
+func projectPage() http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		templ := template.Projects()
+
+		_ = template.Base("Bagashiz | Projects", templ).Render(r.Context(), w)
+	})
+}
+
+// The projects function is the handler for fetching the pinned GitHub projects and rendering them.
+func projects(getEnv func(string) string) http.Handler {
+	token := getEnv("GITHUB_ACCESS_TOKEN")
+	projectUrl := "https://api.github.com/graphql"
+	jsonData := map[string]string{
+		"query": `{
+			user(login: "bagashiz") {
+				pinnedItems(first: 6, types: REPOSITORY) {
+					nodes {
+						... on Repository {
+							name
+							description
+							url
+							primaryLanguage {
+								name
+								color
+							}
+							stargazers {
+								totalCount
+							}
+							forks {
+								totalCount
+							}
+						}
+					}
+				}
+			}
+		}`,
+	}
+	reqBody, err := json.Marshal(jsonData)
+	if err != nil {
+		slog.Error(err.Error())
+	}
+
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		req, err := http.NewRequest(http.MethodPost, projectUrl, bytes.NewBuffer(reqBody))
+		if err != nil {
+			errorFetch(w, r, err)
+			return
+		}
+		req.Header.Set("Content-Type", "application/json")
+		req.Header.Set("Authorization", "Bearer "+token)
+
+		client := &http.Client{Timeout: 5 * time.Second}
+
+		resp, err := client.Do(req)
+		if resp.StatusCode != http.StatusOK && err != nil {
+			errorFetch(w, r, err)
+			return
+		}
+		defer resp.Body.Close()
+
+		projects, err := decode[model.Project](resp.Body)
+		if err != nil {
+			errorFetch(w, r, err)
+			return
+		}
+
+		_ = template.ProjectCard(projects.Data.User.PinnedItems.Nodes).Render(r.Context(), w)
+	})
+}
+
+// The errorFetch function logs the error and renders the error page when failed to fetch data.
+func errorFetch(w http.ResponseWriter, r *http.Request, err error) {
+	slog.Error(err.Error())
+	_ = template.ErrorFetchCard().Render(r.Context(), w)
+}
+
+// The decode function decodes the JSON request/response body into the provided type.
+func decode[T any](b io.ReadCloser) (T, error) {
+	var v T
+	if err := json.NewDecoder(b).Decode(&v); err != nil {
+		return v, err
+	}
+	return v, nil
 }

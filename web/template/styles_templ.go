@@ -13,12 +13,26 @@ func concatClass(suffix string) string {
 	return "fa-" + suffix
 }
 
-func card() templ.CSSClass {
+func blogCard() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(`margin-top:2rem;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`margin-bottom:2rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`padding-top:1rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`padding-bottom:1rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`border-radius:0.75rem;`)
-	templ_7745c5c3_CSSID := templ.CSSID(`card`, templ_7745c5c3_CSSBuilder.String())
+	templ_7745c5c3_CSSBuilder.WriteString(`overflow:hidden;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`text-decoration:none;`)
+	templ_7745c5c3_CSSID := templ.CSSID(`blogCard`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func blogCoverImage() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(`width:100%;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`height:100%;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`object-fit:cover;`)
+	templ_7745c5c3_CSSID := templ.CSSID(`blogCoverImage`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
 		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
@@ -62,10 +76,37 @@ func cardSkeleton() templ.CSSClass {
 	}
 }
 
-func desc() templ.CSSClass {
+func badges() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(`display:flex;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`margin-top:1rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`margin-bottom:1rem;`)
+	templ_7745c5c3_CSSID := templ.CSSID(`badges`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func badge() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(`display:flex;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`align-items:center;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`font-size:medium;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`font-weight:bold;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`margin-right:0.5rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`padding:0.25rem;`)
+	templ_7745c5c3_CSSID := templ.CSSID(`badge`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func textJustify() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
 	templ_7745c5c3_CSSBuilder.WriteString(`text-align:justify;`)
-	templ_7745c5c3_CSSID := templ.CSSID(`desc`, templ_7745c5c3_CSSBuilder.String())
+	templ_7745c5c3_CSSID := templ.CSSID(`textJustify`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
 		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
@@ -76,6 +117,16 @@ func primaryColor() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
 	templ_7745c5c3_CSSBuilder.WriteString(`color:var(--pico-primary);`)
 	templ_7745c5c3_CSSID := templ.CSSID(`primaryColor`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func noPadding() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(`padding:0rem;`)
+	templ_7745c5c3_CSSID := templ.CSSID(`noPadding`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
 		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
@@ -96,6 +147,17 @@ func textDecorNone() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
 	templ_7745c5c3_CSSBuilder.WriteString(`text-decoration:none;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`textDecorNone`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func textColor(hex string) templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`color`, hex)))
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`border-color`, hex)))
+	templ_7745c5c3_CSSID := templ.CSSID(`textColor`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
 		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),

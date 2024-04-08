@@ -84,4 +84,38 @@ type (
 		ProfileImage    string `json:"profile_image"`
 		ProfileImage90  string `json:"profile_image_90"`
 	}
+
+	Project struct {
+		Data Data `json:"data"`
+	}
+
+	Data struct {
+		User User `json:"user"`
+	}
+
+	User struct {
+		PinnedItems PinnedItems `json:"pinnedItems"`
+	}
+
+	PinnedItems struct {
+		Nodes []Node `json:"nodes"`
+	}
+
+	Node struct {
+		Name            string          `json:"name"`
+		Description     string          `json:"description"`
+		Url             string          `json:"url"`
+		PrimaryLanguage PrimaryLanguage `json:"primaryLanguage"`
+		Stargazers      Forks           `json:"stargazers"`
+		Forks           Forks           `json:"forks"`
+	}
+
+	Forks struct {
+		TotalCount int `json:"totalCount"`
+	}
+
+	PrimaryLanguage struct {
+		Name  string `json:"name"`
+		Color string `json:"color"`
+	}
 )
