@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func navBar() templ.Component {
+func ErrorFetchCard() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,7 +23,7 @@ func navBar() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<nav id=\"navbar\" class=\"container-fluid\"><ul><li><a href=\"/\" class=\"contrast\"><strong>Resume</strong></a></li></ul><ul><li><a href=\"/projects\" class=\"secondary outline\">Projects</a></li><li><a href=\"/blogs\" class=\"secondary outline\">Blogs</a></li><li><details class=\"dropdown\" role=\"list\" dir=\"rtl\"><summary aria-haspopup=\"listbox\" class=\"secondary\">Theme</summary><ul role=\"listbox\"><li><a href=\"./\" data-theme-switcher=\"auto\">Auto</a></li><li><a href=\"./\" data-theme-switcher=\"light\">Light</a></li><li><a href=\"./\" data-theme-switcher=\"dark\">Dark</a></li></ul></details></li></ul></nav><style>\n\t#navbar {\n\t\tview-transition-name: navbar;\n\t}\n\t</style>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<article id=\"skeleton\"><strong>Uh oh! failed to fetch data.</strong></article>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
