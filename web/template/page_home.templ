@@ -154,3 +154,121 @@ templ Home(socials []model.Social, educations []model.Education, works []model.E
 	}
 	</style>
 }
+
+templ SocialIcon(social model.Social) {
+	<a class="social-icon" role="button" target="_blank" rel={ social.Rel } href={ templ.URL(social.Href) }>
+		<i class={ "fab", concatClass(social.FaClass) }></i>
+	</a>
+	<style>
+	.social-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		height: 3.5rem;
+		width: 3.5rem;
+		background-color: var(--pico-primary);
+		color: var(--pico-primary-inverse);
+		border-radius: 100%;
+		font-size: 1.65rem;
+		padding: 0.5rem;
+		margin-right: 0.5rem;
+		margin-left: 0.5rem;
+	}
+
+	.social-icon:first-child {
+		margin-left: 0;
+	}
+
+	.social-icon:last-child {
+		margin-right: 0;
+	}
+
+	.social-icon:hover {
+		background-color: var(--pico-primary-hover);
+	}
+</style>
+}
+
+templ EduCard(edu model.Education) {
+	<article class={ card() }>
+		<header class={ cardHeader() }>
+			<hgroup>
+				<h3>
+					<a id="school" href={ templ.URL(edu.Url) } target="_blank">{ edu.School }</a>
+				</h3>
+				<h4>{ edu.Major }</h4>
+			</hgroup>
+			<p class={ primaryColor() }>{ edu.Start } - { edu.End }</p>
+		</header>
+		<p><strong>{ edu.Description }</strong></p>
+	</article>
+	<style>
+	#school {
+		color: var(--pico-h3-color);
+		text-decoration: none;
+	}
+
+	#school:hover {
+		color: var(--pico-secondary-hover);
+	}
+	</style>
+}
+
+templ ExpCard(exp model.Experience) {
+	<article class={ card() }>
+		<header class={ cardHeader() }>
+			<hgroup>
+				<h3>{ exp.Job }</h3>
+				<h4>
+					<a href={ templ.URL(exp.Url) } target="_blank" class="secondary">{ exp.Company }</a>
+				</h4>
+			</hgroup>
+			<p class={ primaryColor() }>{ exp.Start } - { exp.End }</p>
+		</header>
+		<details>
+			<summary>
+				<strong>Job Description</strong>
+			</summary>
+			<ul>
+				for _, expDesc := range exp.Descriptions {
+					<li class={ desc() }>{ expDesc }</li>
+				}
+			</ul>
+		</details>
+	</article>
+}
+
+templ SkillsCard(skills []string) {
+	<article class={ card() }>
+		<ul id="tools-list">
+			for _, skill := range skills {
+				<li class="dev-logo">
+					<i class={ "fab", concatClass(skill) }></i>
+				</li>
+			}
+		</ul>
+	</article>
+	<style>
+	#tools-list {
+		padding: 0rem;
+		margin: 0rem;
+		list-style: none;
+		text-align: center;
+	}
+
+	.dev-logo {
+		display: inline-block;
+		font-size: 3.5rem;
+		margin-right: 0.25rem;
+		margin-left: 0.25rem;
+	}
+
+	.dev-logo:first-child {
+		margin-left: 0rem;
+	}
+
+	.dev-logo:last-child {
+		margin-right: 0rem;
+	}
+</style>
+}
