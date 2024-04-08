@@ -1,7 +1,7 @@
 package template 
 
 templ Footer() {
-	<footer class="container">
+	<footer id="footer" class="container">
 		<small>
 			Built with <span class={ primaryColor() }>&hearts;</span> using
 			<a href="https://kit.svelte.dev" target="_blank">SvelteKit</a> &amp;
@@ -9,7 +9,7 @@ templ Footer() {
 		</small>
 	</footer>
 	<style>
-	footer {
+	#footer {
 		display: flex;
 		justify-content: center;
 		align-items: center;
