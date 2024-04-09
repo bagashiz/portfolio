@@ -13,32 +13,47 @@ templ Projects() {
 }
 
 templ ProjectCard(projects []model.Node) {
-	for _, project := range projects {
-		<article>
-			<h2>
-				<a class={ textDecorNone() } href={ templ.URL(project.Url) } target="_blank">
-					<strong>{ project.Name }</strong>
-				</a>
-			</h2>
-			<div class="badges">
-				<a href={ templ.URL(project.Url) } class={ badge(), "outline" } role="button" target="_blank">
-					<i class="fa-solid fa-star"></i>
-					<span>{ strconv.Itoa(project.Stargazers.TotalCount) }</span>
-				</a>
-				<a href={ templ.URL(project.Url) } class={ badge(), "outline" } role="button" target="_blank">
-					<i class="fa-solid fa-code-fork"></i>
-					<span>{ strconv.Itoa(project.Forks.TotalCount) }</span>
-				</a>
-				<a
-					href={ templ.URL(project.Url) }
-					class={ textColor(project.PrimaryLanguage.Color), badge(),"outline" }
-					role="button"
-				>
-					<i class="fa-solid fa-circle"></i>
-					<span>{ project.PrimaryLanguage.Name }</span>
-				</a>
-			</div>
-			<footer>{ project.Description }</footer>
-		</article>
-	}
+	<div class="grid">
+		for _, project := range projects {
+			<article>
+				<h2>
+					<a class={ textDecorNone() } href={ templ.URL(project.Url) } target="_blank">
+						<strong>{ project.Name }</strong>
+					</a>
+				</h2>
+				<div class="badges">
+					<a href={ templ.URL(project.Url) } class={ badge(), "outline" } role="button" target="_blank">
+						<i class="fa-solid fa-star"></i>
+						<span>{ strconv.Itoa(project.Stargazers.TotalCount) }</span>
+					</a>
+					<a href={ templ.URL(project.Url) } class={ badge(), "outline" } role="button" target="_blank">
+						<i class="fa-solid fa-code-fork"></i>
+						<span>{ strconv.Itoa(project.Forks.TotalCount) }</span>
+					</a>
+					<a
+						href={ templ.URL(project.Url) }
+						class={ textColor(project.PrimaryLanguage.Color), badge(),"outline" }
+						role="button"
+					>
+						<i class="fa-solid fa-circle"></i>
+						<span>{ project.PrimaryLanguage.Name }</span>
+					</a>
+				</div>
+				<br/>
+				<p>{ project.Description }</p>
+			</article>
+		}
+	</div>
+	<style>
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (max-width: 600px) {
+			.grid {
+				grid-template-columns: 1fr; /* single column for smaller screens */
+			}
+		}
+	</style>
 }
