@@ -20,7 +20,16 @@ func Run(ctx context.Context, getEnv func(string) string) error {
 	ctx, cancel := signal.NotifyContext(ctx, os.Interrupt)
 	defer cancel()
 
-	httpServer := server.NewServer(getEnv)
+	config := map[string]string{
+		"APP_HOST":            getEnv("APP_HOST"),
+		"APP_PORT":            getEnv("APP_PORT"),
+		"DEV_USERNAME":        getEnv("DEV_USERNAME"),
+		"GITHUB_USERNAME":     getEnv("GITHUB_USERNAME"),
+		"GITHUB_ACCESS_TOKEN": getEnv("GITHUB_ACCESS_TOKEN"),
+		"REDIS_URL":           getEnv("REDIS_URL"),
+	}
+
+	httpServer := server.NewServer(config)
 
 	go func() {
 		fmt.Printf("listening on %s\n", httpServer.Addr)

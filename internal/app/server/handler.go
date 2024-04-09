@@ -3,6 +3,7 @@ package server
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io"
 	"log/slog"
 	"net/http"
@@ -48,8 +49,8 @@ func blogPage() http.Handler {
 }
 
 // The blogs function is the handler for fetching the blog posts and rendering them.
-func blogs(getEnv func(string) string) http.Handler {
-	blogUrl := getEnv("DEV_API_URL")
+func blogs(blogUsername string) http.Handler {
+	blogUrl := fmt.Sprintf("https://dev.to/api/articles?username=%s", blogUsername)
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		req, err := http.NewRequest(http.MethodGet, blogUrl, nil)
@@ -87,33 +88,34 @@ func projectPage() http.Handler {
 }
 
 // The projects function is the handler for fetching the pinned GitHub projects and rendering them.
-func projects(getEnv func(string) string) http.Handler {
-	token := getEnv("GITHUB_ACCESS_TOKEN")
+func projects(githubUsername, githubAccessToken string) http.Handler {
 	projectUrl := "https://api.github.com/graphql"
-	jsonData := map[string]string{
-		"query": `{
-			user(login: "bagashiz") {
-				pinnedItems(first: 6, types: REPOSITORY) {
-					nodes {
-						... on Repository {
+	query := fmt.Sprintf(`{
+		user(login: "%s") {
+			pinnedItems(first: 6, types: REPOSITORY) {
+				nodes {
+					... on Repository {
+						name
+						description
+						url
+						primaryLanguage {
 							name
-							description
-							url
-							primaryLanguage {
-								name
-								color
-							}
-							stargazers {
-								totalCount
-							}
-							forks {
-								totalCount
-							}
+							color
+						}
+						stargazers {
+							totalCount
+						}
+						forks {
+							totalCount
 						}
 					}
 				}
 			}
-		}`,
+		}
+	}`, githubUsername)
+
+	jsonData := map[string]string{
+		"query": query,
 	}
 	reqBody, err := json.Marshal(jsonData)
 	if err != nil {
@@ -127,7 +129,7 @@ func projects(getEnv func(string) string) http.Handler {
 			return
 		}
 		req.Header.Set("Content-Type", "application/json")
-		req.Header.Set("Authorization", "Bearer "+token)
+		req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", githubAccessToken))
 
 		client := &http.Client{Timeout: 5 * time.Second}
 
