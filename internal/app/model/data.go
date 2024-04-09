@@ -4,21 +4,25 @@ var (
 	// Socials is a slice of Social struct that contains list of social media profiles.
 	Socials = []Social{
 		{
+			Name:    "LinkedIn",
 			Href:    "https://linkedin.com/in/bagas-hizbullah",
 			Rel:     "",
 			FaClass: "linkedin-in",
 		},
 		{
+			Name:    "GitHub",
 			Href:    "https://github.com/bagashiz",
 			Rel:     "",
 			FaClass: "github",
 		},
 		{
+			Name:    "Dev",
 			Href:    "https://dev.to/bagashiz",
 			Rel:     "",
 			FaClass: "dev",
 		},
 		{
+			Name:    "Mastodon",
 			Href:    "https://mastodon.social/@Pak_Dengklek",
 			Rel:     "me",
 			FaClass: "mastodon",

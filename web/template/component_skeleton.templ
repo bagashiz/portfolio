@@ -1,7 +1,7 @@
 package template
 
 templ skeleton(apiRoute string) {
-	<article class={ cardSkeleton() } aria-busy="true" hx-get={ apiRoute } hx-trigger="load delay:5s" hx-swap="outerHTML">
+	<article class={ cardSkeleton() } aria-busy="true" hx-get={ apiRoute } hx-trigger="load delay:1s" hx-swap="outerHTML transition:true">
 		<strong>fetching data...</strong>
 	</article>
 }

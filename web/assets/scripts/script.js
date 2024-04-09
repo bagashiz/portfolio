@@ -137,3 +137,8 @@ const themeSwitcher = {
         }
     }
 };
+
+// Initialize the theme switcher when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    themeSwitcher.init();
+});
