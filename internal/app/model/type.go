@@ -5,6 +5,7 @@ import "time"
 type (
 	// The Social struct represents the social media links.
 	Social struct {
+		Name    string
 		Href    string
 		Rel     string
 		FaClass string

@@ -56,6 +56,7 @@ func pageTitle() templ.CSSClass {
 	templ_7745c5c3_CSSBuilder.WriteString(`justify-content:center;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`text-align:center;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`margin-bottom:3rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`view-transition-name:page-title;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`pageTitle`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,

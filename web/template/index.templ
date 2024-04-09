@@ -1,12 +1,13 @@
 package template
 
-templ Base(title string, contents templ.Component) {
+templ Index(contents templ.Component) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
 			<meta charset="utf-8"/>
 			<meta name="viewport" content="width=device-width"/>
-			<title>{ title }</title>
+			<meta name="description" content="Bagashiz's portfolio website showcasing resume, projects, and blog posts."/>
+			<title>Bagashiz | Portfolio</title>
 			<link rel="icon" href="/assets/img/favicon.png"/>
 			<link rel="stylesheet" href="/assets/css/style.css"/>
 			<script src="/assets/scripts/script.js"></script>
@@ -17,15 +18,10 @@ templ Base(title string, contents templ.Component) {
 		</head>
 		<body>
 			@Header()
-			<main class="container">
+			<main id="content" class="container">
 				@contents
 			</main>
 			@Footer()
 		</body>
-		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-				themeSwitcher.init();
-			});
-		</script>
 	</html>
 }

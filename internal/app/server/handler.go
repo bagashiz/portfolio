@@ -21,10 +21,10 @@ func staticFiles() http.Handler {
 	})
 }
 
-// The homePage function is the handler for the home page.
-func homePage() http.Handler {
+// The index function is the handler for the index page.
+func index() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		templ := template.Home(
+		resumeTempl := template.Resume(
 			model.Socials,
 			model.Educations,
 			model.Works,
@@ -35,16 +35,39 @@ func homePage() http.Handler {
 			model.Workflows,
 		)
 
-		_ = template.Base("Bagashiz | Resume", templ).Render(r.Context(), w)
+		_ = template.Index(resumeTempl).Render(r.Context(), w)
+	})
+}
+
+// The resume function is the handler for the resume page.
+func resumePage() http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		resumeTempl := template.Resume(
+			model.Socials,
+			model.Educations,
+			model.Works,
+			model.Volunteers,
+			model.Awards,
+			model.Certifications,
+			model.SkillsFaIcons,
+			model.Workflows,
+		)
+
+		_ = resumeTempl.Render(r.Context(), w)
 	})
 }
 
 // The blogPage function is the handler for the blog page.
 func blogPage() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		templ := template.Blogs()
+		_ = template.Blogs().Render(r.Context(), w)
+	})
+}
 
-		_ = template.Base("Bagashiz | Blog", templ).Render(r.Context(), w)
+// The projectPage function is the handler for the project page.
+func projectPage() http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		_ = template.Projects().Render(r.Context(), w)
 	})
 }
 
@@ -75,15 +98,6 @@ func blogs(blogUsername string) http.Handler {
 		}
 
 		_ = template.BlogCard(blogs).Render(r.Context(), w)
-	})
-}
-
-// The projectPage function is the handler for the project page.
-func projectPage() http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		templ := template.Projects()
-
-		_ = template.Base("Bagashiz | Projects", templ).Render(r.Context(), w)
 	})
 }
 

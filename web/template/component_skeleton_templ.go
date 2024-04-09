@@ -54,7 +54,7 @@ func skeleton(apiRoute string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-trigger=\"load delay:5s\" hx-swap=\"outerHTML\"><strong>fetching data...</strong></article>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-trigger=\"load delay:1s\" hx-swap=\"outerHTML transition:true\"><strong>fetching data...</strong></article>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

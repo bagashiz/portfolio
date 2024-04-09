@@ -6,7 +6,7 @@ import (
 	"github.com/bagashiz/portfolio/internal/app/model"
 )
 
-templ Home(socials []model.Social, educations []model.Education, works []model.Experience, volunteers []model.Experience, awards []model.Award, certs []model.Certification, skills []string, workflows []string) {
+templ Resume(socials []model.Social, educations []model.Education, works []model.Experience, volunteers []model.Experience, awards []model.Award, certs []model.Certification, skills []string, workflows []string) {
 	<!-- Profile -->
 	<section id="profile">
 		<hgroup>
@@ -156,7 +156,7 @@ templ Home(socials []model.Social, educations []model.Education, works []model.E
 }
 
 templ SocialIcon(social model.Social) {
-	<a class="social-icon" role="button" target="_blank" rel={ social.Rel } href={ templ.URL(social.Href) }>
+	<a class="social-icon" role="button" target="_blank" rel={ social.Rel } href={ templ.URL(social.Href) } aria-label={ social.Name }>
 		<i class={ "fab", concatClass(social.FaClass) }></i>
 	</a>
 	<style>
