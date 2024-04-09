@@ -9,8 +9,8 @@ tasks:
   default:
     desc: "Gettings started"
     cmds:
-      - task: service:up
       - task: install
+      - task: service:up
 
   install:
     desc: "Install dependencies"
@@ -28,9 +28,9 @@ tasks:
     desc: "Stop services"
     cmd: docker-compose down
 
-  redis:cli:
+  cache:cli:
     desc: "Connect to redis using command line interface"
-    cmd: docker exec -it portfolio_redis redis-cli
+    cmd: docker exec -it portfolio_cache keydb-cli
 
   dev:
     desc: "Start development server"

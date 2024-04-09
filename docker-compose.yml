@@ -1,8 +1,6 @@
-version: "3.8"
-
 services:
-  redis_portfolio:
-    image: redis:7-alpine
-    container_name: redis
+  keydb:
+    image: eqalpha/keydb:alpine
+    container_name: portfolio_cache
     ports:
       - "6379:6379"

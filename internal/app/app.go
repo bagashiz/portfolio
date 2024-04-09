@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/bagashiz/portfolio/internal/app/server"
+	"github.com/bagashiz/portfolio/internal/app/store"
 )
 
 /**
@@ -29,7 +30,12 @@ func Run(ctx context.Context, getEnv func(string) string) error {
 		"REDIS_URL":           getEnv("REDIS_URL"),
 	}
 
-	httpServer := server.NewServer(config)
+	cache, err := store.NewCache(ctx, config["REDIS_URL"])
+	if err != nil {
+		return fmt.Errorf("error creating cache: %w", err)
+	}
+
+	httpServer := server.NewServer(config, cache)
 
 	go func() {
 		fmt.Printf("listening on %s\n", httpServer.Addr)
