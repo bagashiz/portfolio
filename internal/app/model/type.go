@@ -47,6 +47,7 @@ type (
 		CredentialUrl string
 	}
 
+	// The Blog struct represents the response from the dev.to API for articles.
 	Blog struct {
 		TypeOf                 string    `json:"type_of"`
 		ID                     int       `json:"id"`
@@ -75,6 +76,7 @@ type (
 		User                   BlogUser  `json:"user"`
 	}
 
+	// The BlogUser struct represents the user details of the author of the article.
 	BlogUser struct {
 		Name            string `json:"name"`
 		Username        string `json:"username"`
@@ -86,22 +88,27 @@ type (
 		ProfileImage90  string `json:"profile_image_90"`
 	}
 
+	// The Project struct represents the response from the GitHub GraphQL API for pinned projects.
 	Project struct {
 		Data Data `json:"data"`
 	}
 
+	// The Data struct represents the user details and pinned projects.
 	Data struct {
 		User User `json:"user"`
 	}
 
+	// The User struct represents the pinned projects.
 	User struct {
 		PinnedItems PinnedItems `json:"pinnedItems"`
 	}
 
+	// The PinnedItems struct represents the pinned projects.
 	PinnedItems struct {
 		Nodes []Node `json:"nodes"`
 	}
 
+	// The Node struct represents the details of the pinned project.
 	Node struct {
 		Name            string          `json:"name"`
 		Description     string          `json:"description"`
@@ -111,10 +118,12 @@ type (
 		Forks           Forks           `json:"forks"`
 	}
 
+	// The Forks struct represents the count of stars and forks of the project.
 	Forks struct {
 		TotalCount int `json:"totalCount"`
 	}
 
+	// The PrimaryLanguage struct represents the primary language of the project.
 	PrimaryLanguage struct {
 		Name  string `json:"name"`
 		Color string `json:"color"`

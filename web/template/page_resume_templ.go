@@ -925,7 +925,7 @@ func SkillsCard(skills []string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</ul></article><style>\n\t#tools-list {\n\t\tpadding: 0rem;\n\t\tmargin: 0rem;\n\t\tlist-style: none;\n\t\ttext-align: center;\n\t}\n\n\t.dev-logo {\n\t\tdisplay: inline-block;\n\t\tfont-size: 3.5rem;\n\t\tmargin-right: 0.25rem;\n\t\tmargin-left: 0.25rem;\n\t}\n\n\t.dev-logo:first-child {\n\t\tmargin-left: 0rem;\n\t}\n\n\t.dev-logo:last-child {\n\t\tmargin-right: 0rem;\n\t}\n</style>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</ul></article><style>\n\t#tools-list {\n\t\tpadding: 0rem;\n\t\tmargin: 0rem;\n\t\tlist-style: none;\n\t\ttext-align: center;\n\t}\n\n\t.dev-logo {\n\t\tdisplay: inline-block;\n\t\tfont-size: 3.25rem;\n\t\tmargin-right: 0.25rem;\n\t\tmargin-left: 0.25rem;\n\t}\n\n\t.dev-logo:first-child {\n\t\tmargin-left: 0rem;\n\t}\n\n\t.dev-logo:last-child {\n\t\tmargin-right: 0rem;\n\t}\n</style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
