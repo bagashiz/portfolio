@@ -40,7 +40,7 @@ func index() http.Handler {
 	})
 }
 
-// The resume function is the handler for the resume page.
+// The resumePage function is the handler for the resume page.
 func resumePage() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		resumeTempl := template.Resume(

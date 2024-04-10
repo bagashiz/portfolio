@@ -9,12 +9,14 @@ import (
 	"github.com/joho/godotenv"
 )
 
+// init loads the environment variables from the .env file for local development.
 func init() {
 	if os.Getenv("APP_ENV") != "production" {
 		_ = godotenv.Load()
 	}
 }
 
+// entry point of the application.
 func main() {
 	ctx := context.Background()
 
