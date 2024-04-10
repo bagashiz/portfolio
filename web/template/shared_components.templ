@@ -5,3 +5,9 @@ templ skeleton(apiRoute string) {
 		<strong>fetching data...</strong>
 	</article>
 }
+
+templ ErrorFetchCard() {
+	<article class={ cardSkeleton() }>
+		<strong>Uh oh! failed to fetch data.</strong>
+	</article>
+}

@@ -25,3 +25,65 @@ templ Index(contents templ.Component) {
 		</body>
 	</html>
 }
+
+templ Header() {
+	<header>
+		<nav id="navbar" class="container-fluid">
+			<ul>
+				<li>
+					<a href="#" class="secondary outline" hx-get="/resume" hx-trigger="click" hx-swap="innerHTML transition:true" hx-target="#content">
+						Resume
+					</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="#" class="secondary outline" hx-get="/projects" hx-trigger="click" hx-swap="innerHTML transition:true" hx-target="#content">
+						Projects
+					</a>
+				</li>
+				<li>
+					<a href="#" class="secondary outline" hx-get="/blogs" hx-trigger="click" hx-swap="innerHTML transition:true" hx-target="#content">
+						Blogs
+					</a>
+				</li>
+				<li>
+					<details class="dropdown" dir="rtl">
+						<summary aria-haspopup="listbox" class="secondary">Theme</summary>
+						<ul role="listbox">
+							<li><a href="/" data-theme-switcher="auto">Auto</a></li>
+							<li><a href="/" data-theme-switcher="light">Light</a></li>
+							<li><a href="/" data-theme-switcher="dark">Dark</a></li>
+						</ul>
+					</details>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<style>
+	#navbar {
+		view-transition-name: navbar;
+	}
+	</style>
+}
+
+templ Footer() {
+	<footer id="footer" class="container">
+		<small>
+			Built with <span class={ primaryColor() }>&hearts;</span> using
+			<a href="https://templ.guide" target="_blank">Templ</a>,
+			<a href="https://htmx.org" target="_blank">HTMX</a>, &amp;
+			<a href="https://picocss.com" target="_blank">Pico</a>
+		</small>
+	</footer>
+	<style>
+	#footer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+	}
+</style>
+}
