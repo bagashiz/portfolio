@@ -2,7 +2,6 @@ package server
 
 import (
 	"bytes"
-	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -11,9 +10,9 @@ import (
 	"time"
 
 	"github.com/bagashiz/portfolio/internal/app/model"
+	"github.com/bagashiz/portfolio/internal/app/store"
 	"github.com/bagashiz/portfolio/web"
 	"github.com/bagashiz/portfolio/web/template"
-	"github.com/redis/go-redis/v9"
 )
 
 // The staticFiles function serves the static files such as CSS, JavaScript, and images.
@@ -74,11 +73,11 @@ func projectPage() http.Handler {
 }
 
 // The blogs function is the handler for fetching the blog posts and rendering them.
-func blogs(cache *redis.Client, blogUsername string) http.Handler {
+func blogs(cache store.Cache, blogUsername string) http.Handler {
 	blogUrl := fmt.Sprintf("https://dev.to/api/articles?username=%s", blogUsername)
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		cachedBlogs, err := cache.Get(r.Context(), "blogs").Bytes()
+		cachedBlogs, err := cache.GetCache(r.Context(), "blogs")
 		if err == nil {
 			slog.Info("cached blogs hit")
 
@@ -91,8 +90,6 @@ func blogs(cache *redis.Client, blogUsername string) http.Handler {
 			_ = template.BlogCard(blogs).Render(r.Context(), w)
 			return
 		}
-
-		slog.Error(err.Error())
 
 		slog.Info("cached blogs miss")
 
@@ -117,7 +114,7 @@ func blogs(cache *redis.Client, blogUsername string) http.Handler {
 			return
 		}
 
-		err = setCache(r.Context(), cache, "blogs", blogs)
+		err = cache.SetCache(r.Context(), "blogs", blogs, 1*time.Hour)
 		if err != nil {
 			errorFetch(w, r, err)
 			return
@@ -128,7 +125,7 @@ func blogs(cache *redis.Client, blogUsername string) http.Handler {
 }
 
 // The projects function is the handler for fetching the pinned GitHub projects and rendering them.
-func projects(cache *redis.Client, githubUsername, githubAccessToken string) http.Handler {
+func projects(cache store.Cache, githubUsername, githubAccessToken string) http.Handler {
 	projectUrl := "https://api.github.com/graphql"
 	query := fmt.Sprintf(`{
 		user(login: "%s") {
@@ -163,7 +160,7 @@ func projects(cache *redis.Client, githubUsername, githubAccessToken string) htt
 	}
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		cachedProjects, err := cache.Get(r.Context(), "projects").Bytes()
+		cachedProjects, err := cache.GetCache(r.Context(), "projects")
 		if err == nil {
 			slog.Info("cached projects hit")
 			projects, err := decode[model.Project](bytes.NewReader(cachedProjects))
@@ -201,7 +198,7 @@ func projects(cache *redis.Client, githubUsername, githubAccessToken string) htt
 			return
 		}
 
-		err = setCache(r.Context(), cache, "projects", projects)
+		err = cache.SetCache(r.Context(), "projects", projects, 1*time.Hour)
 		if err != nil {
 			errorFetch(w, r, err)
 			return
@@ -209,21 +206,6 @@ func projects(cache *redis.Client, githubUsername, githubAccessToken string) htt
 
 		_ = template.ProjectCard(projects.Data.User.PinnedItems.Nodes).Render(r.Context(), w)
 	})
-}
-
-// The setCache function sets the data into the cache with the provided key for 1 hour.
-func setCache[T any](ctx context.Context, cache *redis.Client, key string, data T) error {
-	dataJSON, err := json.Marshal(data)
-	if err != nil {
-		return err
-	}
-
-	status := cache.Set(ctx, key, dataJSON, 1*time.Hour)
-	if status.Err() != nil {
-		return status.Err()
-	}
-
-	return nil
 }
 
 // The decode function decodes the JSON request/response body into the provided type.

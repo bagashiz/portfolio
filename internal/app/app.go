@@ -30,7 +30,7 @@ func Run(ctx context.Context, getEnv func(string) string) error {
 		"REDIS_URL":           getEnv("REDIS_URL"),
 	}
 
-	cache, err := store.NewCache(ctx, config["REDIS_URL"])
+	cache, err := store.NewRedis(ctx, config["REDIS_URL"])
 	if err != nil {
 		return fmt.Errorf("error creating cache: %w", err)
 	}

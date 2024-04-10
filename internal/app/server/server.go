@@ -4,11 +4,11 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/redis/go-redis/v9"
+	"github.com/bagashiz/portfolio/internal/app/store"
 )
 
 // The NewServer function creates a new http.Server type, configures the routes, and adds middleware.
-func NewServer(config map[string]string, cache *redis.Client) *http.Server {
+func NewServer(config map[string]string, cache store.Cache) *http.Server {
 	mux := http.NewServeMux()
 	addRoutes(mux, cache, config)
 
@@ -26,7 +26,7 @@ func NewServer(config map[string]string, cache *redis.Client) *http.Server {
 }
 
 // The addRoutes function loads the routes with their respective handlers.
-func addRoutes(mux *http.ServeMux, cache *redis.Client, config map[string]string) {
+func addRoutes(mux *http.ServeMux, cache store.Cache, config map[string]string) {
 	mux.Handle("GET /", http.NotFoundHandler())
 	mux.Handle("GET /{$}", index())
 	mux.Handle("GET /assets/", staticFiles())
