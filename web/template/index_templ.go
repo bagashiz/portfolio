@@ -117,7 +117,7 @@ func Footer() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\">&hearts;</span> using <a href=\"https://templ.guide\" target=\"_blank\">Templ</a>, <a href=\"https://htmx.org\" target=\"_blank\">HTMX</a>, &amp; <a href=\"https://picocss.com\" target=\"_blank\">Pico</a></small></footer><style>\n\t#footer {\n\t\tdisplay: flex;\n\t\tjustify-content: center;\n\t\talign-items: center;\n\t\tpadding: 1rem;\n\t\tmargin-top: 3rem;\n\t\tmargin-bottom: 3rem;\n\t}\n</style>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\">&hearts;</span> using <a href=\"https://templ.guide\" target=\"_blank\">Templ</a>, <a href=\"https://htmx.org\" target=\"_blank\">HTMX</a>, &amp; <a href=\"https://picocss.com\" target=\"_blank\">Pico</a></small></footer><style>\n\t#footer {\n\t\tdisplay: flex;\n\t\tjustify-content: center;\n\t\talign-items: center;\n\t\tmargin-bottom: 3rem;\n\t\tview-transition-name: footer;\n\t}\n</style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

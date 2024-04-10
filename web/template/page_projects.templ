@@ -21,7 +21,7 @@ templ ProjectCard(projects []model.Node) {
 						<strong>{ project.Name }</strong>
 					</a>
 				</h2>
-				<div class="badges">
+				<div class={ badges() }>
 					<a href={ templ.URL(project.Url) } class={ badge(), "outline" } role="button" target="_blank">
 						<i class="fa-solid fa-star"></i>
 						<span>{ strconv.Itoa(project.Stargazers.TotalCount) }</span>
@@ -39,7 +39,6 @@ templ ProjectCard(projects []model.Node) {
 						<span>{ project.PrimaryLanguage.Name }</span>
 					</a>
 				</div>
-				<br/>
 				<p>{ project.Description }</p>
 			</article>
 		}

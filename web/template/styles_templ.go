@@ -15,8 +15,6 @@ func concatClass(suffix string) string {
 
 func blogCard() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(`padding-top:1rem;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`padding-bottom:1rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`border-radius:0.75rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`overflow:hidden;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`text-decoration:none;`)
@@ -33,18 +31,6 @@ func blogCoverImage() templ.CSSClass {
 	templ_7745c5c3_CSSBuilder.WriteString(`height:100%;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`object-fit:cover;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`blogCoverImage`, templ_7745c5c3_CSSBuilder.String())
-	return templ.ComponentCSSClass{
-		ID:    templ_7745c5c3_CSSID,
-		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
-	}
-}
-
-func cardHeader() templ.CSSClass {
-	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(`padding-top:1rem;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`padding-bottom:0rem;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`margin-bottom:1rem;`)
-	templ_7745c5c3_CSSID := templ.CSSID(`cardHeader`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
 		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
@@ -80,7 +66,6 @@ func cardSkeleton() templ.CSSClass {
 func badges() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
 	templ_7745c5c3_CSSBuilder.WriteString(`display:flex;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`margin-top:1rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`margin-bottom:1rem;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`badges`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
@@ -93,9 +78,9 @@ func badge() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
 	templ_7745c5c3_CSSBuilder.WriteString(`display:flex;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`align-items:center;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`font-size:medium;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`font-size:large;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`font-weight:bold;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`margin-right:0.5rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`margin:0.25rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`padding:0.25rem;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`badge`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
