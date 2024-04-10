@@ -23,7 +23,7 @@ var (
 		},
 		{
 			Name:    "Mastodon",
-			Href:    "https://mastodon.social/@Pak_Dengklek",
+			Href:    "https://hachyderm.io/@bagashiz",
 			Rel:     "me",
 			FaClass: "mastodon",
 		},
@@ -32,27 +32,27 @@ var (
 	// Works is a slice of Experience struct that contains list of work experiences.
 	Works = []Experience{
 		{
+			Job:     "Junior Back-End Engineer Intern",
+			Url:     "https://godentist.co.id/",
+			Company: "GoDentist (PT PERIKSA GIGI INDONESIA)",
+			Start:   "February 2024",
+			End:     "Present",
+			Descriptions: []string{
+				"Developed, maintained, and co-designed web service APIs using JavaScript and Node.js.",
+				"Troubleshooted and resolved API issues to maintain optimal performance and user experience.",
+				"Collaborated effectively with cross-functional stakeholders to ensure alignment with business requirements.",
+			},
+		},
+		{
 			Job:     "Laboratory Teaching Assistant of Database Administration",
 			Url:     "https://filkom.ub.ac.id",
 			Company: "Faculty of Computer Science (FILKOM) Brawijaya University",
 			Start:   "August 2023",
-			End:     "Present",
+			End:     "December 2023",
 			Descriptions: []string{
 				"Enhanced the practical skills and comprehension of database administration principles using IBM DB2 for over 30 students by leading more than 10 hands-on lab sessions.",
 				"Strengthened the understanding of Linux systems and key concepts of database administration for students through guidance and support.",
 				"Evaluate students' proficiency in database administration using IBM DB2 by designing well-structured assessments.",
-			},
-		},
-		{
-			Job:     "Project-Based Intern: Back-End Developer Virtual Internship Experience Evermos",
-			Url:     "https://www.rakamin.com/virtual-internship-experience/back-end-developer-evermos",
-			Company: "Rakamin Academy",
-			Start:   "April 2023",
-			End:     "May 2023",
-			Descriptions: []string{
-				"Created robust web API services using the Go programming language by implementing clean architecture principles.",
-				"Optimized the overall functionality of the system through seamless integration between API services and MySQL database.",
-				"Ensured stability and reliability of the services through rigorous API testing using Postman API.",
 			},
 		},
 		{
@@ -67,10 +67,34 @@ var (
 				"Evaluate students' proficiency in object-oriented programming using Java by designing well-structured assessments.",
 			},
 		},
+		{
+			Job:     "Project-Based Intern: Back-End Developer Virtual Internship Experience Evermos",
+			Url:     "https://www.rakamin.com/virtual-internship-experience/back-end-developer-evermos",
+			Company: "Rakamin Academy",
+			Start:   "April 2023",
+			End:     "May 2023",
+			Descriptions: []string{
+				"Created robust web API services using the Go programming language by implementing clean architecture principles.",
+				"Optimized the overall functionality of the system through seamless integration between API services and MySQL database.",
+				"Ensured stability and reliability of the services through rigorous API testing using Postman API.",
+			},
+		},
 	}
 
 	// Volunteers is a slice of Experience struct that contains list of volunteer experiences.
 	Volunteers = []Experience{
+		{
+			Job:     "Vice Chairman",
+			Url:     "https://porosfilkom.ub.ac.id",
+			Company: "POROS Organization of Open Source",
+			Start:   "February 2024",
+			End:     "Present",
+			Descriptions: []string{
+				"Acted as a lead substitute for the Chairman, managing essential organizational activities.",
+				"Bridged internal and external communication gaps by acting as a liaison between leadership, members, and other groups of interest.",
+				"Provided strategic guidance and support to other members, fostering a collaborative and productive work environment.",
+			},
+		},
 		{
 			Job:     "Web & Cloud Curriculum Mentor",
 			Url:     "https://gdsc.community.dev/university-of-brawijaya",
@@ -88,7 +112,7 @@ var (
 			Url:     "https://porosfilkom.ub.ac.id",
 			Company: "POROS Organization of Open Source",
 			Start:   "February 2023",
-			End:     "Present",
+			End:     "January 2024",
 			Descriptions: []string{
 				"Increased participation and support for organization activities by establishing and strengthening relationships with external groups of interest.",
 				"Improved brand recognition and progressed organizational objectives by leveraging digital platforms.",
@@ -129,7 +153,15 @@ var (
 			Major:       "Bachelor of Information Systems",
 			Start:       "August 2021",
 			End:         "Present",
-			Description: "Cumulative GPA of 3.89/4.00",
+			Description: "Cumulative GPA of 3.90/4.00",
+		},
+		{
+			School:      "Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
+			Url:         "https://bangkit.academy",
+			Major:       "Cloud Computing",
+			Start:       "February 2024",
+			End:         "Present",
+			Description: "Indepedent Study Program of Kampus Merdeka",
 		},
 		{
 			School:      "SMAN 1 Bekasi",
@@ -144,6 +176,11 @@ var (
 	// Certifications is a slice of Certification struct that contains list of certifications.
 	Certifications = []Certification{
 		{
+			Title:         "Google IT Support Specialization",
+			CredentialId:  "EWNAXLA6YJRA",
+			CredentialUrl: "https://www.coursera.org/account/accomplishments/specialization/EWNAXLA6YJRA",
+		},
+		{
 			Title:         "AWS Cloud Technical Essentials",
 			CredentialId:  "HSKQ9QM64B5A",
 			CredentialUrl: "https://www.coursera.org/account/accomplishments/certificate/HSKQ9QM64B5A",
@@ -157,6 +194,11 @@ var (
 			Title:         "Cloud Practitioner Essentials (Belajar Dasar AWS Cloud)",
 			CredentialId:  "JLX1L9V96X72",
 			CredentialUrl: "https://www.dicoding.com/certificates/JLX1LVQ32X72",
+		},
+		{
+			Title:         "Menjadi Back-End Developer Expert",
+			CredentialId:  "QLZ944E7DP5D",
+			CredentialUrl: "https://www.dicoding.com/certificates/QLZ944E7DP5D",
 		},
 		{
 			Title:         "Belajar Fundamental Aplikasi Back-End",
@@ -182,11 +224,6 @@ var (
 			Title:         "Back-End Master Class [Golang + Postgres + Kubernetes + gRPC]",
 			CredentialId:  "UC-69e6c3c2-7a66-4744-8b60-c47ea0702897",
 			CredentialUrl: "https://www.udemy.com/certificate/UC-69e6c3c2-7a66-4744-8b60-c47ea0702897",
-		},
-		{
-			Title:         "Introduction to IoT",
-			CredentialId:  "cdf42e7d-a405-47b6-aa5c-b8b66f360f37",
-			CredentialUrl: "https://www.credly.com/badges/cdf42e7d-a405-47b6-aa5c-b8b66f360f37",
 		},
 	}
 
@@ -224,8 +261,9 @@ var (
 		"docker",
 		"digital-ocean",
 		"aws",
+		"google",
 	}
 
 	// Workflows is a slice of string that contains list of software development workflows.
-	Workflows = []string{"Clean Architecture", "Test-Driven Development", "Data-Driven Testing"}
+	Workflows = []string{"Clean Architecture", "Test-Driven Development", "CI/CD Pipeline", "Agile Methodology"}
 )
