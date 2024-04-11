@@ -102,11 +102,16 @@ func blogs(cache store.Cache, blogUsername string) http.Handler {
 		client := &http.Client{Timeout: 5 * time.Second}
 
 		resp, err := client.Do(req)
-		if resp.StatusCode != http.StatusOK && err != nil {
+		if err != nil {
 			errorFetch(w, r, err)
 			return
 		}
 		defer resp.Body.Close()
+
+		if resp.StatusCode != http.StatusOK {
+			err := fmt.Errorf("failed to fetch blogs: %s", resp.Status)
+			errorFetch(w, r, err)
+		}
 
 		blogs, err := decode[[]model.Blog](resp.Body)
 		if err != nil {
@@ -186,11 +191,16 @@ func projects(cache store.Cache, githubUsername, githubAccessToken string) http.
 		client := &http.Client{Timeout: 5 * time.Second}
 
 		resp, err := client.Do(req)
-		if resp.StatusCode != http.StatusOK && err != nil {
+		if err != nil {
 			errorFetch(w, r, err)
 			return
 		}
 		defer resp.Body.Close()
+
+		if resp.StatusCode != http.StatusOK {
+			err := fmt.Errorf("failed to fetch projects: %s", resp.Status)
+			errorFetch(w, r, err)
+		}
 
 		projects, err := decode[model.Project](resp.Body)
 		if err != nil {
