@@ -102,7 +102,7 @@ func blogs(cache store.Cache, blogUsername string) http.Handler {
 		client := &http.Client{Timeout: 5 * time.Second}
 
 		resp, err := client.Do(req)
-		if resp.StatusCode != http.StatusOK && err != nil {
+		if err != nil {
 			errorFetch(w, r, err)
 			return
 		}
@@ -186,7 +186,7 @@ func projects(cache store.Cache, githubUsername, githubAccessToken string) http.
 		client := &http.Client{Timeout: 5 * time.Second}
 
 		resp, err := client.Do(req)
-		if resp.StatusCode != http.StatusOK && err != nil {
+		if err != nil {
 			errorFetch(w, r, err)
 			return
 		}
