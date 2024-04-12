@@ -7,157 +7,159 @@ import (
 )
 
 templ Resume(socials []model.Social, educations []model.Education, works []model.Experience, volunteers []model.Experience, awards []model.Award, certs []model.Certification, skills []string, workflows []string) {
-	<!-- Profile -->
-	<section id="profile">
-		<hgroup>
-			<h1><strong>Bagas Hizbullah</strong></h1>
-			<ul id="info">
-				<li class={ nonList() }>
-					<i class={ "fa-solid", "fa-location-dot", primaryColor() }></i>
-					West Java, Indonesia
-				</li>
-				<li class={ nonList() }>
-					<a href="mailto:bagash.office@simplelogin.com">
-						<i class={ "fa-solid", "fa-envelope", primaryColor() }></i>
-						bagash.office@simplelogin.com
-					</a>
-				</li>
-			</ul>
-		</hgroup>
-		<p class={ textJustify() }>
-			Information Systems student at <a href="https://ub.ac.id" target="_blank">Brawijaya University</a>.
-			Specializing in web development, with a primary focus on back-end development. Practical experience
-			includes working on various back-end projects utilizing technologies such as Go, Node.js, and PHP
-			with Laravel web framework. Proficient in Linux system administration and knowledgeable in cloud
-			computing, with hands-on experience using AWS, GCP, and other cloud providers.
-		</p>
-		<!-- Socials -->
-		<div id="socials">
-			for _, social := range socials {
-				@SocialIcon(social)
-			}
-		</div>
-	</section>
-	<hr/>
-	<!-- Education -->
-	<section id="education">
-		<h2><strong>Education</strong></h2>
-		for _, edu := range educations {
-			@EduCard(edu)
-		}
-	</section>
-	<hr/>
-	<!-- Work Experience -->
-	<section id="work">
-		<h2><strong>Work Experience</strong></h2>
-		for _, work := range works {
-			@ExpCard(work)
-		}
-	</section>
-	<hr/>
-	<!-- Volunteer Experience -->
-	<section id="volunteer">
-		<h2><strong>Volunteer Work</strong></h2>
-		for _, vol := range volunteers {
-			@ExpCard(vol)
-		}
-	</section>
-	<hr/>
-	<!-- Skills -->
-	<section id="skills">
-		<h2><strong>Skills</strong></h2>
-		<h3>Programming Languages & Tools</h3>
-		@SkillsCard(skills)
-		<h3>Workflows</h3>
-		<div id="workflows">
-			for _, workflow := range workflows {
-				<ul class="fa-ul">
+	@Index() {
+		<!-- Profile -->
+		<section id="profile">
+			<hgroup>
+				<h1><strong>Bagas Hizbullah</strong></h1>
+				<ul id="info">
 					<li class={ nonList() }>
-						<span class="fa-li">
-							<i class={ "fas", "fa-check", primaryColor() }></i>
-						</span>
-						{ workflow }
+						<i class={ "fa-solid", "fa-location-dot", primaryColor() }></i>
+						West Java, Indonesia
+					</li>
+					<li class={ nonList() }>
+						<a href="mailto:bagash.office@simplelogin.com">
+							<i class={ "fa-solid", "fa-envelope", primaryColor() }></i>
+							bagash.office@simplelogin.com
+						</a>
 					</li>
 				</ul>
+			</hgroup>
+			<p class={ textJustify() }>
+				Information Systems student at <a href="https://ub.ac.id" target="_blank">Brawijaya University</a>.
+				Specializing in web development, with a primary focus on back-end development. Practical experience
+				includes working on various back-end projects utilizing technologies such as Go, Node.js, and PHP
+				with Laravel web framework. Proficient in Linux system administration and knowledgeable in cloud
+				computing, with hands-on experience using AWS, GCP, and other cloud providers.
+			</p>
+			<!-- Socials -->
+			<div id="socials">
+				@SocialIcon(socials)
+			</div>
+		</section>
+		<hr/>
+		<!-- Education -->
+		<section id="education">
+			<h2><strong>Education</strong></h2>
+			for _, edu := range educations {
+				@EduCard(edu)
 			}
-		</div>
-	</section>
-	<hr/>
-	<!-- Interests -->
-	<section id="interests">
-		<h2><strong>Interests</strong></h2>
-		<div class={ textJustify() }>
-			<p>
-				Besides being a busy information systems student, I enjoy using my free time to stay informed about the latest developments of Free and Open Source Software (FOSS) projects, with a particular interest in the Linux Desktop ecosystem. I participate in online forums to discuss these topics with others and share my thoughts. I also enjoy writing blog posts on subjects that interest me. Additionally, I constantly seek out opportunities to learn and improve my skills through courses and workshops I stumble upon online.
-			</p>
-			<p>
-				I am currently learning back-end web development, cloud computing, and software architecture. These skills are important for creating effective, efficient, and secure systems. Having these knowledge will also allow me to understand how to create and implement more complex systems.
-			</p>
-		</div>
-	</section>
-	<hr/>
-	<!-- Awards & Certifications -->
-	<section id="awards-certifications">
-		<h2><strong>Awards & Certifications</strong></h2>
-		<div id="awards">
-			<h3>Awards</h3>
-			<ul class="fa-ul">
-				for _, award := range awards {
-					<li class={ nonList() }>
-						<hgroup>
-							<p>
-								<span class="fa-li"><i class={ "fas", "fa-trophy", primaryColor() }></i></span>
-								<strong>
-									{ strconv.Itoa(award.Place) }<sup>{ award.Suffix }</sup> Place &bull; { award.Host } &bull; { award.Competition }
-								</strong>
-							</p>
-							<p>
-								<em>({ award.Translation })</em>
-							</p>
-						</hgroup>
-					</li>
+		</section>
+		<hr/>
+		<!-- Work Experience -->
+		<section id="work">
+			<h2><strong>Work Experience</strong></h2>
+			for _, work := range works {
+				@ExpCard(work)
+			}
+		</section>
+		<hr/>
+		<!-- Volunteer Experience -->
+		<section id="volunteer">
+			<h2><strong>Volunteer Work</strong></h2>
+			for _, vol := range volunteers {
+				@ExpCard(vol)
+			}
+		</section>
+		<hr/>
+		<!-- Skills -->
+		<section id="skills">
+			<h2><strong>Skills</strong></h2>
+			<h3>Programming Languages & Tools</h3>
+			@SkillsCard(skills)
+			<h3>Workflows</h3>
+			<div id="workflows">
+				for _, workflow := range workflows {
+					<ul class="fa-ul">
+						<li class={ nonList() }>
+							<span class="fa-li">
+								<i class={ "fas", "fa-check", primaryColor() }></i>
+							</span>
+							{ workflow }
+						</li>
+					</ul>
 				}
-			</ul>
-		</div>
-		<div id="certificates">
-			<h3>Certificates</h3>
-			<ul class="fa-ul">
-				for _, cert := range certs {
-					<li class={ nonList() }>
-						<hgroup>
-							<p>
-								<span class="fa-li"><i class={ "fas", "fa-certificate", primaryColor() }></i></span>
-								<strong>{ cert.Title }</strong>
-							</p>
-							<em>
-								Credential ID: <a target="_blank" href={ templ.URL(cert.CredentialUrl) }>{ cert.CredentialId }</a>
-							</em>
-						</hgroup>
-					</li>
-				}
-			</ul>
-		</div>
-	</section>
-	<style>
-	hr {
-		border: 0.05rem solid;
-		opacity: 0.2;
-		margin-top: 2rem;
-		margin-bottom: 2rem;
-	}
+			</div>
+		</section>
+		<hr/>
+		<!-- Interests -->
+		<section id="interests">
+			<h2><strong>Interests</strong></h2>
+			<div class={ textJustify() }>
+				<p>
+					Besides being a busy information systems student, I enjoy using my free time to stay informed about the latest developments of Free and Open Source Software (FOSS) projects, with a particular interest in the Linux Desktop ecosystem. I participate in online forums to discuss these topics with others and share my thoughts. I also enjoy writing blog posts on subjects that interest me. Additionally, I constantly seek out opportunities to learn and improve my skills through courses and workshops I stumble upon online.
+				</p>
+				<p>
+					I am currently learning back-end web development, cloud computing, and software architecture. These skills are important for creating effective, efficient, and secure systems. Having these knowledge will also allow me to understand how to create and implement more complex systems.
+				</p>
+			</div>
+		</section>
+		<hr/>
+		<!-- Awards & Certifications -->
+		<section id="awards-certifications">
+			<h2><strong>Awards & Certifications</strong></h2>
+			<div id="awards">
+				<h3>Awards</h3>
+				<ul class="fa-ul">
+					for _, award := range awards {
+						<li class={ nonList() }>
+							<hgroup>
+								<p>
+									<span class="fa-li"><i class={ "fas", "fa-trophy", primaryColor() }></i></span>
+									<strong>
+										{ strconv.Itoa(award.Place) }<sup>{ award.Suffix }</sup> Place &bull; { award.Host } &bull; { award.Competition }
+									</strong>
+								</p>
+								<p>
+									<em>({ award.Translation })</em>
+								</p>
+							</hgroup>
+						</li>
+					}
+				</ul>
+			</div>
+			<div id="certificates">
+				<h3>Certificates</h3>
+				<ul class="fa-ul">
+					for _, cert := range certs {
+						<li class={ nonList() }>
+							<hgroup>
+								<p>
+									<span class="fa-li"><i class={ "fas", "fa-certificate", primaryColor() }></i></span>
+									<strong>{ cert.Title }</strong>
+								</p>
+								<em>
+									Credential ID: <a target="_blank" href={ templ.URL(cert.CredentialUrl) }>{ cert.CredentialId }</a>
+								</em>
+							</hgroup>
+						</li>
+					}
+				</ul>
+			</div>
+		</section>
+		<style>
+			hr {
+				border: 0.05rem solid;
+				opacity: 0.2;
+				margin-top: 2rem;
+				margin-bottom: 2rem;
+			}
 
-	#info {
-		margin-top: 1rem;
-		margin-bottom: 1rem;
-		padding-left: 0rem;
+			#info {
+				margin-top: 1rem;
+				margin-bottom: 1rem;
+				padding-left: 0rem;
+			}
+		</style>
 	}
-	</style>
 }
 
-templ SocialIcon(social model.Social) {
-	<a class="social-icon" role="button" target="_blank" rel={ social.Rel } href={ templ.URL(social.Href) } aria-label={ social.Name }>
-		<i class={ "fab", concatClass(social.FaClass) }></i>
-	</a>
+templ SocialIcon(socials []model.Social) {
+	for _, social := range socials {
+		<a class="social-icon" role="button" target="_blank" rel={ social.Rel } href={ templ.URL(social.Href) } aria-label={ social.Name }>
+			<i class={ "fab", concatClass(social.FaClass) }></i>
+		</a>
+	}
 	<style>
 	.social-icon {
 		display: inline-flex;
@@ -170,16 +172,8 @@ templ SocialIcon(social model.Social) {
 		border-radius: 100%;
 		font-size: 1.65rem;
 		padding: 0.5rem;
-		margin-right: 0.5rem;
-		margin-left: 0.5rem;
-	}
-
-	.social-icon:first-child {
-		margin-left: 0;
-	}
-
-	.social-icon:last-child {
-		margin-right: 0;
+		margin-right: 1rem;
+		margin-top: 1rem;
 	}
 
 	.social-icon:hover {

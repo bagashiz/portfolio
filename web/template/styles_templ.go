@@ -79,8 +79,9 @@ func badge() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
 	templ_7745c5c3_CSSBuilder.WriteString(`align-items:center;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`font-weight:bold;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`margin:0.25rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`padding:0.25rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`margin-bottom:0.5rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`margin-right:0.5rem;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`badge`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,

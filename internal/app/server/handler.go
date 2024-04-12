@@ -36,7 +36,7 @@ func index() http.Handler {
 			model.Workflows,
 		)
 
-		_ = template.Index(resumeTempl).Render(r.Context(), w)
+		_ = resumeTempl.Render(r.Context(), w)
 	})
 }
 
