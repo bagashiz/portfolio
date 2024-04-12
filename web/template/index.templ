@@ -1,6 +1,6 @@
 package template
 
-templ Index() {
+templ Index(content templ.Component) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -19,7 +19,7 @@ templ Index() {
 		<body>
 			@Header()
 			<main id="content" class="container">
-				{ children... }
+				@content
 			</main>
 			@Footer()
 		</body>
