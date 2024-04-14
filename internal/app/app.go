@@ -38,11 +38,12 @@ func Run(ctx context.Context, getEnv func(string) string) error {
 	httpServer := server.NewServer(config, cache)
 
 	go func() {
-		fmt.Printf("listening on %s\n", httpServer.Addr)
 		if err := httpServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			fmt.Printf("error listening and serving: %s\n", err)
 		}
 	}()
+
+	fmt.Printf("listening on %s\n", httpServer.Addr)
 
 	var wg sync.WaitGroup
 	wg.Add(1)
@@ -50,11 +51,15 @@ func Run(ctx context.Context, getEnv func(string) string) error {
 	go func() {
 		defer wg.Done()
 		<-ctx.Done()
-		shutdownCtx, cancel := context.WithTimeout(ctx, 10*time.Second)
+		shutdownCtx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 		defer cancel()
+
 		if err := httpServer.Shutdown(shutdownCtx); err != nil {
-			fmt.Printf("error shutting down http server: %s\n", err)
+			fmt.Printf("error shutting down server: %s\n", err)
+			return
 		}
+
+		fmt.Println("server shut down gracefully")
 	}()
 
 	wg.Wait()
