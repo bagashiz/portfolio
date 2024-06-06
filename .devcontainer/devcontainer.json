@@ -26,6 +26,7 @@
 		"vscode": {
 			"extensions": [
 				"golang.go",
+				"tooltitudeteam.tooltitude",
 				"a-h.templ",
 				"otovo-oss.htmx-tags",
 				"waderyan.gitblame",

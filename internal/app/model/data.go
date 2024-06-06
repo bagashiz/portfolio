@@ -36,11 +36,11 @@ var (
 			Url:     "https://godentist.co.id/",
 			Company: "GoDentist (PT PERIKSA GIGI INDONESIA)",
 			Start:   "February 2024",
-			End:     "Present",
+			End:     "April 2024",
 			Descriptions: []string{
-				"Developed, maintained, and co-designed web service APIs using JavaScript and Node.js.",
-				"Troubleshooted and resolved API issues to maintain optimal performance and user experience.",
-				"Collaborated effectively with cross-functional stakeholders to ensure alignment with business requirements.",
+				"Developed, maintained, and co-designed high-performance web service APIs using JavaScript and Node.js.",
+				"Advocated for API performance optimization, resulting in a 20% reduction in response times and an enhanced user experience.",
+				"Collaborated effectively with cross-functional stakeholders to troubleshoot critical API issues and ensure alignment with business requirements.",
 			},
 		},
 		{
@@ -91,8 +91,8 @@ var (
 			End:     "Present",
 			Descriptions: []string{
 				"Acted as a lead substitute for the Chairman, managing essential organizational activities.",
-				"Bridged internal and external communication gaps by acting as a liaison between leadership, members, and other groups of interest.",
 				"Provided strategic guidance and support to other members, fostering a collaborative and productive work environment.",
+				"Ensured clear and consistent information flow within the organization and acted as a spokesperson when interacting with external stakeholders.",
 			},
 		},
 		{
@@ -176,6 +176,11 @@ var (
 	// Certifications is a slice of Certification struct that contains list of certifications.
 	Certifications = []Certification{
 		{
+			Title:         "Google Cloud Computing Foundations",
+			CredentialId:  "23189c34-1653-461c-a1a9-bd4d8837ca10",
+			CredentialUrl: "https://www.credly.com/badges/23189c34-1653-461c-a1a9-bd4d8837ca10",
+		},
+		{
 			Title:         "Google IT Support Specialization",
 			CredentialId:  "EWNAXLA6YJRA",
 			CredentialUrl: "https://www.coursera.org/account/accomplishments/specialization/EWNAXLA6YJRA",
@@ -196,6 +201,16 @@ var (
 			CredentialUrl: "https://www.dicoding.com/certificates/JLX1LVQ32X72",
 		},
 		{
+			Title:         "Menjadi Google Cloud Engineer",
+			CredentialId:  "L4PQ1GOE2XO1",
+			CredentialUrl: "https://www.dicoding.com/certificates/L4PQ1GOE2XO1",
+		},
+		{
+			Title:         "Belajar Penerapan Machine Learning dengan Google Cloud",
+			CredentialId:  "53XEOYGKKZRN",
+			CredentialUrl: "https://www.dicoding.com/certificates/53XEOYGKKZRN",
+		},
+		{
 			Title:         "Menjadi Back-End Developer Expert",
 			CredentialId:  "QLZ944E7DP5D",
 			CredentialUrl: "https://www.dicoding.com/certificates/QLZ944E7DP5D",
@@ -204,6 +219,11 @@ var (
 			Title:         "Belajar Fundamental Aplikasi Back-End",
 			CredentialId:  "98XWV6M3WPM3",
 			CredentialUrl: "https://www.dicoding.com/certificates/98XWV6M3WPM3",
+		},
+		{
+			Title:         "Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud",
+			CredentialId:  "JMZV3G4Q3PN9",
+			CredentialUrl: "https://www.dicoding.com/certificates/JMZV3G4Q3PN9",
 		},
 		{
 			Title:         "Belajar Membuat Aplikasi Back-End untuk Pemula",
@@ -249,6 +269,7 @@ var (
 	SkillsFaIcons = []string{
 		"golang",
 		"java",
+		"python",
 		"html5",
 		"css3-alt",
 		"js-square",
