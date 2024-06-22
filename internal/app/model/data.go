@@ -36,11 +36,11 @@ var (
 			Url:     "https://godentist.co.id/",
 			Company: "GoDentist (PT PERIKSA GIGI INDONESIA)",
 			Start:   "February 2024",
-			End:     "Present",
+			End:     "April 2024",
 			Descriptions: []string{
-				"Developed, maintained, and co-designed web service APIs using JavaScript and Node.js.",
-				"Troubleshooted and resolved API issues to maintain optimal performance and user experience.",
-				"Collaborated effectively with cross-functional stakeholders to ensure alignment with business requirements.",
+				"Developed high-performance web service APIs using JavaScript and Node.js, resulting in a 20% increase in response time.",
+				"Advocated for API performance optimization, resulting in a 20% reduction in response times and improving user experience.",
+				"Collaborated effectively with cross-functional stakeholders to troubleshoot critical API issues and ensure alignment with business requirements.",
 			},
 		},
 		{
@@ -90,9 +90,9 @@ var (
 			Start:   "February 2024",
 			End:     "Present",
 			Descriptions: []string{
-				"Acted as a lead substitute for the Chairman, managing essential organizational activities.",
-				"Bridged internal and external communication gaps by acting as a liaison between leadership, members, and other groups of interest.",
-				"Provided strategic guidance and support to other members, fostering a collaborative and productive work environment.",
+				"Managed essential organizational activities as a lead substitute for the Chairman.",
+				"Guided and supported other members to enhance collaboration and productivity, resulting in a 20% increase in project completion rate.",
+				"Ensured consistent information flow within the organization, serving as a spokesperson for external stakeholders.",
 			},
 		},
 		{
@@ -102,21 +102,9 @@ var (
 			Start:   "October 2023",
 			End:     "Present",
 			Descriptions: []string{
-				"Developed and shared learning materials on web and cloud development to more than 100 members by collaborating with fellow mentors.",
-				"Provided support and guidance to help members learn web and cloud development through mentorship and feedback.",
-				"Delivered insights on web and cloud development as a workshop speaker to all members.",
-			},
-		},
-		{
-			Job:     "Chief of Public Relations Division",
-			Url:     "https://porosfilkom.ub.ac.id",
-			Company: "POROS Organization of Open Source",
-			Start:   "February 2023",
-			End:     "January 2024",
-			Descriptions: []string{
-				"Increased participation and support for organization activities by establishing and strengthening relationships with external groups of interest.",
-				"Improved brand recognition and progressed organizational objectives by leveraging digital platforms.",
-				"Increased event engagement and promotion up to 15% by monitoring the organization's social media presence.",
+				"Developed and shared learning materials on web and cloud development with more than 100 members, resulting in increased knowledge and skills among the participants.",
+				"Guided members in learning web and cloud development through mentorship and feedback, resulting in a 30% increase in project completion rates.",
+				"Delivered insights on web and cloud development as a workshop speaker to over 50 members, resulting in a 20% increase in participant engagement.",
 			},
 		},
 		{
@@ -126,21 +114,9 @@ var (
 			Start:   "May 2023",
 			End:     "October 2023",
 			Descriptions: []string{
-				"Packaged and released 2 back-end web API services efficiently by managing CI/CD pipeline using GitHub Actions and GitHub Container Registry.",
-				"Optimized scalability and enhanced reliability of the web API services deployment by utilizing Docker containers and Nginx web proxy.",
-				"Ensured uninterrupted performance of the web by managing back-end and front-end server maintenance.",
-			},
-		},
-		{
-			Job:     "Staff of Public Relations Division",
-			Url:     "https://porosfilkom.ub.ac.id",
-			Company: "POROS Organization of Open Source",
-			Start:   "February 2022",
-			End:     "January 2023",
-			Descriptions: []string{
-				"Increased participation and support for organization activities by establishing and strengthening relationships with external groups of interest.",
-				"Improved brand recognition and progressed organizational objectives by leveraging digital platforms.",
-				"Increased event engagement and promotion up to 10% by monitoring the organization's social media presence.",
+				"Managed the packaging and release of 2 back-end web API services through efficient CI/CD pipeline management using GitHub Actions and GitHub Container Registry, resulting in a 20% increase in deployment speed.",
+				"Optimized scalability and enhanced reliability of the web API services deployment through the utilization of Docker containers and Nginx web proxy, resulting in a 30% increase in overall system performance.",
+				"Managed back-end and front-end server maintenance to ensure uninterrupted performance of the website.",
 			},
 		},
 	}
@@ -176,6 +152,11 @@ var (
 	// Certifications is a slice of Certification struct that contains list of certifications.
 	Certifications = []Certification{
 		{
+			Title:         "Google Cloud Computing Foundations",
+			CredentialId:  "23189c34-1653-461c-a1a9-bd4d8837ca10",
+			CredentialUrl: "https://www.credly.com/badges/23189c34-1653-461c-a1a9-bd4d8837ca10",
+		},
+		{
 			Title:         "Google IT Support Specialization",
 			CredentialId:  "EWNAXLA6YJRA",
 			CredentialUrl: "https://www.coursera.org/account/accomplishments/specialization/EWNAXLA6YJRA",
@@ -196,6 +177,16 @@ var (
 			CredentialUrl: "https://www.dicoding.com/certificates/JLX1LVQ32X72",
 		},
 		{
+			Title:         "Menjadi Google Cloud Engineer",
+			CredentialId:  "L4PQ1GOE2XO1",
+			CredentialUrl: "https://www.dicoding.com/certificates/L4PQ1GOE2XO1",
+		},
+		{
+			Title:         "Belajar Penerapan Machine Learning dengan Google Cloud",
+			CredentialId:  "53XEOYGKKZRN",
+			CredentialUrl: "https://www.dicoding.com/certificates/53XEOYGKKZRN",
+		},
+		{
 			Title:         "Menjadi Back-End Developer Expert",
 			CredentialId:  "QLZ944E7DP5D",
 			CredentialUrl: "https://www.dicoding.com/certificates/QLZ944E7DP5D",
@@ -204,6 +195,11 @@ var (
 			Title:         "Belajar Fundamental Aplikasi Back-End",
 			CredentialId:  "98XWV6M3WPM3",
 			CredentialUrl: "https://www.dicoding.com/certificates/98XWV6M3WPM3",
+		},
+		{
+			Title:         "Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud",
+			CredentialId:  "JMZV3G4Q3PN9",
+			CredentialUrl: "https://www.dicoding.com/certificates/JMZV3G4Q3PN9",
 		},
 		{
 			Title:         "Belajar Membuat Aplikasi Back-End untuk Pemula",
@@ -249,6 +245,7 @@ var (
 	SkillsFaIcons = []string{
 		"golang",
 		"java",
+		"python",
 		"html5",
 		"css3-alt",
 		"js-square",

@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/bagashiz/portfolio/internal/app/cache"
 	"github.com/bagashiz/portfolio/internal/app/server"
-	"github.com/bagashiz/portfolio/internal/app/store"
 )
 
 /**
@@ -27,12 +27,25 @@ func Run(ctx context.Context, getEnv func(string) string) error {
 		"DEV_USERNAME":        getEnv("DEV_USERNAME"),
 		"GITHUB_USERNAME":     getEnv("GITHUB_USERNAME"),
 		"GITHUB_ACCESS_TOKEN": getEnv("GITHUB_ACCESS_TOKEN"),
-		"REDIS_URL":           getEnv("REDIS_URL"),
+		"CACHE_TYPE":          getEnv("CACHE_TYPE"),
+		"CACHE_URL":           getEnv("CACHE_URL"),
+		"CACHE_TTL":           getEnv("CACHE_TTL"),
 	}
 
-	cache, err := store.NewRedis(ctx, config["REDIS_URL"])
+	ttl, err := time.ParseDuration(config["CACHE_TTL"])
 	if err != nil {
-		return fmt.Errorf("error creating cache: %w", err)
+		return err
+	}
+
+	fmt.Printf("using %s as cache with TTL of %s\n", config["CACHE_TYPE"], ttl)
+
+	cache, err := cache.NewCache(ctx, cache.Config{
+		Type: config["CACHE_TYPE"],
+		URL:  config["CACHE_URL"],
+		TTL:  ttl,
+	})
+	if err != nil {
+		return err
 	}
 
 	httpServer := server.NewServer(config, cache)

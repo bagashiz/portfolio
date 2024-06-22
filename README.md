@@ -10,7 +10,7 @@ There is an old stack version of the site in the `sveltekit` branch. The old sta
 
 ## Demo
 
-Check out the live demo at [bagashiz.me](https://bagashiz.me)!
+Check out the live demo at [bagashiz.xyz](https://bagashiz.xyz)!
 
 ## Dependencies
 
