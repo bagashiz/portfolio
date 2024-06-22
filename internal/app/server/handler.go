@@ -9,8 +9,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/bagashiz/portfolio/internal/app/cache"
 	"github.com/bagashiz/portfolio/internal/app/model"
-	"github.com/bagashiz/portfolio/internal/app/store"
 	"github.com/bagashiz/portfolio/web"
 	"github.com/bagashiz/portfolio/web/template"
 )
@@ -73,7 +73,7 @@ func projectPage() http.Handler {
 }
 
 // The blogs function is the handler for fetching the blog posts and rendering them.
-func blogs(cache store.Cache, blogUsername string) http.Handler {
+func blogs(cache cache.Cache, blogUsername string) http.Handler {
 	blogUrl := fmt.Sprintf("https://dev.to/api/articles?username=%s", blogUsername)
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -119,7 +119,13 @@ func blogs(cache store.Cache, blogUsername string) http.Handler {
 			return
 		}
 
-		err = cache.SetCache(r.Context(), "blogs", blogs, 1*time.Hour)
+		blogsJSON, err := json.Marshal(blogs)
+		if err != nil {
+			errorFetch(w, r, err)
+			return
+		}
+
+		err = cache.SetCache(r.Context(), "blogs", blogsJSON)
 		if err != nil {
 			errorFetch(w, r, err)
 			return
@@ -130,7 +136,7 @@ func blogs(cache store.Cache, blogUsername string) http.Handler {
 }
 
 // The projects function is the handler for fetching the pinned GitHub projects and rendering them.
-func projects(cache store.Cache, githubUsername, githubAccessToken string) http.Handler {
+func projects(cache cache.Cache, githubUsername, githubAccessToken string) http.Handler {
 	projectUrl := "https://api.github.com/graphql"
 	query := fmt.Sprintf(`{
 		user(login: "%s") {
@@ -208,7 +214,13 @@ func projects(cache store.Cache, githubUsername, githubAccessToken string) http.
 			return
 		}
 
-		err = cache.SetCache(r.Context(), "projects", projects, 1*time.Hour)
+		projectsJSON, err := json.Marshal(projects)
+		if err != nil {
+			errorFetch(w, r, err)
+			return
+		}
+
+		err = cache.SetCache(r.Context(), "projects", projectsJSON)
 		if err != nil {
 			errorFetch(w, r, err)
 			return
