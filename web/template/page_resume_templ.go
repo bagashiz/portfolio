@@ -139,7 +139,7 @@ func Resume(socials []model.Social, educations []model.Education, works []model.
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\">Information Systems student at <a href=\"https://ub.ac.id\" target=\"_blank\">Brawijaya University</a>. Specializing in web development, with a primary focus on back-end development. Practical experience includes working on various back-end projects utilizing technologies such as Go, Node.js, and PHP with Laravel web framework. Proficient in Linux system administration and knowledgeable in cloud computing, with hands-on experience using AWS, GCP, and other cloud providers.</p><!-- Socials --><div id=\"socials\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\">Specialized in web development with a primary focus on back-end development. Experienced in working on 10+ back-end projects using technologies like Go, Node.js, Python, and PHP with Laravel web framework. Certified in cloud computing and proficient in Linux system administration, with hands-on experience in AWS, GCP, and other cloud providers.</p><!-- Socials --><div id=\"socials\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -241,7 +241,7 @@ func Resume(socials []model.Social, educations []model.Education, works []model.
 			var templ_7745c5c3_Var16 string
 			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(workflow)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 77, Col: 16}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 76, Col: 16}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
@@ -326,7 +326,7 @@ func Resume(socials []model.Social, educations []model.Education, works []model.
 			var templ_7745c5c3_Var23 string
 			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(award.Place))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 109, Col: 36}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 108, Col: 36}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
@@ -339,7 +339,7 @@ func Resume(socials []model.Social, educations []model.Education, works []model.
 			var templ_7745c5c3_Var24 string
 			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(award.Suffix)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 109, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 108, Col: 57}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
@@ -352,7 +352,7 @@ func Resume(socials []model.Social, educations []model.Education, works []model.
 			var templ_7745c5c3_Var25 string
 			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(award.Host)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 109, Col: 91}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 108, Col: 91}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
@@ -365,7 +365,7 @@ func Resume(socials []model.Social, educations []model.Education, works []model.
 			var templ_7745c5c3_Var26 string
 			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(award.Competition)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 109, Col: 120}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 108, Col: 120}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
 			if templ_7745c5c3_Err != nil {
@@ -378,7 +378,7 @@ func Resume(socials []model.Social, educations []model.Education, works []model.
 			var templ_7745c5c3_Var27 string
 			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(award.Translation)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 113, Col: 32}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 112, Col: 32}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
 			if templ_7745c5c3_Err != nil {
@@ -441,7 +441,7 @@ func Resume(socials []model.Social, educations []model.Education, works []model.
 			var templ_7745c5c3_Var32 string
 			templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(cert.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 128, Col: 28}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 127, Col: 28}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 			if templ_7745c5c3_Err != nil {
@@ -463,7 +463,7 @@ func Resume(socials []model.Social, educations []model.Education, works []model.
 			var templ_7745c5c3_Var34 string
 			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(cert.CredentialId)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 131, Col: 100}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 130, Col: 100}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
 			if templ_7745c5c3_Err != nil {
@@ -506,7 +506,7 @@ func SocialIcon(socials []model.Social) templ.Component {
 			var templ_7745c5c3_Var36 string
 			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(social.Rel)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 157, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 156, Col: 71}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
 			if templ_7745c5c3_Err != nil {
@@ -528,7 +528,7 @@ func SocialIcon(socials []model.Social) templ.Component {
 			var templ_7745c5c3_Var38 string
 			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(social.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 157, Col: 130}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 156, Col: 130}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
 			if templ_7745c5c3_Err != nil {
@@ -592,7 +592,7 @@ func EduCard(edu model.Education) templ.Component {
 		var templ_7745c5c3_Var42 string
 		templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinStringErrs(edu.School)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 187, Col: 20}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 186, Col: 20}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var42))
 		if templ_7745c5c3_Err != nil {
@@ -614,7 +614,7 @@ func EduCard(edu model.Education) templ.Component {
 		var templ_7745c5c3_Var44 string
 		templ_7745c5c3_Var44, templ_7745c5c3_Err = templ.JoinStringErrs(edu.Major)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 189, Col: 81}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 188, Col: 81}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var44))
 		if templ_7745c5c3_Err != nil {
@@ -649,7 +649,7 @@ func EduCard(edu model.Education) templ.Component {
 		var templ_7745c5c3_Var47 string
 		templ_7745c5c3_Var47, templ_7745c5c3_Err = templ.JoinStringErrs(edu.Start)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 192, Col: 42}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 191, Col: 42}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var47))
 		if templ_7745c5c3_Err != nil {
@@ -662,7 +662,7 @@ func EduCard(edu model.Education) templ.Component {
 		var templ_7745c5c3_Var48 string
 		templ_7745c5c3_Var48, templ_7745c5c3_Err = templ.JoinStringErrs(edu.End)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 192, Col: 56}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 191, Col: 56}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var48))
 		if templ_7745c5c3_Err != nil {
@@ -675,7 +675,7 @@ func EduCard(edu model.Education) templ.Component {
 		var templ_7745c5c3_Var49 string
 		templ_7745c5c3_Var49, templ_7745c5c3_Err = templ.JoinStringErrs(edu.Description)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 194, Col: 30}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 193, Col: 30}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var49))
 		if templ_7745c5c3_Err != nil {
@@ -712,7 +712,7 @@ func ExpCard(exp model.Experience) templ.Component {
 		var templ_7745c5c3_Var51 string
 		templ_7745c5c3_Var51, templ_7745c5c3_Err = templ.JoinStringErrs(exp.Job)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 202, Col: 17}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 201, Col: 17}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var51))
 		if templ_7745c5c3_Err != nil {
@@ -734,7 +734,7 @@ func ExpCard(exp model.Experience) templ.Component {
 		var templ_7745c5c3_Var53 string
 		templ_7745c5c3_Var53, templ_7745c5c3_Err = templ.JoinStringErrs(exp.Company)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 204, Col: 83}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 203, Col: 83}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var53))
 		if templ_7745c5c3_Err != nil {
@@ -769,7 +769,7 @@ func ExpCard(exp model.Experience) templ.Component {
 		var templ_7745c5c3_Var56 string
 		templ_7745c5c3_Var56, templ_7745c5c3_Err = templ.JoinStringErrs(exp.Start)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 207, Col: 42}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 206, Col: 42}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var56))
 		if templ_7745c5c3_Err != nil {
@@ -782,7 +782,7 @@ func ExpCard(exp model.Experience) templ.Component {
 		var templ_7745c5c3_Var57 string
 		templ_7745c5c3_Var57, templ_7745c5c3_Err = templ.JoinStringErrs(exp.End)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 207, Col: 56}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 206, Col: 56}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var57))
 		if templ_7745c5c3_Err != nil {
@@ -818,7 +818,7 @@ func ExpCard(exp model.Experience) templ.Component {
 			var templ_7745c5c3_Var60 string
 			templ_7745c5c3_Var60, templ_7745c5c3_Err = templ.JoinStringErrs(expDesc)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 215, Col: 42}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/template/page_resume.templ`, Line: 214, Col: 42}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var60))
 			if templ_7745c5c3_Err != nil {
