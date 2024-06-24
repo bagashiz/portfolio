@@ -16,17 +16,17 @@ tasks:
     desc: "Install dependencies"
     cmds:
       - go mod download
-      - go install github.com/cosmtrek/air@latest
+      - go install github.com/air-verse/air@latest
       - go install github.com/a-h/templ/cmd/templ@latest
       - npm i -g terser
 
   service:up:
     desc: "Start services"
-    cmd: docker-compose up -d
+    cmd: docker compose up -d
 
   service:down:
     desc: "Stop services"
-    cmd: docker-compose down
+    cmd: docker compose down
 
   cache:cli:
     desc: "Connect to redis using command line interface"
