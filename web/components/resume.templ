@@ -1,9 +1,10 @@
-package template
+package components
 
 import (
 	"strconv"
 
 	"github.com/bagashiz/portfolio/internal/app/model"
+	"github.com/bagashiz/portfolio/web/styles"
 )
 
 templ Resume(socials []model.Social, educations []model.Education, works []model.Experience, volunteers []model.Experience, awards []model.Award, certs []model.Certification, skills []string, workflows []string) {
@@ -12,19 +13,19 @@ templ Resume(socials []model.Social, educations []model.Education, works []model
 		<hgroup>
 			<h1><strong>Bagas Hizbullah</strong></h1>
 			<ul id="info">
-				<li class={ nonList() }>
-					<i class={ "fa-solid", "fa-location-dot", primaryColor() }></i>
+				<li class={ styles.NonList() }>
+					<i class={ "fa-solid", "fa-location-dot", styles.PrimaryColor() }></i>
 					West Java, Indonesia
 				</li>
-				<li class={ nonList() }>
+				<li class={ styles.NonList() }>
 					<a href="mailto:bagash.office@simplelogin.com">
-						<i class={ "fa-solid", "fa-envelope", primaryColor() }></i>
+						<i class={ "fa-solid", "fa-envelope", styles.PrimaryColor() }></i>
 						bagash.office@simplelogin.com
 					</a>
 				</li>
 			</ul>
 		</hgroup>
-		<p class={ textJustify() }>
+		<p class={ styles.TextJustify() }>
 			Specialized in web development with a primary focus on back-end development. Experienced in working on 10+
 			back-end projects using technologies like Go, Node.js, Python, and PHP with Laravel web framework. Certified in cloud
 			computing and proficient in Linux system administration, with hands-on experience in AWS, GCP, and other cloud
@@ -69,9 +70,9 @@ templ Resume(socials []model.Social, educations []model.Education, works []model
 		<div id="workflows">
 			for _, workflow := range workflows {
 				<ul class="fa-ul">
-					<li class={ nonList() }>
+					<li class={ styles.NonList() }>
 						<span class="fa-li">
-							<i class={ "fas", "fa-check", primaryColor() }></i>
+							<i class={ "fas", "fa-check", styles.PrimaryColor() }></i>
 						</span>
 						{ workflow }
 					</li>
@@ -83,7 +84,7 @@ templ Resume(socials []model.Social, educations []model.Education, works []model
 	<!-- Interests -->
 	<section id="interests">
 		<h2><strong>Interests</strong></h2>
-		<div class={ textJustify() }>
+		<div class={ styles.TextJustify() }>
 			<p>
 				Besides being a busy information systems student, I enjoy using my free time to stay informed about the latest developments of Free and Open Source Software (FOSS) projects, with a particular interest in the Linux Desktop ecosystem. I participate in online forums to discuss these topics with others and share my thoughts. I also enjoy writing blog posts on subjects that interest me. Additionally, I constantly seek out opportunities to learn and improve my skills through courses and workshops I stumble upon online.
 			</p>
@@ -100,10 +101,10 @@ templ Resume(socials []model.Social, educations []model.Education, works []model
 			<h3>Awards</h3>
 			<ul class="fa-ul">
 				for _, award := range awards {
-					<li class={ nonList() }>
+					<li class={ styles.NonList() }>
 						<hgroup>
 							<p>
-								<span class="fa-li"><i class={ "fas", "fa-trophy", primaryColor() }></i></span>
+								<span class="fa-li"><i class={ "fas", "fa-trophy", styles.PrimaryColor() }></i></span>
 								<strong>
 									{ strconv.Itoa(award.Place) }<sup>{ award.Suffix }</sup> Place &bull; { award.Host } &bull; { award.Competition }
 								</strong>
@@ -120,10 +121,10 @@ templ Resume(socials []model.Social, educations []model.Education, works []model
 			<h3>Certificates</h3>
 			<ul class="fa-ul">
 				for _, cert := range certs {
-					<li class={ nonList() }>
+					<li class={ styles.NonList() }>
 						<hgroup>
 							<p>
-								<span class="fa-li"><i class={ "fas", "fa-certificate", primaryColor() }></i></span>
+								<span class="fa-li"><i class={ "fas", "fa-certificate", styles.PrimaryColor() }></i></span>
 								<strong>{ cert.Title }</strong>
 							</p>
 							<em>
@@ -147,108 +148,6 @@ templ Resume(socials []model.Social, educations []model.Education, works []model
 			margin-top: 1rem;
 			margin-bottom: 1rem;
 			padding-left: 0rem;
-		}
-	</style>
-}
-
-templ SocialIcon(socials []model.Social) {
-	for _, social := range socials {
-		<a class="social-icon" role="button" target="_blank" rel={ social.Rel } href={ templ.URL(social.Href) } aria-label={ social.Name }>
-			<i class={ "fab", concatClass(social.FaClass) }></i>
-		</a>
-	}
-	<style>
-		.social-icon {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			height: 3.5rem;
-			width: 3.5rem;
-			background-color: var(--pico-primary);
-			color: var(--pico-primary-inverse);
-			border-radius: 100%;
-			font-size: 1.65rem;
-			padding: 0.5rem;
-			margin-right: 1rem;
-			margin-top: 1rem;
-		}
-
-		.social-icon:hover {
-			background-color: var(--pico-primary-hover);
-		}
-	</style>
-}
-
-templ EduCard(edu model.Education) {
-	<article>
-		<header>
-			<hgroup>
-				<h3>{ edu.School }</h3>
-				<h4>
-					<a href={ templ.URL(edu.Url) } target="_blank" class="secondary">{ edu.Major }</a>
-				</h4>
-			</hgroup>
-			<p class={ primaryColor() }>{ edu.Start } - { edu.End }</p>
-		</header>
-		<p><strong>{ edu.Description }</strong></p>
-	</article>
-}
-
-templ ExpCard(exp model.Experience) {
-	<article>
-		<header>
-			<hgroup>
-				<h3>{ exp.Job }</h3>
-				<h4>
-					<a href={ templ.URL(exp.Url) } target="_blank" class="secondary">{ exp.Company }</a>
-				</h4>
-			</hgroup>
-			<p class={ primaryColor() }>{ exp.Start } - { exp.End }</p>
-		</header>
-		<details>
-			<summary>
-				<strong>Job Description</strong>
-			</summary>
-			<ul>
-				for _, expDesc := range exp.Descriptions {
-					<li class={ textJustify() }>{ expDesc }</li>
-				}
-			</ul>
-		</details>
-	</article>
-}
-
-templ SkillsCard(skills []string) {
-	<article>
-		<ul id="tools-list">
-			for _, skill := range skills {
-				<li class="dev-logo">
-					<i class={ "fab", concatClass(skill) }></i>
-				</li>
-			}
-		</ul>
-	</article>
-	<style>
-		#tools-list {
-			padding: 0rem;
-			margin: 0rem;
-			list-style: none;
-			text-align: center;
-		}
-
-		.dev-logo {
-			display: inline-block;
-			font-size: 3.25rem;
-			margin-right: 0.25rem;
-			margin-left: 0.25rem;
-		}
-
-		.dev-logo:first-child {
-			margin-left: 0rem;
-		}
-
-		.dev-logo:last-child {
-			margin-right: 0rem;
 		}
 	</style>
 }

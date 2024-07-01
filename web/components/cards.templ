@@ -1,0 +1,196 @@
+package components
+
+import (
+	"strconv"
+	"github.com/bagashiz/portfolio/internal/app/model"
+	"github.com/bagashiz/portfolio/web/styles"
+)
+
+templ EduCard(edu model.Education) {
+	<article>
+		<header>
+			<hgroup>
+				<h3>{ edu.School }</h3>
+				<h4>
+					<a href={ templ.URL(edu.Url) } target="_blank" class="secondary">{ edu.Major }</a>
+				</h4>
+			</hgroup>
+			<p class={ styles.PrimaryColor() }>{ edu.Start } - { edu.End }</p>
+		</header>
+		<p><strong>{ edu.Description }</strong></p>
+	</article>
+}
+
+templ ExpCard(exp model.Experience) {
+	<article>
+		<header>
+			<hgroup>
+				<h3>{ exp.Job }</h3>
+				<h4>
+					<a href={ templ.URL(exp.Url) } target="_blank" class="secondary">{ exp.Company }</a>
+				</h4>
+			</hgroup>
+			<p class={ styles.PrimaryColor() }>{ exp.Start } - { exp.End }</p>
+		</header>
+		<details>
+			<summary>
+				<strong>Job Description</strong>
+			</summary>
+			<ul>
+				for _, expDesc := range exp.Descriptions {
+					<li class={ styles.TextJustify() }>{ expDesc }</li>
+				}
+			</ul>
+		</details>
+	</article>
+}
+
+templ SkillsCard(skills []string) {
+	<article>
+		<ul id="tools-list">
+			for _, skill := range skills {
+				<li class="dev-logo">
+					<i class={ "fab", styles.ConcatClass(skill) }></i>
+				</li>
+			}
+		</ul>
+	</article>
+	<style>
+		#tools-list {
+			padding: 0rem;
+			margin: 0rem;
+			list-style: none;
+			text-align: center;
+		}
+
+		.dev-logo {
+			display: inline-block;
+			font-size: 3.25rem;
+			margin-right: 0.25rem;
+			margin-left: 0.25rem;
+		}
+
+		.dev-logo:first-child {
+			margin-left: 0rem;
+		}
+
+		.dev-logo:last-child {
+			margin-right: 0rem;
+		}
+	</style>
+}
+
+templ ProjectCard(projects []model.Node) {
+	<section id="projects">
+		<h1 class={ styles.PageTitle() }><strong>Pinned GitHub Projects</strong></h1>
+		<div class="grid">
+			for _, project := range projects {
+				<article>
+					<h2>
+						<a class={ styles.TextDecorNone() } href={ templ.URL(project.Url) } target="_blank">
+							<strong>{ project.Name }</strong>
+						</a>
+					</h2>
+					<div class={ styles.Badges() }>
+						<a href={ templ.URL(project.Url) } class={ styles.Badge(), "outline" } role="button" target="_blank">
+							<i class="fa-solid fa-star"></i>
+							<span>{ strconv.Itoa(project.Stargazers.TotalCount) }</span>
+						</a>
+						<a href={ templ.URL(project.Url) } class={ styles.Badge(), "outline" } role="button" target="_blank">
+							<i class="fa-solid fa-code-fork"></i>
+							<span>{ strconv.Itoa(project.Forks.TotalCount) }</span>
+						</a>
+						<a
+							href={ templ.URL(project.Url) }
+							class={ styles.TextColor(project.PrimaryLanguage.Color), styles.Badge(),"outline" }
+							role="button"
+						>
+							<i class="fa-solid fa-circle"></i>
+							<span>{ project.PrimaryLanguage.Name }</span>
+						</a>
+					</div>
+					<p>{ project.Description }</p>
+				</article>
+			}
+		</div>
+	</section>
+	<style>
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (max-width: 600px) {
+			.grid {
+				grid-template-columns: 1fr; /* single column for smaller screens */
+			}
+		}
+	</style>
+}
+
+templ BlogCard(blogs []model.Blog) {
+	<section id="blogs">
+		<h1 class={ styles.PageTitle() }><strong>Blog Posts</strong></h1>
+		for _, blog := range blogs {
+			<article class={ styles.BlogCard() }>
+				<header class={ styles.NoPadding() }>
+					<img class={ styles.BlogCoverImage() } src={ blog.CoverImage } alt={ blog.Title }/>
+				</header>
+				<a class={ styles.TextDecorNone() } href={ templ.URL(blog.Url) } target="_blank" rel="noopener noreferrer">
+					<hgroup>
+						<h2><strong>{ blog.Title }</strong></h2>
+						<small class={ styles.PrimaryColor() }>Published on { blog.PublishedAt.Format("2 January 2006") }</small>
+					</hgroup>
+				</a>
+				<div class={ styles.Badges() }>
+					<a href={ templ.URL(blog.Url) } class={ styles.Badge(), "outline" } role="button" target="_blank">
+						<i class="fa-solid fa-heart"></i>
+						<span>{ strconv.Itoa(blog.PublicReactionsCount) }</span>
+					</a>
+					<a href={ templ.URL(blog.Url) } class={ styles.Badge(), "outline" } role="button" target="_blank">
+						<i class="fa-solid fa-comment"></i>
+						<span>{ strconv.Itoa(blog.CommentsCount) }</span>
+					</a>
+					<a href={ templ.URL(blog.Url) } class={ styles.Badge(), "outline" } role="button" target="_blank">
+						<i class="fa-solid fa-clock"></i>
+						<span>{ strconv.Itoa(blog.ReadingTimeMinutes) } min.</span>
+					</a>
+				</div>
+				<p>
+					{ blog.Description }
+					<a href={ templ.URL(blog.Url) } class={ styles.TextDecorNone() } target="_blank" rel="noopener noreferrer">
+						Read More >>
+					</a>
+				</p>
+			</article>
+		}
+	</section>
+}
+
+templ SocialIcon(socials []model.Social) {
+	for _, social := range socials {
+		<a class="social-icon" role="button" target="_blank" rel={ social.Rel } href={ templ.URL(social.Href) } aria-label={ social.Name }>
+			<i class={ "fab", styles.ConcatClass(social.FaClass) }></i>
+		</a>
+	}
+	<style>
+		.social-icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			height: 3.5rem;
+			width: 3.5rem;
+			background-color: var(--pico-primary);
+			color: var(--pico-primary-inverse);
+			border-radius: 100%;
+			font-size: 1.65rem;
+			padding: 0.5rem;
+			margin-right: 1rem;
+			margin-top: 1rem;
+		}
+
+		.social-icon:hover {
+			background-color: var(--pico-primary-hover);
+		}
+	</style>
+}

@@ -1,0 +1,11 @@
+package components
+
+import (
+	"github.com/bagashiz/portfolio/web/styles"
+)
+
+templ ErrorFetchCard() {
+	<article class={ styles.CardSkeleton() }>
+		<strong>Uh oh! failed to fetch data.</strong>
+	</article>
+}

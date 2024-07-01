@@ -30,11 +30,6 @@ func addRoutes(mux *http.ServeMux, cache cache.Cache, config map[string]string) 
 	mux.Handle("GET /", http.NotFoundHandler())
 	mux.Handle("GET /{$}", index())
 	mux.Handle("GET /assets/", staticFiles())
-
-	mux.Handle("GET /resume/", htmxHandler(resumePage()))
-	mux.Handle("GET /blogs/", htmxHandler(blogPage()))
-	mux.Handle("GET /projects/", htmxHandler(projectPage()))
-
-	mux.Handle("GET /api/blogs/", blogs(cache, config["DEV_USERNAME"]))
-	mux.Handle("GET /api/projects/", projects(cache, config["GITHUB_USERNAME"], config["GITHUB_ACCESS_TOKEN"]))
+	mux.Handle("GET /blogs/", blogs(cache, config["DEV_USERNAME"]))
+	mux.Handle("GET /projects/", projects(cache, config["GITHUB_USERNAME"], config["GITHUB_ACCESS_TOKEN"]))
 }
