@@ -1,0 +1,12 @@
+package pages
+
+import (
+	"github.com/bagashiz/portfolio/internal/app/model"
+	"github.com/bagashiz/portfolio/web/components"
+)
+
+templ Projects(projects []model.Node) {
+	@components.Layout() {
+		@components.ProjectCard(projects)
+	}
+}

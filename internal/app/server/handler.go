@@ -12,7 +12,8 @@ import (
 	"github.com/bagashiz/portfolio/internal/app/cache"
 	"github.com/bagashiz/portfolio/internal/app/model"
 	"github.com/bagashiz/portfolio/web"
-	"github.com/bagashiz/portfolio/web/template"
+	"github.com/bagashiz/portfolio/web/components"
+	"github.com/bagashiz/portfolio/web/pages"
 )
 
 // The staticFiles function serves the static files such as CSS, JavaScript, and images.
@@ -25,7 +26,21 @@ func staticFiles() http.Handler {
 // The index function is the handler for the index page.
 func index() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		resumeTempl := template.Resume(
+		if r.Header.Get("HX-Request") == "true" {
+			_ = components.Resume(
+				model.Socials,
+				model.Educations,
+				model.Works,
+				model.Volunteers,
+				model.Awards,
+				model.Certifications,
+				model.SkillsFaIcons,
+				model.Workflows,
+			).Render(r.Context(), w)
+			return
+		}
+
+		_ = pages.Resume(
 			model.Socials,
 			model.Educations,
 			model.Works,
@@ -34,41 +49,7 @@ func index() http.Handler {
 			model.Certifications,
 			model.SkillsFaIcons,
 			model.Workflows,
-		)
-
-		_ = template.Index(resumeTempl).Render(r.Context(), w)
-	})
-}
-
-// The resumePage function is the handler for the resume page.
-func resumePage() http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		resumeTempl := template.Resume(
-			model.Socials,
-			model.Educations,
-			model.Works,
-			model.Volunteers,
-			model.Awards,
-			model.Certifications,
-			model.SkillsFaIcons,
-			model.Workflows,
-		)
-
-		_ = resumeTempl.Render(r.Context(), w)
-	})
-}
-
-// The blogPage function is the handler for the blog page.
-func blogPage() http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		_ = template.Blogs().Render(r.Context(), w)
-	})
-}
-
-// The projectPage function is the handler for the project page.
-func projectPage() http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		_ = template.Projects().Render(r.Context(), w)
+		).Render(r.Context(), w)
 	})
 }
 
@@ -87,7 +68,12 @@ func blogs(cache cache.Cache, blogUsername string) http.Handler {
 				return
 			}
 
-			_ = template.BlogCard(blogs).Render(r.Context(), w)
+			if r.Header.Get("HX-Request") == "true" {
+				_ = components.BlogCard(blogs).Render(r.Context(), w)
+				return
+			}
+
+			_ = pages.Blogs(blogs).Render(r.Context(), w)
 			return
 		}
 
@@ -131,7 +117,12 @@ func blogs(cache cache.Cache, blogUsername string) http.Handler {
 			return
 		}
 
-		_ = template.BlogCard(blogs).Render(r.Context(), w)
+		if r.Header.Get("HX-Request") == "true" {
+			_ = components.BlogCard(blogs).Render(r.Context(), w)
+			return
+		}
+
+		_ = pages.Blogs(blogs).Render(r.Context(), w)
 	})
 }
 
@@ -180,7 +171,12 @@ func projects(cache cache.Cache, githubUsername, githubAccessToken string) http.
 				return
 			}
 
-			_ = template.ProjectCard(projects.Data.User.PinnedItems.Nodes).Render(r.Context(), w)
+			if r.Header.Get("HX-Request") == "true" {
+				_ = components.ProjectCard(projects.Data.User.PinnedItems.Nodes).Render(r.Context(), w)
+				return
+			}
+
+			_ = pages.Projects(projects.Data.User.PinnedItems.Nodes).Render(r.Context(), w)
 			return
 		}
 
@@ -226,7 +222,12 @@ func projects(cache cache.Cache, githubUsername, githubAccessToken string) http.
 			return
 		}
 
-		_ = template.ProjectCard(projects.Data.User.PinnedItems.Nodes).Render(r.Context(), w)
+		if r.Header.Get("HX-Request") == "true" {
+			_ = components.ProjectCard(projects.Data.User.PinnedItems.Nodes).Render(r.Context(), w)
+			return
+		}
+
+		_ = pages.Projects(projects.Data.User.PinnedItems.Nodes).Render(r.Context(), w)
 	})
 }
 
@@ -242,5 +243,5 @@ func decode[T any](r io.Reader) (T, error) {
 // The errorFetch function logs the error and renders the error page when failed to fetch data.
 func errorFetch(w http.ResponseWriter, r *http.Request, err error) {
 	slog.Error(err.Error())
-	_ = template.ErrorFetchCard().Render(r.Context(), w)
+	_ = components.ErrorFetchCard().Render(r.Context(), w)
 }

@@ -1,6 +1,8 @@
-package template
+package components
 
-templ Index(content templ.Component) {
+import "github.com/bagashiz/portfolio/web/styles"
+
+templ Layout() {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -17,33 +19,38 @@ templ Index(content templ.Component) {
 			<script src="https://kit.fontawesome.com/da28ab5279.js" crossorigin="anonymous"></script>
 		</head>
 		<body>
-			@Header()
-			<main id="content" class="container">
-				@content
+			@header()
+			<main class="container">
+				{ children... }
 			</main>
-			@Footer()
+			@footer()
 		</body>
+		<style>
+            main {
+                min-height: 100vh;
+            }
+        </style>
 	</html>
 }
 
-templ Header() {
+templ header() {
 	<header>
-		<nav id="navbar" class="container-fluid">
+		<nav class="container-fluid">
 			<ul>
 				<li>
-					<a href="#" class="secondary outline" hx-get="/resume" hx-push-url="/" hx-trigger="click" hx-swap="innerHTML transition:true" hx-target="#content">
+					<a href="#" class="secondary outline" hx-get="/" hx-push-url="/" hx-trigger="click" hx-swap="transition:true" hx-target="main">
 						Resume
 					</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="#" class="secondary outline" hx-get="/projects" hx-push-url="true" hx-trigger="click" hx-swap="innerHTML transition:true" hx-target="#content">
+					<a href="#" class="secondary outline" hx-get="/projects" hx-push-url="true" hx-trigger="click" hx-swap="transition:true" hx-target="main">
 						Projects
 					</a>
 				</li>
 				<li>
-					<a href="#" class="secondary outline" hx-get="/blogs" hx-push-url="true" hx-trigger="click" hx-swap="innerHTML transition:true" hx-target="#content">
+					<a href="#" class="secondary outline" hx-get="/blogs" hx-push-url="true" hx-trigger="click" hx-swap="transition:true" hx-target="main">
 						Blogs
 					</a>
 				</li>
@@ -60,17 +67,12 @@ templ Header() {
 			</ul>
 		</nav>
 	</header>
-	<style>
-	#navbar {
-		view-transition-name: navbar;
-	}
-	</style>
 }
 
-templ Footer() {
+templ footer() {
 	<footer id="footer" class="container">
 		<small>
-			Built with <span class={ primaryColor() }>&hearts;</span> using
+			Built with <span class={ styles.PrimaryColor() }>&hearts;</span> using
 			<a href="https://templ.guide" target="_blank">Templ</a>,
 			<a href="https://htmx.org" target="_blank">HTMX</a>, &amp;
 			<a href="https://picocss.com" target="_blank">Pico</a>
