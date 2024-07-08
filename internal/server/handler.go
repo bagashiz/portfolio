@@ -9,11 +9,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/bagashiz/portfolio/internal/app/cache"
-	"github.com/bagashiz/portfolio/internal/app/model"
-	"github.com/bagashiz/portfolio/web"
-	"github.com/bagashiz/portfolio/web/components"
-	"github.com/bagashiz/portfolio/web/pages"
+	"github.com/bagashiz/portfolio/internal/cache"
+	"github.com/bagashiz/portfolio/internal/model"
+	"github.com/bagashiz/portfolio/internal/web"
+	"github.com/bagashiz/portfolio/internal/web/components"
+	"github.com/bagashiz/portfolio/internal/web/pages"
 )
 
 // The staticFiles function serves the static files such as CSS, JavaScript, and images.
