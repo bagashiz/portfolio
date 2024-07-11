@@ -25,7 +25,7 @@ func main() {
 	ctx := context.Background()
 
 	if err := run(ctx, os.Getenv); err != nil {
-		slog.Error("error running application", err)
+		slog.Error("error running application", "error", err)
 		os.Exit(1)
 	}
 }
