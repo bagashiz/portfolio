@@ -2,22 +2,25 @@ package server
 
 import (
 	"context"
-	"log"
 	"net"
 	"net/http"
-	"sync"
 	"time"
 
 	"github.com/bagashiz/portfolio/internal/cache"
+	"golang.org/x/sync/errgroup"
 )
 
-// The Start function creates a new http.Server type, configures the routes, adds middleware, and starts the server gracefully.
-func Start(ctx context.Context, config map[string]string, cache cache.Cache) {
+// Server wraps the http.Server type for extending functionality.
+type Server struct {
+	*http.Server
+}
+
+// The New function creates a new http.Server type, configures the routes, adds middleware, and starts the server gracefully.
+func New(ctx context.Context, config map[string]string, cache cache.Cache) *Server {
 	mux := http.NewServeMux()
 	addRoutes(mux, cache, config)
 
 	var handler http.Handler = mux
-	handler = logger(handler)
 
 	addr := net.JoinHostPort(config["APP_HOST"], config["APP_PORT"])
 
@@ -26,39 +29,42 @@ func Start(ctx context.Context, config map[string]string, cache cache.Cache) {
 		Handler: handler,
 	}
 
-	go func() {
-		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Printf("error listening and serving: %s\n", err)
+	return &Server{server}
+}
+
+// Start starts the HTTP server in a separate goroutine and listens for
+// the context cancellation signal to shut down the server gracefully.
+func (s *Server) Start(ctx context.Context) error {
+	errs, ctx := errgroup.WithContext(ctx)
+
+	errs.Go(func() error {
+		if err := s.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			return err
 		}
-	}()
+		return nil
+	})
 
-	log.Printf("listening on %s\n", server.Addr)
-
-	var wg sync.WaitGroup
-	wg.Add(1)
-
-	go func() {
-		defer wg.Done()
+	errs.Go(func() error {
 		<-ctx.Done()
+
 		shutdownCtx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 		defer cancel()
 
-		if err := server.Shutdown(shutdownCtx); err != nil {
-			log.Printf("error shutting down server: %s\n", err)
-			return
+		if err := s.Shutdown(shutdownCtx); err != nil {
+			return err
 		}
 
-		log.Println("server shut down gracefully")
-	}()
+		return nil
+	})
 
-	wg.Wait()
+	return errs.Wait()
 }
 
 // The addRoutes function loads the routes with their respective handlers.
 func addRoutes(mux *http.ServeMux, cache cache.Cache, config map[string]string) {
 	mux.Handle("GET /", http.NotFoundHandler())
-	mux.Handle("GET /{$}", index())
-	mux.Handle("GET /assets/", staticFiles())
-	mux.Handle("GET /blogs/", blogs(cache, config["DEV_USERNAME"]))
-	mux.Handle("GET /projects/", projects(cache, config["GITHUB_USERNAME"], config["GITHUB_ACCESS_TOKEN"]))
+	mux.Handle("GET /{$}", handle(index()))
+	mux.Handle("GET /assets/", handle(staticFiles()))
+	mux.Handle("GET /blogs/", handle(blogs(cache, config["DEV_USERNAME"])))
+	mux.Handle("GET /projects/", handle(projects(cache, config["GITHUB_USERNAME"], config["GITHUB_ACCESS_TOKEN"])))
 }

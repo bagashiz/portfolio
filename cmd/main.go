@@ -2,7 +2,8 @@ package main
 
 import (
 	"context"
-	"log"
+	"fmt"
+	"log/slog"
 	"os"
 	"os/signal"
 	"time"
@@ -24,7 +25,7 @@ func main() {
 	ctx := context.Background()
 
 	if err := run(ctx, os.Getenv); err != nil {
-		log.Printf("error: %v", err)
+		slog.Error("error running application", err)
 		os.Exit(1)
 	}
 }
@@ -50,7 +51,7 @@ func run(ctx context.Context, getEnv func(string) string) error {
 		return err
 	}
 
-	log.Printf("using %s as cache with TTL of %s\n", config["CACHE_TYPE"], ttl)
+	slog.Info(fmt.Sprintf("using %s as cache with TTL of %s\n", config["CACHE_TYPE"], ttl))
 
 	cache, err := cache.NewCache(ctx, cache.Config{
 		Type: config["CACHE_TYPE"],
@@ -61,7 +62,11 @@ func run(ctx context.Context, getEnv func(string) string) error {
 		return err
 	}
 
-	server.Start(ctx, config, cache)
+	httpServer := server.New(ctx, config, cache)
+
+	if err := httpServer.Start(ctx); err != nil {
+		return err
+	}
 
 	return nil
 }
