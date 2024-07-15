@@ -7,7 +7,7 @@ require github.com/a-h/templ v0.2.747
 require (
 	github.com/joho/godotenv v1.5.1
 	github.com/patrickmn/go-cache v2.1.0+incompatible
-	github.com/redis/go-redis/v9 v9.5.3
+	github.com/redis/go-redis/v9 v9.5.4
 	golang.org/x/sync v0.3.0
 )
 
