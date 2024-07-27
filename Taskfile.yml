@@ -10,7 +10,6 @@ tasks:
     desc: "Gettings started"
     cmds:
       - task: install
-      - task: service:up
 
   install:
     desc: "Install dependencies"
@@ -18,7 +17,7 @@ tasks:
       - go mod download
       - go install github.com/air-verse/air@latest
       - go install github.com/a-h/templ/cmd/templ@latest
-      - npm i -g terser
+      - npm i -D terser
 
   service:up:
     desc: "Start services"
