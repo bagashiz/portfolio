@@ -137,7 +137,7 @@ var (
 			Major:       "Cloud Computing",
 			Start:       "February 2024",
 			End:         "Present",
-			Description: "Indepedent Study Program of Kampus Merdeka",
+			Description: "Distinction Graduate in Cloud Computing Learning Path",
 		},
 		{
 			School:      "SMAN 1 Bekasi",

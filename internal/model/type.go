@@ -33,11 +33,11 @@ type (
 
 	// The Award struct represents the award details.
 	Award struct {
-		Place       int
 		Suffix      string
 		Host        string
 		Competition string
 		Translation string
+		Place       int
 	}
 
 	// The Certification struct represents the certification details.
@@ -49,31 +49,31 @@ type (
 
 	// The Blog struct represents the response from the dev.to API for articles.
 	Blog struct {
-		TypeOf                 string    `json:"type_of"`
-		ID                     int       `json:"id"`
+		CreatedAt              time.Time `json:"created_at"`
+		LastCommentAt          time.Time `json:"last_comment_at"`
+		PublishedAt            time.Time `json:"published_at"`
+		CrosspostedAt          time.Time `json:"crossposted_at"`
+		EditedAt               time.Time `json:"edited_at"`
+		User                   BlogUser  `json:"user"`
+		Path                   string    `json:"path"`
+		CanonicalUrl           string    `json:"canonical_url"`
+		Tags                   string    `json:"tags"`
 		Title                  string    `json:"title"`
 		Description            string    `json:"description"`
-		ReadablePublishDate    string    `json:"readable_publish_date"`
-		Slug                   string    `json:"slug"`
-		Path                   string    `json:"path"`
-		Url                    string    `json:"url"`
-		CommentsCount          int       `json:"comments_count"`
-		PublicReactionsCount   int       `json:"public_reactions_count"`
-		CollectionID           int       `json:"collection_id"`
 		PublishedTimestamp     string    `json:"published_timestamp"`
-		PositiveReactionsCount int       `json:"positive_reactions_count"`
+		ReadablePublishDate    string    `json:"readable_publish_date"`
 		CoverImage             string    `json:"cover_image"`
 		SocialImage            string    `json:"social_image"`
-		CanonicalUrl           string    `json:"canonical_url"`
-		CreatedAt              time.Time `json:"created_at"`
-		EditedAt               time.Time `json:"edited_at"`
-		CrosspostedAt          time.Time `json:"crossposted_at"`
-		PublishedAt            time.Time `json:"published_at"`
-		LastCommentAt          time.Time `json:"last_comment_at"`
-		ReadingTimeMinutes     int       `json:"reading_time_minutes"`
+		Url                    string    `json:"url"`
+		TypeOf                 string    `json:"type_of"`
+		Slug                   string    `json:"slug"`
 		TagList                []string  `json:"tag_list"`
-		Tags                   string    `json:"tags"`
-		User                   BlogUser  `json:"user"`
+		PositiveReactionsCount int       `json:"positive_reactions_count"`
+		CollectionID           int       `json:"collection_id"`
+		PublicReactionsCount   int       `json:"public_reactions_count"`
+		ReadingTimeMinutes     int       `json:"reading_time_minutes"`
+		CommentsCount          int       `json:"comments_count"`
+		ID                     int       `json:"id"`
 	}
 
 	// The BlogUser struct represents the user details of the author of the article.
@@ -82,10 +82,10 @@ type (
 		Username        string `json:"username"`
 		TwitterUsername string `json:"twitter_username"`
 		GithubUsername  string `json:"github_username"`
-		UserID          int    `json:"user_id"`
 		WebsiteUrl      string `json:"website_url"`
 		ProfileImage    string `json:"profile_image"`
 		ProfileImage90  string `json:"profile_image_90"`
+		UserID          int    `json:"user_id"`
 	}
 
 	// The Project struct represents the response from the GitHub GraphQL API for pinned projects.
