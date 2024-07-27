@@ -100,7 +100,7 @@ var (
 			Url:     "https://gdsc.community.dev/university-of-brawijaya",
 			Company: "Google Developer Student Clubs University of Brawijaya Chapter",
 			Start:   "October 2023",
-			End:     "Present",
+			End:     "June 2024",
 			Descriptions: []string{
 				"Developed and shared learning materials on web and cloud development with more than 100 members, resulting in increased knowledge and skills among the participants.",
 				"Guided members in learning web and cloud development through mentorship and feedback, resulting in a 30% increase in project completion rates.",
@@ -136,7 +136,7 @@ var (
 			Url:         "https://bangkit.academy",
 			Major:       "Cloud Computing",
 			Start:       "February 2024",
-			End:         "Present",
+			End:         "June 2024",
 			Description: "Distinction Graduate in Cloud Computing Learning Path",
 		},
 		{
