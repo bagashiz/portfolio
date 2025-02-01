@@ -62,7 +62,13 @@ func run(ctx context.Context, getEnv func(string) string) error {
 		return err
 	}
 
-	httpServer := server.New(ctx, config, cache)
+	httpServer := server.New(ctx, cache, server.Config{
+		Host:              config["APP_HOST"],
+		Port:              config["APP_PORT"],
+		DevUsername:       config["DEV_USERNAME"],
+		GithubUsername:    config["GITHUB_USERNAME"],
+		GithubAccessToken: config["GITHUB_ACCESS_TOKEN"],
+	})
 
 	if err := httpServer.Start(ctx); err != nil {
 		return err
