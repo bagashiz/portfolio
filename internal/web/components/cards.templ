@@ -36,11 +36,9 @@ templ ExpCard(exp model.Experience) {
 			<summary>
 				<strong>Job Description</strong>
 			</summary>
-			<ul>
-				for _, expDesc := range exp.Descriptions {
-					<li class={ styles.TextJustify() }>{ expDesc }</li>
-				}
-			</ul>
+			<p class={ styles.TextJustify() }>
+				{ exp.Description }
+			</p>
 		</details>
 	</article>
 }

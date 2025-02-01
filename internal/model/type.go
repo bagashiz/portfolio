@@ -13,12 +13,12 @@ type (
 
 	// The Experience struct represents the work experiences details.
 	Experience struct {
-		Job          string
-		Company      string
-		Url          string
-		Start        string
-		End          string
-		Descriptions []string
+		Job         string
+		Company     string
+		Url         string
+		Start       string
+		End         string
+		Description string
 	}
 
 	// The Education struct represents the education details.
