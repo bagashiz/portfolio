@@ -1,10 +1,9 @@
 module github.com/bagashiz/portfolio
 
 go 1.23
+toolchain go1.24.1
 
-toolchain go1.23.3
-
-require github.com/a-h/templ v0.3.833
+require github.com/a-h/templ v0.3.856
 
 require (
 	github.com/joho/godotenv v1.5.1
